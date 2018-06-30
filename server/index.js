@@ -7,7 +7,8 @@ const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
 
-const strategy = require("./strategy.js");
+const { strat } = require(`${__dirname}/controllers/authCtrl`);
+// const strat = require("./controllers/authCtrl");
 
 const app = express();
 
@@ -33,17 +34,26 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(strategy);
+passport.use(strat);
+// passport.use(auth0Strategy);
 
 //check if issues
-passport.serializeUser((user, done) => {});
+passport.serializeUser((user, done) => {
+  console.log(user);
+//   const db = app.get("db");
+//   db.getUserByAuthid([user.id]).then(response => {
+//     if (!response[0]) {
+//       db.addUserByAuthid();
+//     }
+//   });
+// });
 
-passport.deserializeUser((obj, done) => {});
+passport.deserializeUser((user, done) => {});
 
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    successRedirect: "/me",
+    successRedirect: "/api/me",
     failureRedirect: "/login"
     // connection: "github"
   })
@@ -53,23 +63,26 @@ authenticated = (req, res, next) => {
   if (req.user) {
     next();
   } else {
-    res.status(403).json({message: "Not Logged In"
-  })
+    res.status(403).json({
+      message: "Not Logged In"
+    });
+  }
 };
 
-app.get("/me", authenticated, (req, res, next) => {
+app.get("/api/me", authenticated, (req, res, next) => {
+  //should below be 'send(req.user)'??
   res.status(200).send(user);
 });
 
 //end check if issues
 
 //test
-app.get("/api/test", (req, res) => {
-  app
-    .get("db")
-    .houses.find({})
-    .then(response => res.status(200).json(response));
-});
+// app.get("/api/test", (req, res) => {
+//   app
+//     .get("db")
+//     .houses.find({})
+//     .then(response => res.status(200).json(response));
+// });
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

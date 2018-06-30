@@ -5,9 +5,7 @@ import "./reset.css";
 import axios from "axios";
 
 class App extends Component {
-  componentDidMount() {
-    axios.get("/api/test").then(response => console.log(response));
-  }
+  componentDidMount() {}
 
   render() {
     return (

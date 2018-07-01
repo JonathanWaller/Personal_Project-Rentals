@@ -9,6 +9,7 @@ const passport = require("passport");
 
 const { strat, logout } = require(`${__dirname}/controllers/authCtrl`);
 // const strat = require("./controllers/authCtrl");
+const { getAllProperties } = require(`${__dirname}/controllers/propertyCtrl`);
 
 const app = express();
 
@@ -35,9 +36,8 @@ app.use(passport.session());
 
 passport.use(strat);
 
-//check if issues
 passport.serializeUser((user, done) => {
-  console.log(user.emails[0].value);
+  // console.log(user);
   const db = app.get("db");
   db.getUserByAuthid([user.id])
     .then(response => {
@@ -57,10 +57,13 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((user, done) => done(null, user));
 
+app.get("/api/properties", getAllProperties);
+
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    successRedirect: "/api/me",
+    successRedirect: "http://localhost:3000/#/",
+    // successRedirect: "/api/me",
     failureRedirect: "/login"
   })
 );
@@ -81,8 +84,6 @@ app.get("/api/me", authenticated, (req, res, next) => {
 });
 
 app.get("/logout", logout);
-
-//end check if issues
 
 //test
 // app.get("/api/test", (req, res) => {

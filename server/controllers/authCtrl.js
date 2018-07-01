@@ -16,9 +16,10 @@ const strat = new Auth0Strategy(
   }
 );
 
-const logout = (req, red) => {
+const logout = (req, res) => {
   req.session.destroy(() => {
-    res.redirect("http://localhost:3000/#/login");
+    res.redirect("http://localhost:3000/#/");
+    // res.redirect("http://localhost:3000/#/login");
   });
 };
 

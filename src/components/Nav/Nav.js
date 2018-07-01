@@ -5,16 +5,17 @@ import "./Nav.css";
 import { connect } from "react-redux";
 
 class Nav extends Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className="navmain">
         <div className="nav_links">
           <Link to="/">Home</Link>
+          <Link to="/properties">Listings</Link>
           <Link to="/login">Login</Link>
           {/* <div>Logout</div> */}
           <a href={process.env.REACT_APP_LOGOUT}>Logout</a>

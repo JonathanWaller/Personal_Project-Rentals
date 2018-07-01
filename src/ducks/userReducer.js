@@ -11,20 +11,24 @@ export function getUser() {
 }
 //initial state
 const initialState = {
-  user: {}
+  user: {},
+  isAuthed: false
 };
 
 //reducer
 export default function userReducer(state = initialState, action) {
+  // console.log(action.type, action.payload);
   switch (action.type) {
     case `${GET_USER}_FULFILLED`:
       return {
         ...state,
-        user: action.payload.data
+        user: action.payload.data,
+        isAuthed: true
       };
     case `${GET_USER}_REJECTED`:
       return {
-        ...state
+        ...state,
+        isAuthed: false
       };
     default:
       return state;

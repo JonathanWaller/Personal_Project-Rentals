@@ -9,13 +9,20 @@ const strat = new Auth0Strategy(
     clientSecret: CLIENT_SECRET,
     callbackURL: "/login",
     //should it be 'scope: 'openid email profile'?
-    scope: "openid profile"
+    scope: "openid email profile"
   },
   (accessToken, refreshToken, extraParams, profile, done) => {
     return done(null, profile);
   }
 );
 
+const logout = (req, red) => {
+  req.session.destroy(() => {
+    res.redirect("http://localhost:3000/#/login");
+  });
+};
+
 module.exports = {
-  strat
+  strat,
+  logout
 };

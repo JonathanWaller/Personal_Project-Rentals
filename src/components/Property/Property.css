@@ -1,0 +1,32 @@
+.propertymain {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90vh;
+  /* padding: 30px; */
+}
+
+#propertyimg {
+  background-color: lightcoral;
+  height: 40vh;
+  width: 100vw;
+}
+
+.propertytitle {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.amenities {
+  border: 0.1px solid lightgrey;
+  height: 15vh;
+}
+
+#amenitiestitle {
+  font-weight: bold;
+}
+
+.bedbath {
+  display: flex;
+  justify-content: space-around;
+}

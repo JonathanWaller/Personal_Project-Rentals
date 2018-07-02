@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import "./Properties.css";
 
@@ -37,7 +38,14 @@ class Properties extends Component {
         </div>
       );
     });
-    return <div>{myProperties}</div>;
+    return (
+      <div>
+        <Link to="/addproperty">
+          <button>Add Listing</button>
+        </Link>
+        <div>{myProperties}</div>
+      </div>
+    );
   }
 }
 

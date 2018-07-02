@@ -1,0 +1,18 @@
+.homemain {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.homeimage {
+  /* background-image: url("http://imgs.abduzeedo.com/files/gismullr/beautifulhouses/bh245/chl01.jpg"); */
+  background-image: url("http://dynamicpeople.club/wp-content/uploads/2018/03/lofts-in-san-francisco-collect-this-idea-architecture-beautiful-loft-bennett-lofts-san-francisco.jpg");
+  height: 45vh;
+  width: 100vw;
+  background-size: cover;
+}
+
+.enterbutton {
+  font-size: 20px;
+}

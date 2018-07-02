@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { getUser } from "../../ducks/userReducer";
+
+import "./Home.css";
 
 class Home extends Component {
   componentDidMount() {
@@ -12,7 +15,15 @@ class Home extends Component {
     return (
       <div>
         {!this.props.isAuthed ? (
-          <p>Not Logged In</p>
+          <div>
+            {/* <p>Not Logged In</p> */}
+            <div className="homemain">
+              <img className="homeimage" />
+              <Link to="/properties">
+                <button className="enterbutton">Enter</button>
+              </Link>
+            </div>
+          </div>
         ) : (
           <p>{JSON.stringify(this.props.user)}</p>
         )}

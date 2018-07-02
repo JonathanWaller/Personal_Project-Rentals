@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import "./Property.css";
+
 class Property extends Component {
   render() {
     let { property } = this.props;
@@ -15,16 +17,21 @@ class Property extends Component {
     console.log(typeof this.props.match.params.id);
 
     return (
-      <div>
-        <h1>IMAGE</h1>
-        <h1>{property.property_title}</h1>
+      <div className="propertymain">
+        <h1 id="propertyimg">IMAGE</h1>
+        <h1 className="propertytitle">{property.property_title}</h1>
         <div>{property.property_location}</div>
+        <div className="bedbath">
+          <div>{property.beds} bed(s)</div>
+          <div>{property.baths} bath(s)</div>
+        </div>
         <div>{property.description}</div>
-        <div>
-          <div>Amenities:</div>
+        <div className="amenities">
+          <div id="amenitiestitle">Amenities:</div>
           <div>{property.amenities}</div>
         </div>
         <div>${property.price} per night</div>
+        <button>Email Owner</button>
       </div>
     );
   }

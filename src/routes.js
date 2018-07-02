@@ -4,6 +4,7 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Properties from "./components/Properties/Properties";
 import Property from "./components/Property/Property";
+import AddListing from "./components/AddListing/AddListing";
 
 import { connect } from "react-redux";
 
@@ -12,6 +13,7 @@ export default (
     <Route exact path="/" component={Home} />
     <Route path="/login" component={Login} />
     <Route path="/properties" component={Properties} />
+    <Route path="/addproperty" component={AddListing} />
     <Route
       exact
       path="/property/:id"

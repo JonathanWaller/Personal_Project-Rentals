@@ -7,8 +7,8 @@ import Nav from "./components/Nav/Nav";
 import routes from "./routes";
 import store from "./store";
 
-import "./App.css";
 import "./reset.css";
+import "./App.css";
 
 class App extends Component {
   componentDidMount() {}

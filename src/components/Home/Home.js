@@ -8,6 +8,7 @@ class Home extends Component {
     this.props.getUser();
   }
   render() {
+    // console.log(this.props);
     return (
       <div>
         {!this.props.isAuthed ? (

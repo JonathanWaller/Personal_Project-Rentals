@@ -1,0 +1,14 @@
+.addlistingmain {
+  display: flex;
+  flex-direction: column;
+}
+
+.uploadimg {
+  height: 125px;
+  width: 125px;
+}
+
+.amenitiesmain {
+  display: flex;
+  flex-direction: column;
+}

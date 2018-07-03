@@ -20,7 +20,7 @@ class Property extends Component {
 
     return (
       <div className="propertymain">
-        <h1 id="propertyimg">IMAGE</h1>
+        <img src={property.image_url} id="propertyimg" />
         <h1 className="propertytitle">{property.property_title}</h1>
         <div>{property.property_location}</div>
         <div className="bedbath">
@@ -29,8 +29,10 @@ class Property extends Component {
         </div>
         <div>{property.description}</div>
         <div className="amenities">
-          <div id="amenitiestitle">Amenities:</div>
-          <div>{property.amenities}</div>
+          <ul id="amenitiestitle">Amenities:</ul>
+          <li>{property.amen_1}</li>
+          <li>{property.amen_2}</li>
+          <li>{property.amen_3}</li>
         </div>
         <div>${property.price} per night</div>
         <button>Email Owner</button>
@@ -38,7 +40,6 @@ class Property extends Component {
           containerElement={<div style={{ height: 100 + "%" }} />}
           mapElement={<div style={{ height: 100 + "%" }} />}
         /> */}
-        />
       </div>
     );
   }

@@ -16,22 +16,38 @@ const addProperty = (req, res) => {
     beds,
     baths,
     description,
-    amenities,
+    amen_1,
+    amen_2,
+    amen_3,
     price
   } = req.body;
   let db = req.app.get("db");
-  db.addProperty([
-    property_title,
-    property_location,
-    beds,
-    baths,
-    description,
-    amenities,
-    price
-  ]).then(property => {
-    // console.log(property);
-    // console.log(req.body);
-    return res.status(200).send(property);
+  db.properties
+    .addProperty([
+      property_title,
+      property_location,
+      beds,
+      baths,
+      description,
+      amen_1,
+      amen_2,
+      amen_3,
+      price
+    ])
+    .then(property => {
+      // console.log(property);
+      // console.log(req.body);
+      return res.status(200).send(property);
+    });
+};
+
+const addImage = (req, res) => {
+  const { image_url, post_id } = req.body;
+  let db = req.app.get("db");
+  db.properties.addImage([image_url, post_id]).then(image => {
+    console.log(req.body);
+    console.log(image);
+    return res.status(200).send(image);
   });
 };
 
@@ -45,8 +61,8 @@ const deleteProperty = (req, res) => {
 };
 
 const updateProperty = (req, res) => {
-  console.log(req.params);
-  console.log(req.body);
+  // console.log(req.params);
+  // console.log(req.body);
   const { id } = req.params;
   const {
     property_title,
@@ -78,5 +94,6 @@ module.exports = {
   getAllProperties,
   addProperty,
   deleteProperty,
-  updateProperty
+  updateProperty,
+  addImage
 };

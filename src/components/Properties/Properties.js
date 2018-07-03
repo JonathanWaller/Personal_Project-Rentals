@@ -21,7 +21,7 @@ class Properties extends Component {
   };
 
   render() {
-    // console.log(this.props.properties);
+    console.log(this.props.properties);
     let myProperties = this.props.properties.map((property, ind) => {
       return (
         <div
@@ -29,7 +29,8 @@ class Properties extends Component {
           key={property.id}
           className="propertieslist"
         >
-          <div id="propertiesimg">Image Goes Here</div>
+          {/* <div id="propertiesimg">Image Goes Here</div> */}
+          <img src={property.image_url} id="propertiesimg" />
           <div>{property.property_title}</div>
           <div>{property.property_location}</div>
           <div>Baths: {property.baths}</div>

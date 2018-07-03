@@ -18,6 +18,9 @@
 }
 
 .amenities {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   border: 0.1px solid lightgrey;
   height: 15vh;
 }

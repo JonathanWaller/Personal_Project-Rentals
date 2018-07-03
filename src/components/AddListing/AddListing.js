@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./AddListing.css";
 
 // import firebase from "../Firebase";
 // import FileUploader from "react-firebase-file-uploader";
@@ -12,8 +13,11 @@ class AddListing extends Component {
       beds: 0,
       baths: 0,
       description: "",
-      amenities: "",
-      rate: 0
+      amen1: "",
+      amen2: "",
+      amen3: "",
+      rate: 0,
+      image: ""
     };
   }
   // activatePlacesSearch = () => {
@@ -41,14 +45,53 @@ class AddListing extends Component {
       baths: e.target.value
     });
   };
-  // descriptionHandler = e => {
-  //   this.setState({
-  //     description: e.target.value
-  //   });
+  descriptionHandler = e => {
+    this.setState({
+      description: e.target.value
+    });
+  };
+
+  rateHandler = e => {
+    this.setState({
+      description: e.target.value
+    });
+  };
+
+  amen_1Handler = e => {
+    this.setState({
+      amen1: e.target.value
+    });
+  };
+
+  amen_2Handler = e => {
+    this.setState({
+      amen2: e.target.value
+    });
+  };
+
+  amen_3Handler = e => {
+    this.setState({
+      amen3: e.target.value
+    });
+  };
+
+  imageHandler = e => {
+    this.setState({
+      image: e.target.value
+    });
+  };
 
   render() {
     return (
-      <div>
+      <div className="addlistingmain">
+        <h1>Upload Property Image</h1>
+        <img src={this.state.image} className="uploadimg" />
+        <input
+          onChange={e => {
+            this.imageHandler(e);
+          }}
+        />
+        <button>Add Image</button>
         <h1>Add Listing to Site</h1>
         <div>Title: {this.state.title}</div>
         <input onChange={e => this.titleHandler(e)} placeholder="Enter Title" />
@@ -67,13 +110,30 @@ class AddListing extends Component {
           placeholder="# of bathrooms"
         />
         <div>Description:</div>
-        <input placeholder="Enter description" />
-        <div>Amenities:</div>
-        <input placeholder="Enter amenities" />
+        <input
+          onChange={e => this.descriptionHandler(e)}
+          placeholder="Enter description"
+        />
+        <div className="amenitiesmain">
+          <div>Amenities:</div>
+          <input
+            onChange={e => this.amen_1Handler(e)}
+            placeholder="Enter amenities1"
+          />
+          <input
+            onChange={e => this.amen_2Handler(e)}
+            placeholder="Enter amenities2"
+          />
+          <input
+            onChange={e => this.amen_3Handler(e)}
+            placeholder="Enter amenities3"
+          />
+        </div>
+
         <div>Nightly Rate:</div>
-        <input placeholder="Enter price" />
+        <input onChange={e => this.rateHandler(e)} placeholder="Enter price" />
         {/* <input id="auto_complete" type="text" placeholder="enter address" /> */}
-        <button>Submit Listing</button>
+        <button>Submit Details</button>
       </div>
     );
   }

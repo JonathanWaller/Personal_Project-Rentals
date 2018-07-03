@@ -12,6 +12,7 @@ const { strat, logout } = require(`${__dirname}/controllers/authCtrl`);
 const {
   getAllProperties,
   addProperty,
+  addImage,
   deleteProperty,
   updateProperty
 } = require(`${__dirname}/controllers/propertyCtrl`);
@@ -63,8 +64,6 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((user, done) => done(null, user));
 
-app.get("/api/properties", getAllProperties);
-
 app.get(
   "/login",
   passport.authenticate("auth0", {
@@ -91,7 +90,9 @@ app.get("/api/me", authenticated, (req, res, next) => {
 
 app.get("/logout", logout);
 
+app.get("/api/properties", getAllProperties);
 app.post("/api/property", addProperty);
+app.post("/api/image", addImage);
 app.delete("/api/property/:id", deleteProperty);
 app.put("/api/property/:id", updateProperty);
 

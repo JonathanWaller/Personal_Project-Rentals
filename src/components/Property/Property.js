@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+// import Map from "../Map/Map";
+// import { Map } from "../Map/Map";
 
 import "./Property.css";
 
@@ -32,6 +34,11 @@ class Property extends Component {
         </div>
         <div>${property.price} per night</div>
         <button>Email Owner</button>
+        {/* <Map
+          containerElement={<div style={{ height: 100 + "%" }} />}
+          mapElement={<div style={{ height: 100 + "%" }} />}
+        /> */}
+        />
       </div>
     );
   }

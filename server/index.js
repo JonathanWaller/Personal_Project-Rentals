@@ -9,7 +9,13 @@ const passport = require("passport");
 
 const { strat, logout } = require(`${__dirname}/controllers/authCtrl`);
 // const strat = require("./controllers/authCtrl");
-const { getAllProperties } = require(`${__dirname}/controllers/propertyCtrl`);
+const {
+  getAllProperties,
+  addProperty,
+  deleteProperty,
+  updateProperty
+} = require(`${__dirname}/controllers/propertyCtrl`);
+// const {addProperty}
 
 const app = express();
 
@@ -84,6 +90,10 @@ app.get("/api/me", authenticated, (req, res, next) => {
 });
 
 app.get("/logout", logout);
+
+app.post("/api/property", addProperty);
+app.delete("/api/property/:id", deleteProperty);
+app.put("/api/property/:id", updateProperty);
 
 //test
 // app.get("/api/test", (req, res) => {

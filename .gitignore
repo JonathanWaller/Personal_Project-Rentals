@@ -21,6 +21,7 @@ yarn-debug.log*
 yarn-error.log*
 
 .env
+Firebase.js
 
 </script>
   <script type="text" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_YlCTpwtIKc9Crz2QlvjZKsqP4t7mqFQ&libraries=places&callback=activatePlacesSearch"></script> -->

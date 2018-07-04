@@ -14,7 +14,8 @@ const {
   addProperty,
   addImage,
   deleteProperty,
-  updateProperty
+  updateProperty,
+  addUploadImage
 } = require(`${__dirname}/controllers/propertyCtrl`);
 // const {addProperty}
 
@@ -92,17 +93,11 @@ app.get("/logout", logout);
 
 app.get("/api/properties", getAllProperties);
 app.post("/api/property", addProperty);
-app.post("/api/image", addImage);
+// app.post("/api/image", addImage);
 app.delete("/api/property/:id", deleteProperty);
 app.put("/api/property/:id", updateProperty);
 
-//test
-// app.get("/api/test", (req, res) => {
-//   app
-//     .get("db")
-//     .houses.find({})
-//     .then(response => res.status(200).json(response));
-// });
+app.post("/api/addUploadImg", addUploadImage);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

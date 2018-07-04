@@ -18,7 +18,7 @@ class Home extends Component {
           <div>
             {/* <p>Not Logged In</p> */}
             <div className="homemain">
-              <img className="homeimage" />
+              <img className="homeimage" alt="" />
               <Link to="/properties">
                 <button className="enterbutton">Enter</button>
               </Link>

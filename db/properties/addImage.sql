@@ -1,3 +1,5 @@
 insert into images
     (image_url, post_id)
-VALUES($1, $2);
+VALUES($1, $2)
+returning *;
+

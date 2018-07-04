@@ -12,15 +12,13 @@ class Property extends Component {
     // console.log(this.props.properties);
     // console.log(this.props.properties.properties);
 
-    console.log(this.props);
+    // console.log(this.props);
     // console.log(this.props.properties.properties);
     // let { property } = this.props;
-    console.log(this.props.match.params.id);
-    console.log(typeof this.props.match.params.id);
 
     return (
       <div className="propertymain">
-        <img src={property.image_url} id="propertyimg" />
+        <img src={property.image_url} id="propertyimg" alt="" />
         <h1 className="propertytitle">{property.property_title}</h1>
         <div>{property.property_location}</div>
         <div className="bedbath">

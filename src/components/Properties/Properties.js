@@ -6,6 +6,7 @@ import "./Properties.css";
 
 //dispatchers
 import { getProperties } from "../../ducks/propertyReducer";
+import { getUser } from "../../ducks/userReducer";
 
 class Properties extends Component {
   componentDidMount() {
@@ -14,14 +15,11 @@ class Properties extends Component {
 
   goToProperty = id => {
     // console.log(this.props);
-    // console.log(this.props.properties);
-    // console.log(this.props.history);
-    // console.log(id);
     this.props.history.push(`/property/${id}`);
   };
 
   render() {
-    // console.log(this.props.properties);
+    // console.log(this.props);
     let myProperties = this.props.properties.map((property, ind) => {
       return (
         <div
@@ -51,9 +49,9 @@ class Properties extends Component {
 }
 
 // const mapStateToProps = state => state;
-const mapStateToProps = ({ properties }) => ({ ...properties });
+const mapStateToProps = ({ properties, user }) => ({ ...properties, ...user });
 
 export default connect(
   mapStateToProps,
-  { getProperties }
+  { getProperties, getUser }
 )(Properties);

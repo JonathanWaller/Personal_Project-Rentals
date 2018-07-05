@@ -7,13 +7,8 @@ import "./Property.css";
 
 class Property extends Component {
   render() {
+    // console.log(this.props);
     let { property } = this.props;
-    // console.log(this.props);
-    // console.log(this.props.properties);
-    // console.log(this.props.properties.properties);
-
-    // console.log(this.props);
-    // console.log(this.props.properties.properties);
     // let { property } = this.props;
 
     return (
@@ -43,4 +38,4 @@ class Property extends Component {
   }
 }
 
-export default connect(({ properties }) => ({ properties }))(Property);
+export default connect(({ properties, user }) => ({ properties }))(Property);

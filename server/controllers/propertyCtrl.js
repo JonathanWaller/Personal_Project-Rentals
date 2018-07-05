@@ -20,7 +20,8 @@ const addProperty = (req, res) => {
     amen_2,
     amen_3,
     price,
-    firebaseImg
+    firebaseImg,
+    user_id
   } = req.body;
   let db = req.app.get("db");
   db.properties
@@ -33,15 +34,11 @@ const addProperty = (req, res) => {
       amen_1,
       amen_2,
       amen_3,
-      price
+      price,
+      user_id
     ])
-    // .then(property => {
-    //   db.properties.addImage([image_url, property[0].id]).then(image => {
-    //     return res.status(200).send(property);
-    //   });
-    // })
     .then(property => {
-      console.log(req.body);
+      // console.log(req.body);
       db.properties.addUploadImg([firebaseImg, property[0].id]).then(image => {
         return res.status(200).send(property);
       });

@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import "./AddListing.css";
 import axios from "axios";
+import { connect } from "react-redux";
 
 import firebase from "../Firebase";
 import FileUploader from "react-firebase-file-uploader";
+
+import { getUser } from "../../ducks/userReducer";
 
 class AddListing extends Component {
   constructor() {
@@ -121,11 +124,12 @@ class AddListing extends Component {
     beds,
     baths,
     description,
-    amen1,
-    amen2,
-    amen3,
+    amen_1,
+    amen_2,
+    amen_3,
     price,
-    firebaseImg
+    firebaseImg,
+    user_id
   ) => {
     axios.post("api/property", {
       property_title,
@@ -133,18 +137,22 @@ class AddListing extends Component {
       beds,
       baths,
       description,
-      amen1,
-      amen2,
-      amen3,
+      amen_1,
+      amen_2,
+      amen_3,
       price,
-      firebaseImg
+      firebaseImg,
+      user_id
     });
   };
 
   render() {
+    // console.log(this.state);
+    // console.log(this.props);
+    // console.log(this.props.user.id);
     return (
       <div className="addlistingmain">
-        <h1>You will add/upload your image here</h1>
+        <h1>Add Listing to Site</h1>
         <div className="upload">
           <form className="upload-form">
             {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
@@ -164,14 +172,13 @@ class AddListing extends Component {
             </label>
           </form>
         </div>
-        <img src={this.state.image} className="uploadimg" alt="" />
-        <input
+        <img src={this.state.firebaseImg} className="uploadimg" alt="" />
+        {/* <input
           onChange={e => {
             this.imageHandler(e);
           }}
-        />
-        <button>Add Image</button>
-        <h1>Add Listing to Site</h1>
+        /> */}
+        {/* <button>Add Image</button> */}
         <div>Title: {this.state.title}</div>
         <input onChange={e => this.titleHandler(e)} placeholder="Enter Title" />
         <div>Location:{this.state.location}</div>
@@ -224,7 +231,8 @@ class AddListing extends Component {
               this.state.amen2,
               this.state.amen3,
               this.state.rate,
-              this.state.firebaseImg
+              this.state.firebaseImg,
+              this.props.user.id
             )
           }
         >
@@ -248,4 +256,9 @@ class AddListing extends Component {
 ></script> */
 }
 
-export default AddListing;
+const mapStateToProps = ({ user }) => ({ ...user });
+
+export default connect(
+  mapStateToProps,
+  { getUser }
+)(AddListing);

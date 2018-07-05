@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import "./Properties.css";
 
@@ -22,11 +23,16 @@ class Properties extends Component {
   goToProperty = id => {
     // console.log(this.props);
     this.props.history.push(`/property/${id}`);
+    // this.props.history.replace(`/property/${id}`);
   };
 
   cityHandler = e => {
     this.setState({ filterString: e.target.value });
   };
+
+  // deleteHandler = id => {
+  //   axios.delete(`/api/property/${id}`);
+  // };
 
   render() {
     console.log(this.props);
@@ -49,12 +55,12 @@ class Properties extends Component {
     //   );
     // });
 
+    //set up to use a search function to look for the city title. if nothing in search bar, will display all properties
     let searchDisplay = this.props.properties
       .filter((property, ind) => {
-        console.log(property);
-        console.log(property.property_location);
         return property.property_location.includes(
-          this.state.filterString.charAt(0).toUpperCase()
+          // this.state.filterString.charAt(0).toUpperCase()
+          this.state.filterString
         );
       })
       .map((property, ind) => {
@@ -71,6 +77,9 @@ class Properties extends Component {
             <div>Baths: {property.baths}</div>
             <div>Beds: {property.beds}</div>
             <div>Rate: ${property.price}</div>
+            {/* <button onClick={() => this.deleteHandler(property.id)}>
+              Delete Listing
+            </button> */}
           </div>
         );
       });
@@ -78,6 +87,7 @@ class Properties extends Component {
     return (
       <div>
         <input onChange={e => this.cityHandler(e)} placeholder="search city" />
+        <br />
         <br />
         <Link to="/addproperty">
           <button>Add Listing</button>

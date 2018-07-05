@@ -89,14 +89,18 @@ app.get("/api/me", authenticated, (req, res, next) => {
   res.status(200).send(req.user);
 });
 
+//working
 app.get("/logout", logout);
 
+//working
 app.get("/api/properties", getAllProperties);
 app.post("/api/property", addProperty);
 // app.post("/api/image", addImage);
 app.delete("/api/property/:id", deleteProperty);
+
 app.put("/api/property/:id", updateProperty);
 
+//need for uploading from Firebase
 app.post("/api/addUploadImg", addUploadImage);
 
 const PORT = process.env.PORT || 3001;

@@ -3,7 +3,6 @@ const getAllProperties = (req, res) => {
     .get("db")
     .properties.getAllProperties()
     .then(response => {
-      // console.log(response);
       return res.status(200).json(response);
     })
     .catch(err => res.status(500).json(err));
@@ -38,8 +37,7 @@ const addProperty = (req, res) => {
       user_id
     ])
     .then(property => {
-      // console.log(req.body);
-      db.properties.addUploadImg([firebaseImg, property[0].id]).then(image => {
+      db.images.addUploadImg([firebaseImg, property[0].id]).then(image => {
         return res.status(200).send(property);
       });
     });
@@ -62,23 +60,22 @@ const updateImage = (req, res, next) => {
 const addUploadImage = (req, res, next) => {
   const { url } = req.body;
   let db = req.app.get("db");
-  db.addUploadImg([url]).then(image => {
+  db.images.addUploadImg([url]).then(image => {
     return res.status(200).send(image);
   });
 };
 
 const deleteProperty = (req, res) => {
   const { id } = req.params;
+  console.log(req.params);
   let db = req.app.get("db");
-  db.deleteProperty(id).then(() => {
-    // console.log(req.params);
+  db.properties.deleteProperty(id);
+  db.images.deleteImage(id).then(() => {
     return res.sendStatus(200);
   });
 };
 
 const updateProperty = (req, res) => {
-  // console.log(req.params);
-  // console.log(req.body);
   const { id } = req.params;
   const {
     property_title,
@@ -86,20 +83,27 @@ const updateProperty = (req, res) => {
     beds,
     baths,
     description,
-    amenities,
-    price
+    amen_1,
+    amen_2,
+    amen_3,
+    price,
+    image_url
   } = req.body;
   let db = req.app.get("db");
-  db.updateProperty([
+  db.properties.updateProperty([
     id,
     property_title,
     property_location,
     beds,
     baths,
     description,
-    amenities,
+    amen_1,
+    amen_2,
+    amen_3,
     price
-  ])
+  ]);
+  db.images
+    .update_image([id, image_url])
     .then(() => {
       return res.sendStatus(200);
     })

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./AddListing.css";
 import axios from "axios";
 import { connect } from "react-redux";
 
@@ -50,17 +49,7 @@ class AddListing extends Component {
         this.setState({ firebaseImg: url });
         // axios.post("/api/addUploadImg", { url });
       });
-
-    // .then(() =>
-    //   this.props.editAvatar(this.props.user.user.id, this.state.uploadImgURL)
-    // );
   };
-
-  // for google maps
-  // activatePlacesSearch = () => {
-  //   var input = document.getElementById("auto_complete");
-  //   var autocomplete = new google.maps.places.Autocomplete(input);
-  // };
 
   titleHandler = e => {
     this.setState({
@@ -141,33 +130,18 @@ class AddListing extends Component {
       amen_2,
       amen_3,
       price,
-      firebaseImg
+      firebaseImg,
+      user_id
     });
   };
 
-  // editHandler = id => {
-  //   axios.update(
-  //     `/api/property/${id}`,
-  //     property_title,
-  //     property_location,
-  //     beds,
-  //     baths,
-  //     description,
-  //     amen_1,
-  //     amen_2,
-  //     amen_3,
-  //     price,
-  //     firebaseImg
-  //   );
-  // };
-
   render() {
-    console.log(this.state);
-    console.log(this.props);
-    console.log(this.props.user.id);
+    // console.log(this.state);
+    // console.log(this.props);
+    // console.log(this.props.user.id);
     return (
       <div className="addlistingmain">
-        <h1>Add Listing to Site</h1>
+        <h1>Edit Listing</h1>
         <div className="upload">
           <form className="upload-form">
             {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
@@ -188,12 +162,6 @@ class AddListing extends Component {
           </form>
         </div>
         <img src={this.state.firebaseImg} className="uploadimg" alt="" />
-        {/* <input
-          onChange={e => {
-            this.imageHandler(e);
-          }}
-        /> */}
-        {/* <button>Add Image</button> */}
         <div>Title: {this.state.title}</div>
         <input onChange={e => this.titleHandler(e)} placeholder="Enter Title" />
         <div>Location:{this.state.location}</div>
@@ -233,7 +201,6 @@ class AddListing extends Component {
 
         <div>Nightly Rate:</div>
         <input onChange={e => this.rateHandler(e)} placeholder="Enter price" />
-        {/* <input id="auto_complete" type="text" placeholder="enter address" /> */}
         <button
           onClick={() =>
             this.submitHandler(
@@ -253,25 +220,9 @@ class AddListing extends Component {
         >
           Submit Details
         </button>
-        <button onClick={() => this.editHandler(this.props.user.id)}>
-          Submit Edit
-        </button>
       </div>
     );
   }
-}
-
-{
-  /* <script>
-  function activatePlacesSearch() {
-  var input = document.getElementById("auto_complete");
-  var autocomplete = new google.maps.places.Autocomplete(input);
-}
-</script>
-<script
-  type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5uIm_ZPxZT0vO5p9JXXw1xQCUeyGCCws&libraries=places&callback=activatePlacesSearch"
-></script> */
 }
 
 const mapStateToProps = ({ user }) => ({ ...user });

@@ -34,10 +34,13 @@ class Property extends Component {
   };
 
   render() {
-    // console.log(this.props);
+    // console.log(this.state);
+    console.log(this.props);
+    console.log("listing title", this.props.property.property_title);
+    console.log("looocation", this.props.property.property_location);
     // console.log(this.props.getProperties);
-    console.log(this.props.property.id);
-    console.log(this.props.property.user_id);
+    // console.log(this.props.property.id);
+    // console.log(this.props.property.user_id);
     let { property } = this.props;
     // let { property } = this.props;
 
@@ -80,6 +83,16 @@ class Property extends Component {
             toggleView={this.toggleView}
             id={this.props.property.id}
             user_id={this.props.property.user_id}
+            title={this.props.property.property_title}
+            myLocation={this.props.property.property_location}
+            beds={this.props.property.beds}
+            baths={this.props.property.baths}
+            desc={this.props.property.description}
+            amen1={this.props.property.amen_1}
+            amen2={this.props.property.amen_2}
+            amen3={this.props.property.amen_3}
+            price={this.props.property.price}
+            myImage={this.props.property.image_url}
           />
         )}
       </div>

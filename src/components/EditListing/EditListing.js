@@ -9,24 +9,25 @@ import FileUploader from "react-firebase-file-uploader";
 import { getUser } from "../../ducks/userReducer";
 
 class EditListing extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      title: "",
-      location: "",
-      beds: 0,
-      baths: 0,
-      description: "",
-      amen1: "",
-      amen2: "",
-      amen3: "",
-      rate: 0,
+      title: this.props.title,
+      location: this.props.myLocation,
+      beds: this.props.beds,
+      baths: this.props.baths,
+      description: this.props.desc,
+      amen1: this.props.amen1,
+      amen2: this.props.amen2,
+      amen3: this.props.amen3,
+      rate: this.props.price,
       image: "",
-      firebaseImg: "",
+      firebaseImg: this.props.myImage,
       uploadImg: "",
       isUploading: false,
       progress: 0,
-      uploadImgURL: ""
+      uploadImgURL: "",
+      titleflag: true
     };
   }
 
@@ -160,7 +161,8 @@ class EditListing extends Component {
   };
 
   render(props) {
-    // console.log(this.props);
+    console.log("this is props", this.props);
+    console.log("this is state", this.state);
     // console.log(this.props.id);
     // console.log(this.props.property.id);
     // console.log(this.props.property.user_id);
@@ -188,45 +190,64 @@ class EditListing extends Component {
           </form>
         </div>
         <img src={this.state.firebaseImg} className="uploadimg" alt="" />
-        <div>Title: {this.state.title}</div>
-        <input onChange={e => this.titleHandler(e)} placeholder="Enter Title" />
-        <div>Location:{this.state.location}</div>
+        <div>Title:</div>
+        {/* <button>Edit</button> */}
         <input
+          value={this.state.title}
+          onChange={e => this.titleHandler(e)}
+          placeholder="Enter Title"
+        />
+        <div>Location:</div>
+        <input
+          value={this.state.location}
           onChange={e => {
             this.locationHandler(e);
           }}
           placeholder="enter address here"
         />
         <div>Beds: {this.state.beds}</div>
-        <input onChange={e => this.bedsHandler(e)} placeholder="# of beds" />
-        <div>Bathrooms: {this.state.baths}</div>
         <input
+          value={this.state.beds}
+          onChange={e => this.bedsHandler(e)}
+          placeholder="# of beds"
+        />
+        <div>Bathrooms:</div>
+        <input
+          value={this.state.baths}
           onChange={e => this.bathsHandler(e)}
           placeholder="# of bathrooms"
         />
         <div>Description:</div>
         <input
+          value={this.state.description}
           onChange={e => this.descriptionHandler(e)}
           placeholder="Enter description"
         />
         <div className="amenitiesmain">
           <div>Amenities:</div>
           <input
+            value={this.state.amen1}
             onChange={e => this.amen_1Handler(e)}
             placeholder="Enter amenities1"
           />
           <input
+            value={this.state.amen2}
             onChange={e => this.amen_2Handler(e)}
             placeholder="Enter amenities2"
           />
           <input
+            value={this.state.amen3}
             onChange={e => this.amen_3Handler(e)}
             placeholder="Enter amenities3"
           />
         </div>
 
         <div>Nightly Rate:</div>
-        <input onChange={e => this.rateHandler(e)} placeholder="Enter price" />
+        <input
+          value={this.state.rate}
+          onChange={e => this.rateHandler(e)}
+          placeholder="Enter price"
+        />
         {/* <button
           onClick={() =>
             this.submitHandler(

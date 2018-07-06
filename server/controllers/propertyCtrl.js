@@ -76,34 +76,42 @@ const deleteProperty = (req, res) => {
 };
 
 const updateProperty = (req, res) => {
+  console.log(req.body);
+  console.log(req.params);
+  // console.log("typeof params", typeof req.params);
+  // console.log(req.params.id);
+  // console.log(typeof req.params.id);
   const { id } = req.params;
-  const {
-    property_title,
-    property_location,
-    beds,
-    baths,
-    description,
-    amen_1,
-    amen_2,
-    amen_3,
-    price,
-    image_url
-  } = req.body;
+  // const {
+  //   property_title
+  // property_location,
+  // beds
+  // ,
+  // baths,
+  // description,
+  // amen_1,
+  // amen_2,
+  // amen_3,
+  // price
+  // ,
+  // image_url
+  // } = req.body;
   let db = req.app.get("db");
-  db.properties.updateProperty([
-    id,
-    property_title,
-    property_location,
-    beds,
-    baths,
-    description,
-    amen_1,
-    amen_2,
-    amen_3,
-    price
-  ]);
+  db.properties.updateProperty(
+    req.params.id,
+    req.body.property_title,
+    req.body.property_location,
+    req.body.beds,
+    req.body.baths,
+    req.body.description,
+    req.body.amen_1,
+    req.body.amen_2,
+    req.body.amen_3,
+    req.body.price
+  );
   db.images
-    .update_image([id, image_url])
+    .update_image([req.params.id, req.body.image_url])
+    // .update_image([id, image_url])
     .then(() => {
       return res.sendStatus(200);
     })

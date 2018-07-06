@@ -7,7 +7,7 @@ import FileUploader from "react-firebase-file-uploader";
 
 import { getUser } from "../../ducks/userReducer";
 
-class AddListing extends Component {
+class EditListing extends Component {
   constructor() {
     super();
     this.state = {
@@ -135,9 +135,31 @@ class AddListing extends Component {
     });
   };
 
-  render() {
-    // console.log(this.state);
+  editHandler = id => {
+    axios
+      .put(`/api/property/${id}`, {
+        property_title: this.state.title,
+        property_location: this.state.location,
+        beds: this.state.beds,
+        baths: this.state.baths,
+        description: this.state.description,
+        amen_1: this.state.amen1,
+        amen_2: this.state.amen2,
+        amen_3: this.state.amen3,
+        price: this.state.rate,
+        firebaseImg: this.state.firebaseImg
+      })
+      .then(response => {
+        console.log(response);
+      });
+  };
+
+  render(props) {
+    console.log(this.state);
     // console.log(this.props);
+    // console.log(this.props.id);
+    // console.log(this.props.property.id);
+    // console.log(this.props.property.user_id);
     // console.log(this.props.user.id);
     return (
       <div className="addlistingmain">
@@ -201,7 +223,7 @@ class AddListing extends Component {
 
         <div>Nightly Rate:</div>
         <input onChange={e => this.rateHandler(e)} placeholder="Enter price" />
-        <button
+        {/* <button
           onClick={() =>
             this.submitHandler(
               this.state.title,
@@ -219,15 +241,19 @@ class AddListing extends Component {
           }
         >
           Submit Details
+        </button> */}
+        <button onClick={() => this.editHandler(this.props.id)}>
+          Submit Edit
         </button>
+        <button onClick={() => this.props.toggleView()}>Cancel</button>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ user }) => ({ ...user });
+const mapStateToProps = ({ user, properties }) => ({ ...user, ...properties });
 
 export default connect(
   mapStateToProps,
   { getUser }
-)(AddListing);
+)(EditListing);

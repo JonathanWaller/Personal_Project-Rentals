@@ -146,25 +146,28 @@ class AddListing extends Component {
   };
 
   // editHandler = id => {
-  //   axios.update(
-  //     `/api/property/${id}`,
-  //     property_title,
-  //     property_location,
-  //     beds,
-  //     baths,
-  //     description,
-  //     amen_1,
-  //     amen_2,
-  //     amen_3,
-  //     price,
-  //     firebaseImg
-  //   );
+  //   axios
+  //     .put(`/api/property/${id}`, {
+  //       property_title: this.state.title,
+  //       property_location: this.state.location,
+  //       beds: this.state.beds,
+  //       baths: this.state.baths,
+  //       description: this.state.description,
+  //       amen_1: this.state.amen1,
+  //       amen_2: this.state.amen2,
+  //       amen_3: this.state.amen3,
+  //       price: this.state.rate,
+  //       firebaseImg: this.state.firebaseImg
+  //     })
+  //     .then(response => {
+  //       console.log(response);
+  //     });
   // };
 
   render() {
     console.log(this.state);
     console.log(this.props);
-    console.log(this.props.user.id);
+    // console.log(this.props.user.id);
     return (
       <div className="addlistingmain">
         <h1>Add Listing to Site</h1>
@@ -253,9 +256,9 @@ class AddListing extends Component {
         >
           Submit Details
         </button>
-        <button onClick={() => this.editHandler(this.props.user.id)}>
+        {/* <button onClick={() => this.editHandler(this.props.user.id)}>
           Submit Edit
-        </button>
+        </button> */}
       </div>
     );
   }

@@ -15,7 +15,7 @@ export default (
     <Route path="/login" component={Login} />
     <Route path="/properties" component={Properties} />
     <Route path="/addproperty" component={AddListing} />
-    <Route path="/editproperty" component={EditListing} />
+    {/* <Route path="/editproperty" component={EditListing} /> */}
     <Route
       exact
       path="/property/:id"

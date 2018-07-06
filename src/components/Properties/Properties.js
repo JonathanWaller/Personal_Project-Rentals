@@ -35,7 +35,7 @@ class Properties extends Component {
   // };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     // console.log(this.props.properties[0].property_location);
     // let myProperties = this.props.properties.map((property, ind) => {
     //   return (

@@ -34,7 +34,7 @@ class Property extends Component {
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     // console.log(this.props.getProperties);
     console.log(this.props.property.id);
     console.log(this.props.property.user_id);

@@ -78,24 +78,13 @@ const deleteProperty = (req, res) => {
 const updateProperty = (req, res) => {
   console.log(req.body);
   console.log(req.params);
+  console.log("image_url", req.body.image_url);
+  console.log("btm req.params.id", req.params.id);
+  // console.log(req.body.firebaseImg);
   // console.log("typeof params", typeof req.params);
   // console.log(req.params.id);
   // console.log(typeof req.params.id);
-  const { id } = req.params;
-  // const {
-  //   property_title
-  // property_location,
-  // beds
-  // ,
-  // baths,
-  // description,
-  // amen_1,
-  // amen_2,
-  // amen_3,
-  // price
-  // ,
-  // image_url
-  // } = req.body;
+  // const { id } = req.params;
   let db = req.app.get("db");
   db.properties.updateProperty(
     req.params.id,
@@ -110,7 +99,8 @@ const updateProperty = (req, res) => {
     req.body.price
   );
   db.images
-    .update_image([req.params.id, req.body.image_url])
+    .update_image(req.params.id, req.body.image_url)
+    // .update_image([req.body.image_url, req.params.id])
     // .update_image([id, image_url])
     .then(() => {
       return res.sendStatus(200);

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import firebase from "../Firebase";
 import FileUploader from "react-firebase-file-uploader";
@@ -147,15 +148,18 @@ class EditListing extends Component {
         amen_2: this.state.amen2,
         amen_3: this.state.amen3,
         price: this.state.rate,
-        firebaseImg: this.state.firebaseImg
+        // firebaseImg: this.state.firebaseImg
+        image_url: this.state.firebaseImg
       })
-      .then(response => {
-        console.log(response);
-      });
+      .then(() => this.props.history.replace("/properties"));
+    // .then(()=>console.log(this.props))
+
+    // (response => {
+    //   console.log(response);
+    // });
   };
 
   render(props) {
-    console.log(this.state);
     // console.log(this.props);
     // console.log(this.props.id);
     // console.log(this.props.property.id);
@@ -253,7 +257,9 @@ class EditListing extends Component {
 
 const mapStateToProps = ({ user, properties }) => ({ ...user, ...properties });
 
-export default connect(
-  mapStateToProps,
-  { getUser }
-)(EditListing);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getUser }
+  )(EditListing)
+);

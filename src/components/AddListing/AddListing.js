@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import LocationSearchInput from "../Map/LocationSearchInput/LocationSearchInput";
 import "./AddListing.css";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -200,6 +201,8 @@ class AddListing extends Component {
         <div>Title: {this.state.title}</div>
         <input onChange={e => this.titleHandler(e)} placeholder="Enter Title" />
         <div>Location:{this.state.location}</div>
+        <LocationSearchInput />
+        {/* <input placeholder="google location" id="search_term" /> */}
         <input
           onChange={e => {
             this.locationHandler(e);
@@ -236,7 +239,7 @@ class AddListing extends Component {
 
         <div>Nightly Rate:</div>
         <input onChange={e => this.rateHandler(e)} placeholder="Enter price" />
-        {/* <input id="auto_complete" type="text" placeholder="enter address" /> */}
+        <input id="auto_complete" type="text" placeholder="enter address" />
         <button
           onClick={() =>
             this.submitHandler(

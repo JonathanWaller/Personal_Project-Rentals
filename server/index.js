@@ -17,7 +17,8 @@ const {
   updateProperty,
   addUploadImage
 } = require(`${__dirname}/controllers/propertyCtrl`);
-// const {addProperty}
+
+const { addReview } = require(`${__dirname}/controllers/reviewCtrl`);
 
 const app = express();
 
@@ -89,16 +90,18 @@ app.get("/api/me", authenticated, (req, res, next) => {
   res.status(200).send(req.user);
 });
 
-//working
 app.get("/logout", logout);
 
-//working
+//properties
 app.get("/api/properties", getAllProperties);
 app.post("/api/property", addProperty);
 // app.post("/api/image", addImage);
 app.delete("/api/property/:id", deleteProperty);
-
 app.put("/api/property/:id", updateProperty);
+
+//reviews
+app.post("/api/review", addReview);
+// app.get('/api/getReviews', getReviews);
 
 //need for uploading from Firebase
 app.post("/api/addUploadImg", addUploadImage);

@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { getUser } from "../../ducks/userReducer";
 import Properties from "../Properties/Properties";
 
+// import GoogleSuggest from "../Map/GoogleSuggest";
+
 import "./Home.css";
 
 class Home extends Component {
@@ -34,6 +36,7 @@ class Home extends Component {
               <Link to="/properties">
                 <button className="enterbutton">Enter</button>
               </Link>
+              {/* <GoogleSuggest /> */}
             </div>
           </div>
         ) : (

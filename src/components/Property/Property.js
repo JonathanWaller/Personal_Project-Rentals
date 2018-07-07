@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import EditListing from "../EditListing/EditListing";
+import Review from "../Review/Review";
 
 // import { getProperties } from "../../ducks/propertyReducer";
 
@@ -34,13 +35,6 @@ class Property extends Component {
   };
 
   render() {
-    // console.log(this.state);
-    console.log(this.props);
-    console.log("listing title", this.props.property.property_title);
-    console.log("looocation", this.props.property.property_location);
-    // console.log(this.props.getProperties);
-    // console.log(this.props.property.id);
-    // console.log(this.props.property.user_id);
     let { property } = this.props;
     // let { property } = this.props;
 
@@ -72,6 +66,9 @@ class Property extends Component {
           myid={this.props.property.id}
           user_id={this.props.property.user_id} */}
             <button onClick={() => this.toggleView()}>Edit Listing</button>
+            <button> Leave Review</button>
+            <button> View Reviews</button>
+            <Review />
 
             {/* <Map
           containerElement={<div style={{ height: 100 + "%" }} />}

@@ -9,9 +9,14 @@ const getAllProperties = (req, res) => {
 };
 
 const addProperty = (req, res) => {
+  console.log(req.body);
   const {
     property_title,
-    property_location,
+    // property_location,
+    address,
+    lat,
+    lng,
+    city,
     beds,
     baths,
     description,
@@ -26,7 +31,11 @@ const addProperty = (req, res) => {
   db.properties
     .addProperty([
       property_title,
-      property_location,
+      // property_location,
+      address,
+      lat,
+      lng,
+      city,
       beds,
       baths,
       description,
@@ -89,7 +98,11 @@ const updateProperty = (req, res) => {
   db.properties.updateProperty(
     req.params.id,
     req.body.property_title,
-    req.body.property_location,
+    // req.body.property_location,
+    // req.body.address,
+    // req.body.lat,
+    // req.body.lng,
+    // req.body.city,
     req.body.beds,
     req.body.baths,
     req.body.description,

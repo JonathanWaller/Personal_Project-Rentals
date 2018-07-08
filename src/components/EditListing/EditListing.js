@@ -13,7 +13,8 @@ class EditListing extends Component {
     super(props);
     this.state = {
       title: this.props.title,
-      location: this.props.myLocation,
+      // location: this.props.myLocation,
+      // city: this.props.city,
       beds: this.props.beds,
       baths: this.props.baths,
       description: this.props.desc,
@@ -58,11 +59,11 @@ class EditListing extends Component {
       title: e.target.value
     });
   };
-  locationHandler = e => {
-    this.setState({
-      location: e.target.value
-    });
-  };
+  // locationHandler = e => {
+  //   this.setState({
+  //     location: e.target.value
+  //   });
+  // };
   bedsHandler = e => {
     this.setState({
       beds: e.target.value
@@ -111,7 +112,7 @@ class EditListing extends Component {
 
   submitHandler = (
     property_title,
-    property_location,
+    // property_location,
     beds,
     baths,
     description,
@@ -124,7 +125,7 @@ class EditListing extends Component {
   ) => {
     axios.post("api/property", {
       property_title,
-      property_location,
+      // property_location,
       beds,
       baths,
       description,
@@ -141,7 +142,7 @@ class EditListing extends Component {
     axios
       .put(`/api/property/${id}`, {
         property_title: this.state.title,
-        property_location: this.state.location,
+        // property_location: this.state.location,
         beds: this.state.beds,
         baths: this.state.baths,
         description: this.state.description,
@@ -197,14 +198,14 @@ class EditListing extends Component {
           onChange={e => this.titleHandler(e)}
           placeholder="Enter Title"
         />
-        <div>Location:</div>
+        {/* <div>Location:</div>
         <input
           value={this.state.location}
           onChange={e => {
             this.locationHandler(e);
           }}
           placeholder="enter address here"
-        />
+        /> */}
         <div>Beds: {this.state.beds}</div>
         <input
           value={this.state.beds}

@@ -35,6 +35,7 @@ class Property extends Component {
   };
 
   render() {
+    console.log(this.props);
     let { property } = this.props;
     // let { property } = this.props;
 
@@ -44,7 +45,7 @@ class Property extends Component {
           <div className="propertymain">
             <img src={property.image_url} id="propertyimg" alt="" />
             <h1 className="propertytitle">{property.property_title}</h1>
-            <div>{property.property_location}</div>
+            <div>{property.address}</div>
             <div className="bedbath">
               <div>{property.beds} bed(s)</div>
               <div>{property.baths} bath(s)</div>
@@ -81,7 +82,11 @@ class Property extends Component {
             id={this.props.property.id}
             user_id={this.props.property.user_id}
             title={this.props.property.property_title}
-            myLocation={this.props.property.property_location}
+            address={this.props.property.address}
+            lat={this.props.property.lat}
+            lng={this.props.property.lng}
+            city={this.props.property.city}
+            // myLocation={this.props.property.property_location}
             beds={this.props.property.beds}
             baths={this.props.property.baths}
             desc={this.props.property.description}

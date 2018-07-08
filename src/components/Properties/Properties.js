@@ -35,7 +35,9 @@ class Properties extends Component {
   // };
 
   render() {
-    // console.log(this.props);
+    console.log(this.props);
+    console.log(this.props.properties);
+    console.log(this.props.properties.city);
     // console.log(this.props.properties[0].property_location);
     // let myProperties = this.props.properties.map((property, ind) => {
     //   return (
@@ -47,7 +49,8 @@ class Properties extends Component {
     //       {/* <div id="propertiesimg">Image Goes Here</div> */}
     //       <img src={property.image_url} id="propertiesimg" alt="" />
     //       <div>{property.property_title}</div>
-    //       <div>{property.property_location}</div>
+    //       {/* <div>{property.property_location}</div> */}
+    //       <div>{property.address}</div>
     //       <div>Baths: {property.baths}</div>
     //       <div>Beds: {property.beds}</div>
     //       <div>Rate: ${property.price}</div>
@@ -58,7 +61,7 @@ class Properties extends Component {
     //set up to use a search function to look for the city title. if nothing in search bar, will display all properties
     let searchDisplay = this.props.properties
       .filter((property, ind) => {
-        return property.property_location.includes(
+        return property.address.includes(
           // this.state.filterString.charAt(0).toUpperCase()
           this.state.filterString
         );
@@ -73,7 +76,8 @@ class Properties extends Component {
             {/* <div id="propertiesimg">Image Goes Here</div> */}
             <img src={property.image_url} id="propertiesimg" alt="" />
             <div>{property.property_title}</div>
-            <div>{property.property_location}</div>
+            <div>{property.city}</div>
+            {/* <div>{property.address}</div> */}
             <div>Baths: {property.baths}</div>
             <div>Beds: {property.beds}</div>
             <div>Rate: ${property.price}</div>

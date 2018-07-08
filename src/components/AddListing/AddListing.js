@@ -14,7 +14,8 @@ class AddListing extends Component {
     super();
     this.state = {
       title: "",
-      location: "",
+      // location: "",
+      city: "",
       beds: 0,
       baths: 0,
       description: "",
@@ -51,28 +52,24 @@ class AddListing extends Component {
         this.setState({ firebaseImg: url });
         // axios.post("/api/addUploadImg", { url });
       });
-
-    // .then(() =>
-    //   this.props.editAvatar(this.props.user.user.id, this.state.uploadImgURL)
-    // );
   };
-
-  // for google maps
-  // activatePlacesSearch = () => {
-  //   var input = document.getElementById("auto_complete");
-  //   var autocomplete = new google.maps.places.Autocomplete(input);
-  // };
 
   titleHandler = e => {
     this.setState({
       title: e.target.value
     });
   };
-  locationHandler = e => {
+  // locationHandler = e => {
+  //   this.setState({
+  //     location: e.target.value
+  //   });
+  // };
+  cityHandler = e => {
     this.setState({
-      location: e.target.value
+      city: e.target.value
     });
   };
+
   bedsHandler = e => {
     this.setState({
       beds: e.target.value
@@ -121,7 +118,11 @@ class AddListing extends Component {
 
   submitHandler = (
     property_title,
-    property_location,
+    // property_location,
+    address,
+    lat,
+    lng,
+    city,
     beds,
     baths,
     description,
@@ -134,7 +135,11 @@ class AddListing extends Component {
   ) => {
     axios.post("api/property", {
       property_title,
-      property_location,
+      // property_location,
+      address,
+      lat,
+      lng,
+      city,
       beds,
       baths,
       description,
@@ -142,7 +147,8 @@ class AddListing extends Component {
       amen_2,
       amen_3,
       price,
-      firebaseImg
+      firebaseImg,
+      user_id
     });
   };
 
@@ -167,7 +173,7 @@ class AddListing extends Component {
 
   render() {
     // console.log(this.state);
-    // console.log(this.props);
+    console.log(this.props);
     // console.log(this.props.user.id);
     return (
       <div className="addlistingmain">
@@ -200,15 +206,17 @@ class AddListing extends Component {
         {/* <button>Add Image</button> */}
         <div>Title: {this.state.title}</div>
         <input onChange={e => this.titleHandler(e)} placeholder="Enter Title" />
+        <div>City:</div>
+        <input onChange={e => this.cityHandler(e)} placeholder="Enter city" />
         <div>Location:{this.state.location}</div>
         <LocationSearchInput />
         {/* <input placeholder="google location" id="search_term" /> */}
-        <input
+        {/* <input
           onChange={e => {
             this.locationHandler(e);
           }}
           placeholder="enter address here"
-        />
+        /> */}
         <div>Beds: {this.state.beds}</div>
         <input onChange={e => this.bedsHandler(e)} placeholder="# of beds" />
         <div>Bathrooms: {this.state.baths}</div>
@@ -239,12 +247,16 @@ class AddListing extends Component {
 
         <div>Nightly Rate:</div>
         <input onChange={e => this.rateHandler(e)} placeholder="Enter price" />
-        <input id="auto_complete" type="text" placeholder="enter address" />
+        {/* <input id="auto_complete" type="text" placeholder="enter address" /> */}
         <button
           onClick={() =>
             this.submitHandler(
               this.state.title,
-              this.state.location,
+              // this.state.location,
+              this.props.address,
+              this.props.lat,
+              this.props.lng,
+              this.state.city,
               this.state.beds,
               this.state.baths,
               this.state.description,
@@ -280,7 +292,7 @@ class AddListing extends Component {
 ></script> */
 }
 
-const mapStateToProps = ({ user }) => ({ ...user });
+const mapStateToProps = ({ user, location }) => ({ ...user, ...location });
 
 export default connect(
   mapStateToProps,

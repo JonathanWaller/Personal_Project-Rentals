@@ -3,6 +3,13 @@ const UPDATE_ADDRESS = "UPDATE_ADDRESS";
 const UPDATE_LAT = "UPDATE_LAT";
 const UPDATE_LNG = "UPDATE_LNG";
 //action creators
+export function handleChange(address) {
+  return {
+    type: UPDATE_ADDRESS,
+    payload: address
+  };
+}
+
 export function updateAddress(address) {
   return {
     type: UPDATE_ADDRESS,
@@ -26,7 +33,7 @@ export function updateLng(num) {
 
 //initial state
 const initialState = {
-  address: "home sweet home",
+  address: "",
   lat: 0,
   lng: 0
 };

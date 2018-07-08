@@ -9,6 +9,8 @@ import locationReducer from "./ducks/locationReducer";
 const combinedReducers = combineReducers({
   user: userReducer,
   properties: propertyReducer,
+  // location: locationReducer
+  // address: locationReducer
   location: locationReducer
 });
 

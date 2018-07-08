@@ -2,13 +2,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 90vh;
+  /* height: 90vh; */
   /* padding: 30px; */
 }
 
 #propertyimg {
   background-color: lightcoral;
   height: 40vh;
+  /* height: 100px; */
   width: 100vw;
   /* object-fit: cover; */
 }
@@ -24,6 +25,7 @@
   justify-content: space-evenly;
   border: 0.1px solid lightgrey;
   height: 15vh;
+  /* height: 50px; */
 }
 
 #amenitiestitle {

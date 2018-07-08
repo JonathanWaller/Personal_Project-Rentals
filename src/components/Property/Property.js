@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import EditListing from "../EditListing/EditListing";
+import Map from "../Map/Map/Map";
 import Review from "../Review/Review";
 
 // import { getProperties } from "../../ducks/propertyReducer";
@@ -75,6 +76,7 @@ class Property extends Component {
           containerElement={<div style={{ height: 100 + "%" }} />}
           mapElement={<div style={{ height: 100 + "%" }} />}
         /> */}
+            <Map />
           </div>
         ) : (
           <EditListing

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import EditListing from "../EditListing/EditListing";
 import Map from "../Map/Map/Map";
 import Review from "../Review/Review";
+import AllReviews from "../Review/AllReviews";
 
 // import { getProperties } from "../../ducks/propertyReducer";
 
@@ -18,7 +19,8 @@ class Property extends Component {
     super();
     this.state = {
       propertyShow: true,
-      editShow: false
+      editShow: false,
+      reviewsShow: false
       // addReviewShow: false
     };
   }
@@ -33,6 +35,12 @@ class Property extends Component {
     this.setState({
       propertyShow: !this.state.propertyShow,
       editShow: !this.state.editShow
+    });
+  };
+
+  toggleReviews = () => {
+    this.setState({
+      reviewsShow: !this.state.reviewsShow
     });
   };
 
@@ -72,28 +80,30 @@ class Property extends Component {
             </div>
             <div>${property.price} per night</div>
             <Map />
+            <div>Reviews</div>
+            {!this.state.reviewsShow ? (
+              <div>
+                <div>{this.props.review[0].review}</div>
+                <div>{this.props.review[1].review}</div>
+              </div>
+            ) : (
+              <AllReviews propertyReviews={this.props.review} />
+            )}
+            <button onClick={this.toggleReviews}>
+              {!this.state.reviewsShow ? (
+                <p>See All Reviews</p>
+              ) : (
+                <p>Minimize Reviews</p>
+              )}
+            </button>
             <button>Email Owner</button>
             <button onClick={() => this.deleteHandler(property.id)}>
               Delete Listing
             </button>
-            {/* <Link
-          to="/editproperty"
-          myid={this.props.property.id}
-          user_id={this.props.property.user_id} */}
             <button onClick={() => this.toggleEditView()}>Edit Listing</button>
             <button onClick={() => this.goToProperty(this.props.property.id)}>
               Add Review
             </button>
-            {/* <Link to="/addreview">
-              <button> Leave Review</button>
-            </Link> */}
-            <button> View Reviews</button>
-            {/* <Review /> */}
-
-            {/* <Map
-          containerElement={<div style={{ height: 100 + "%" }} />}
-          mapElement={<div style={{ height: 100 + "%" }} />}
-        /> */}
           </div>
         ) : (
           <EditListing

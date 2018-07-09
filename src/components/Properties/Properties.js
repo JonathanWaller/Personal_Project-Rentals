@@ -9,6 +9,7 @@ import "./Properties.css";
 //dispatchers
 import { getProperties } from "../../ducks/propertyReducer";
 import { getUser } from "../../ducks/userReducer";
+import { getReviews } from "../../ducks/reviewReducer";
 
 class Properties extends Component {
   constructor() {
@@ -19,6 +20,7 @@ class Properties extends Component {
   }
   componentDidMount() {
     this.props.getProperties();
+    this.props.getReviews();
   }
 
   goToProperty = id => {
@@ -103,11 +105,15 @@ class Properties extends Component {
 }
 
 // const mapStateToProps = state => state;
-const mapStateToProps = ({ properties, user }) => ({ ...properties, ...user });
+const mapStateToProps = ({ properties, user, reviews }) => ({
+  ...properties,
+  ...user,
+  ...reviews
+});
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { getProperties, getUser }
+    { getProperties, getUser, getReviews }
   )(Properties)
 );

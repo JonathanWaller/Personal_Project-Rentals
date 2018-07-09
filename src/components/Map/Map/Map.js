@@ -46,8 +46,8 @@ class Map extends Component {
   //   };
 
   render() {
-    console.log(this.props);
-    console.log(this.state);
+    // console.log(this.props);
+    // console.log(this.state);
     return (
       //   <p>test from next</p>
       // Important! Always set the container height explicitly

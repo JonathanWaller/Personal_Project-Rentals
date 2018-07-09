@@ -54,6 +54,9 @@ export default (
               property={props.properties.properties.find(
                 p => p.id === +props.match.params.id
               )}
+              review={props.reviews.reviews.filter(
+                r => r.post_id === +props.match.params.id
+              )}
               {...props}
             />
           );

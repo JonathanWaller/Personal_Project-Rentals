@@ -134,23 +134,25 @@ class AddListing extends Component {
     firebaseImg,
     user_id
   ) => {
-    axios.post("api/property", {
-      property_title,
-      // property_location,
-      address,
-      lat,
-      lng,
-      city,
-      beds,
-      baths,
-      description,
-      amen_1,
-      amen_2,
-      amen_3,
-      price,
-      firebaseImg,
-      user_id
-    });
+    axios
+      .post("api/property", {
+        property_title,
+        // property_location,
+        address,
+        lat,
+        lng,
+        city,
+        beds,
+        baths,
+        description,
+        amen_1,
+        amen_2,
+        amen_3,
+        price,
+        firebaseImg,
+        user_id
+      })
+      .then(() => this.props.history.replace("/properties"));
   };
 
   // editHandler = id => {

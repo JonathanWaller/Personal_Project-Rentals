@@ -5,7 +5,8 @@ import Login from "./components/Login/Login";
 import Properties from "./components/Properties/Properties";
 import Property from "./components/Property/Property";
 import AddListing from "./components/AddListing/AddListing";
-import EditListing from "./components/EditListing/EditListing";
+import Review from "./components/Review/Review";
+// import EditListing from "./components/EditListing/EditListing";
 
 import { connect } from "react-redux";
 
@@ -15,6 +16,32 @@ export default (
     <Route path="/login" component={Login} />
     <Route path="/properties" component={Properties} />
     <Route path="/addproperty" component={AddListing} />
+    {/* <Route path="/addreview/:id" component={Review} /> */}
+    <Route
+      exact
+      path="/addreview/:id"
+      component={connect(state => state)(props => {
+        //
+        if (props.properties.properties.length) {
+          return (
+            // <Review
+            //   reviewProperty={props.property.property.find(
+            //     p => p.id === +props.match.params.id
+            //   )}
+            //   {...props}
+            // />
+            <Review
+              property={props.properties.properties.find(
+                p => p.id === +props.match.params.id
+              )}
+              {...props}
+            />
+          );
+        } else {
+          return "Loading";
+        }
+      })}
+    />
     {/* <Route path="/editproperty" component={EditListing} /> */}
     <Route
       exact

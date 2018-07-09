@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 
 import "./Properties.css";
@@ -36,9 +37,7 @@ class Properties extends Component {
 
   render() {
     console.log(this.props);
-    console.log(this.props.properties);
-    console.log(this.props.properties.city);
-    // console.log(this.props.properties[0].property_location);
+    console.log("props.properties.properties", this.props.properties);
     // let myProperties = this.props.properties.map((property, ind) => {
     //   return (
     //     <div
@@ -106,7 +105,9 @@ class Properties extends Component {
 // const mapStateToProps = state => state;
 const mapStateToProps = ({ properties, user }) => ({ ...properties, ...user });
 
-export default connect(
-  mapStateToProps,
-  { getProperties, getUser }
-)(Properties);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getProperties, getUser }
+  )(Properties)
+);

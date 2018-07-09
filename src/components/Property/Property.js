@@ -19,6 +19,7 @@ class Property extends Component {
     this.state = {
       propertyShow: true,
       editShow: false
+      // addReviewShow: false
     };
   }
   deleteHandler = id => {
@@ -28,11 +29,22 @@ class Property extends Component {
     // .then(() => this.props.history.push("/properties"));
   };
 
-  toggleView = () => {
+  toggleEditView = () => {
     this.setState({
       propertyShow: !this.state.propertyShow,
       editShow: !this.state.editShow
     });
+  };
+
+  // toggleAddReview = ()=>{
+  //   this.setState({
+  //     propertyShow: !this.state.propertyShow,
+  //     addReviewShow: !this.state.editShow
+  //   });
+  // }
+
+  goToProperty = id => {
+    this.props.history.push(`/addReview/${id}`);
   };
 
   render() {
@@ -59,6 +71,7 @@ class Property extends Component {
               <li>{property.amen_3}</li>
             </div>
             <div>${property.price} per night</div>
+            <Map />
             <button>Email Owner</button>
             <button onClick={() => this.deleteHandler(property.id)}>
               Delete Listing
@@ -67,16 +80,20 @@ class Property extends Component {
           to="/editproperty"
           myid={this.props.property.id}
           user_id={this.props.property.user_id} */}
-            <button onClick={() => this.toggleView()}>Edit Listing</button>
-            <button> Leave Review</button>
+            <button onClick={() => this.toggleEditView()}>Edit Listing</button>
+            <button onClick={() => this.goToProperty(this.props.property.id)}>
+              Add Review
+            </button>
+            {/* <Link to="/addreview">
+              <button> Leave Review</button>
+            </Link> */}
             <button> View Reviews</button>
-            <Review />
+            {/* <Review /> */}
 
             {/* <Map
           containerElement={<div style={{ height: 100 + "%" }} />}
           mapElement={<div style={{ height: 100 + "%" }} />}
         /> */}
-            <Map />
           </div>
         ) : (
           <EditListing
@@ -104,7 +121,7 @@ class Property extends Component {
   }
 }
 
-const mapStateToProps = ({ properties }) => ({ ...properties });
+const mapStateToProps = ({ properties, user }) => ({ ...properties, ...user });
 
 export default connect(mapStateToProps)(Property);
 

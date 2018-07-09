@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import firebase from "../Firebase";
 import FileUploader from "react-firebase-file-uploader";
@@ -162,7 +163,7 @@ class EditListing extends Component {
   };
 
   render(props) {
-    // console.log("this is props", this.props);
+    console.log("this is props", this.props);
     // console.log("this is state", this.state);
     // console.log(this.props.id);
     // console.log(this.props.property.id);
@@ -170,7 +171,10 @@ class EditListing extends Component {
     // console.log(this.props.user.id);
     return (
       <div className="addlistingmain">
-        <h1>Edit Listing</h1>
+        <h1>
+          Edit Your Listing at
+          {this.props.address}
+        </h1>
         <div className="upload">
           <form className="upload-form">
             {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
@@ -271,7 +275,10 @@ class EditListing extends Component {
         <button onClick={() => this.editHandler(this.props.id)}>
           Submit Edit
         </button>
-        <button onClick={() => this.props.toggleView()}>Cancel</button>
+        {/* <button onClick={() => this.props.toggleView()}>Cancel</button> */}
+        <Link to="/properties">
+          <button>Cancel</button>
+        </Link>
       </div>
     );
   }

@@ -3,6 +3,7 @@ import LocationSearchInput from "../Map/LocationSearchInput/LocationSearchInput"
 import "./AddListing.css";
 import axios from "axios";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import firebase from "../Firebase";
 import FileUploader from "react-firebase-file-uploader";
@@ -173,7 +174,7 @@ class AddListing extends Component {
 
   render() {
     // console.log(this.state);
-    console.log(this.props);
+    // console.log(this.props);
     // console.log(this.props.user.id);
     return (
       <div className="addlistingmain">
@@ -274,6 +275,9 @@ class AddListing extends Component {
         {/* <button onClick={() => this.editHandler(this.props.user.id)}>
           Submit Edit
         </button> */}
+        <Link to="properties">
+          <button>Cancel</button>
+        </Link>
       </div>
     );
   }

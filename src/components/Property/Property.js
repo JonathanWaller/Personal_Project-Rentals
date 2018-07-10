@@ -57,8 +57,9 @@ class Property extends Component {
   };
 
   render() {
-    // console.log(this.props);
+    console.log(this.props);
     let { property } = this.props;
+    console.log(this.props.property.user_email);
     // let { property } = this.props;
 
     return (
@@ -89,8 +90,8 @@ class Property extends Component {
             </div>
             <div>${property.price} per night</div>
             <Map
-              // lat={this.props.property.lat}
-              // lng={this.props.property.lng}
+              lat={+this.props.property.lat}
+              lng={+this.props.property.lng}
               // address={this.props.property}
               center={{
                 lat: +this.props.property.lat,
@@ -130,8 +131,13 @@ class Property extends Component {
                 )}
               </button>
             ) : null}
-
-            <button>Email Owner</button>
+            <a
+              href={`mailto:${
+                this.props.property.user_email
+              }?subject=About your property at ${this.props.property.address}`}
+            >
+              <button>Email Owner</button>
+            </a>
             <button onClick={() => this.deleteHandler(property.id)}>
               Delete Listing
             </button>
@@ -150,7 +156,6 @@ class Property extends Component {
             lat={this.props.property.lat}
             lng={this.props.property.lng}
             city={this.props.property.city}
-            // myLocation={this.props.property.property_location}
             beds={this.props.property.beds}
             baths={this.props.property.baths}
             desc={this.props.property.description}

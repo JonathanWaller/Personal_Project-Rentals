@@ -1,26 +1,3 @@
-// import React, { Component } from "react";
-// import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
-
-// class Map extends Component {
-//   render() {
-//     const markers = this.props.markers || [];
-
-//     return (
-//       <div>
-//         <p>howdy</p>
-//         {/* <GoogleMap
-//           defaultZoom={3}
-//           defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
-//         >
-//           {markers.map((marker, index) => <Marker {...marker} />)}
-//         </GoogleMap> */}
-//       </div>
-//     );
-//   }
-// }
-// // export default withGoogleMap(Map);
-// // export default Map;
-
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 import { connect } from "react-redux";
@@ -47,14 +24,7 @@ class Map extends Component {
   //   };
 
   render() {
-    console.log(this.props);
-    console.log("state", this.state);
-    console.log(parseInt(this.props));
-    // console.log(this.state);
-    // let center = { lat: this.props.lat, lng: this.props.lng };
-    // console.log("new center", center);
     return (
-      //   <p>test from next</p>
       // Important! Always set the container height explicitly
       <div style={{ height: "20vh", width: "100%" }}>
         <GoogleMapReact

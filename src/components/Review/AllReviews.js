@@ -12,15 +12,11 @@ class AllReviews extends Component {
           <div>
             <Moment fromNow>{elem.moment}</Moment>
           </div>
+          <img width="35" height="35" src={elem.user_avatar} />
         </div>
       );
     });
-    return (
-      <div>
-        <p>test</p>
-        {myReviews}
-      </div>
-    );
+    return <div>{myReviews}</div>;
   }
 }
 

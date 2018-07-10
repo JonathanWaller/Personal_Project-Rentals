@@ -27,13 +27,6 @@ class Review extends Component {
   };
 
   render() {
-    // const date = "1976-04-19T12:59-0500";
-    console.log(this.state.time);
-    console.log("without state", new Date());
-    // console.log("this is state", this.state);
-    // console.log("this is props", this.props);
-    // console.log(this.props.property.id);
-    // console.log(this.props.user.user.id);
     return (
       <div>
         <div>Leave Review of {this.props.property.property_title}</div>
@@ -48,17 +41,13 @@ class Review extends Component {
               this.props.property.id,
               this.props.property.user_id,
               this.props.user.user.id,
-              // <Moment>{date}</Moment>
-              // <Moment fromNow>1976-04-19T12:59-0500</Moment>
-              // <Moment fromNow>{this.state.time}</Moment>
+
               this.state.time
             )
           }
         >
           Submit Review
         </button>
-        {/* <Moment fromNow>{this.state.time}</Moment> */}
-        <Moment fromNow>{new Date()}</Moment>
       </div>
     );
   }

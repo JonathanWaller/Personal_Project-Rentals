@@ -6,6 +6,7 @@ import EditListing from "../EditListing/EditListing";
 import Map from "../Map/Map/Map";
 import Review from "../Review/Review";
 import AllReviews from "../Review/AllReviews";
+import Moment from "react-moment";
 
 // import { getProperties } from "../../ducks/propertyReducer";
 
@@ -68,8 +69,16 @@ class Property extends Component {
             <h1 className="propertytitle">{property.property_title}</h1>
             <div>{property.address}</div>
             <div className="bedbath">
-              <div>{property.beds} bed(s)</div>
-              <div>{property.baths} bath(s)</div>
+              {property.beds === 1 ? (
+                <div>{property.beds} bed </div>
+              ) : (
+                <div>{property.beds} beds </div>
+              )}
+              {property.baths === 1 ? (
+                <div>{property.baths} bath </div>
+              ) : (
+                <div>{property.baths} bath </div>
+              )}
             </div>
             <div>{property.description}</div>
             <div className="amenities">
@@ -83,21 +92,37 @@ class Property extends Component {
             <div>Reviews</div>
             {!this.state.reviewsShow ? (
               <div>
-                <div>{this.props.review[0].review}</div>
-                <div>Reviewed by: {this.props.review[0].user_name} </div>
-                <div>{this.props.review[1].review}</div>
-                <div>Reviewed by: {this.props.review[1].user_name} </div>
+                {this.props.review.length ? (
+                  <div>
+                    <div>{this.props.review[0].review}</div>
+                    <div>Reviewed by: {this.props.review[0].user_name} </div>
+                    <div>
+                      <Moment fromNow>{this.props.review[0].moment}</Moment>
+                      <img
+                        width="30"
+                        height="30"
+                        src={this.props.review[0].user_avatar}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div>No reviews yet. Make the first review!</div>
+                )}
               </div>
             ) : (
               <AllReviews propertyReviews={this.props.review} />
             )}
-            <button onClick={this.toggleReviews}>
-              {!this.state.reviewsShow ? (
-                <p>See All Reviews</p>
-              ) : (
-                <p>Minimize Reviews</p>
-              )}
-            </button>
+
+            {this.props.review.length ? (
+              <button onClick={this.toggleReviews}>
+                {!this.state.reviewsShow ? (
+                  <p>See All Reviews</p>
+                ) : (
+                  <p>Minimize Reviews</p>
+                )}
+              </button>
+            ) : null}
+
             <button>Email Owner</button>
             <button onClick={() => this.deleteHandler(property.id)}>
               Delete Listing

@@ -84,7 +84,9 @@ class Property extends Component {
             {!this.state.reviewsShow ? (
               <div>
                 <div>{this.props.review[0].review}</div>
+                <div>Reviewed by: {this.props.review[0].user_name} </div>
                 <div>{this.props.review[1].review}</div>
+                <div>Reviewed by: {this.props.review[1].user_name} </div>
               </div>
             ) : (
               <AllReviews propertyReviews={this.props.review} />

@@ -23,6 +23,7 @@
 
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
+import { connect } from "react-redux";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -46,8 +47,12 @@ class Map extends Component {
   //   };
 
   render() {
-    // console.log(this.props);
+    console.log(this.props);
+    console.log("state", this.state);
+    console.log(parseInt(this.props));
     // console.log(this.state);
+    // let center = { lat: this.props.lat, lng: this.props.lng };
+    // console.log("new center", center);
     return (
       //   <p>test from next</p>
       // Important! Always set the container height explicitly
@@ -56,7 +61,8 @@ class Map extends Component {
           // bootstrapURLKeys={{ key: /* YOUR KEY HERE */ }}
           //   defaultCenter={this.props.center}
           //   defaultZoom={this.props.zoom}
-          defaultCenter={this.state.center}
+          // defaultCenter={this.state.center}
+          defaultCenter={this.props.center}
           defaultZoom={this.state.zoom}
         >
           {/* {props.isMarkerShown && <Marker position={{lat: 32.8653014 , lng: -96.75820979999997 }}} */}
@@ -72,5 +78,8 @@ class Map extends Component {
 }
 
 <Map isMarkerShown />;
+
+// const mapStateToProps = ({ location }) => ({ ...location });
+// const mapStateToProps = ({ properties }) => ({ ...properties });
 
 export default Map;

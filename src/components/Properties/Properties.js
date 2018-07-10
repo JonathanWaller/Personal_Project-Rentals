@@ -38,8 +38,8 @@ class Properties extends Component {
   // };
 
   render() {
-    console.log(this.props);
-    console.log("props.properties.properties", this.props.properties);
+    // console.log(this.props);
+    // console.log("props.properties.properties", this.props.properties);
     // let myProperties = this.props.properties.map((property, ind) => {
     //   return (
     //     <div

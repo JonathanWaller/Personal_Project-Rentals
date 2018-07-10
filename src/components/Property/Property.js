@@ -57,7 +57,7 @@ class Property extends Component {
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     let { property } = this.props;
     // let { property } = this.props;
 
@@ -88,7 +88,15 @@ class Property extends Component {
               <li>{property.amen_3}</li>
             </div>
             <div>${property.price} per night</div>
-            <Map />
+            <Map
+              // lat={this.props.property.lat}
+              // lng={this.props.property.lng}
+              // address={this.props.property}
+              center={{
+                lat: +this.props.property.lat,
+                lng: +this.props.property.lng
+              }}
+            />
             <div>Reviews</div>
             {!this.state.reviewsShow ? (
               <div>

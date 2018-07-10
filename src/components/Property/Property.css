@@ -14,6 +14,11 @@
   /* object-fit: cover; */
 }
 
+#avatarimg {
+  height: 3vh;
+  width: 3vh;
+}
+
 .propertytitle {
   font-size: 30px;
   font-weight: bold;

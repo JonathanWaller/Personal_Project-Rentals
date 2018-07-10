@@ -59,7 +59,6 @@ class Property extends Component {
   render() {
     console.log(this.props);
     let { property } = this.props;
-    console.log(this.props.property.user_email);
     // let { property } = this.props;
 
     return (
@@ -82,6 +81,17 @@ class Property extends Component {
               )}
             </div>
             <div>{property.description}</div>
+            <div>
+              Hosted by: {property.user_name}
+              <img src={property.user_avatar} id="avatarimg" />
+            </div>
+            <a
+              href={`mailto:${
+                this.props.property.user_email
+              }?subject=About your property at ${this.props.property.address}`}
+            >
+              <button>contact {property.user_name}</button>
+            </a>
             <div className="amenities">
               <ul id="amenitiestitle">Amenities:</ul>
               <li>{property.amen_1}</li>
@@ -131,13 +141,13 @@ class Property extends Component {
                 )}
               </button>
             ) : null}
-            <a
+            {/* <a
               href={`mailto:${
                 this.props.property.user_email
               }?subject=About your property at ${this.props.property.address}`}
             >
               <button>Email Owner</button>
-            </a>
+            </a> */}
             <button onClick={() => this.deleteHandler(property.id)}>
               Delete Listing
             </button>

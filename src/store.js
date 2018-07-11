@@ -5,12 +5,14 @@ import userReducer from "./ducks/userReducer";
 import propertyReducer from "./ducks/propertyReducer";
 import locationReducer from "./ducks/locationReducer";
 import reviewReducer from "./ducks/reviewReducer";
+import ratingReducer from "./ducks/ratingReducer";
 
 const combinedReducers = combineReducers({
   user: userReducer,
   properties: propertyReducer,
   location: locationReducer,
-  reviews: reviewReducer
+  reviews: reviewReducer,
+  rating: ratingReducer
 });
 
 const store = createStore(

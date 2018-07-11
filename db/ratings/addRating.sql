@@ -1,0 +1,6 @@
+-- insert
+-- into ratings
+--     (rating, reviewer_id, post_id )
+-- values
+--     ($1, $2, $3)
+-- returning *;

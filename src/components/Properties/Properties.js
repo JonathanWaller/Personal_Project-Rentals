@@ -68,6 +68,7 @@ class Properties extends Component {
         );
       })
       .map((property, ind) => {
+        console.log(property);
         return (
           <div
             onClick={() => this.goToProperty(property.id)}

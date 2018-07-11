@@ -59,6 +59,8 @@ class Property extends Component {
   render() {
     console.log(this.props);
     let { property } = this.props;
+    // let ratings =
+    // console.log(Math.avg(2, 3, 5));
     // let { property } = this.props;
 
     return (

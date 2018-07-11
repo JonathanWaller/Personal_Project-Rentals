@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getUser } from "../../ducks/userReducer";
 import Properties from "../Properties/Properties";
+// import Rating from "../Ratings/Rating";
 
 import "./Home.css";
 

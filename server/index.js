@@ -23,6 +23,8 @@ const {
   getReviews
 } = require(`${__dirname}/controllers/reviewCtrl`);
 
+const { addRating } = require(`${__dirname}/controllers/ratingCtrl`);
+
 const app = express();
 
 massive(process.env.CONNECTION_STRING).then(dbInstance => {
@@ -105,6 +107,9 @@ app.put("/api/property/:id", updateProperty);
 //reviews
 app.post("/api/review", addReview);
 app.get("/api/reviews", getReviews);
+
+//ratings
+app.post("/api/rating", addRating);
 
 //need for uploading from Firebase
 app.post("/api/addUploadImg", addUploadImage);

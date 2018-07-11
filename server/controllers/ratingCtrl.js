@@ -15,6 +15,7 @@ const getAvgRating = (req, res) => {
   });
 };
 
-// module.exports = {
-//   addRating
-// };
+module.exports = {
+  getAvgRating
+  //   addRating
+};

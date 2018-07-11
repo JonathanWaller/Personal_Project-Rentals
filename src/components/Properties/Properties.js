@@ -10,6 +10,7 @@ import "./Properties.css";
 import { getProperties } from "../../ducks/propertyReducer";
 import { getUser } from "../../ducks/userReducer";
 import { getReviews } from "../../ducks/reviewReducer";
+import { getAvgRating } from "../../ducks/ratingReducer";
 
 class Properties extends Component {
   constructor() {
@@ -21,6 +22,7 @@ class Properties extends Component {
   componentDidMount() {
     this.props.getProperties();
     this.props.getReviews();
+    this.props.getAvgRating();
   }
 
   goToProperty = id => {
@@ -38,27 +40,7 @@ class Properties extends Component {
   // };
 
   render() {
-    // console.log(this.props);
-    // console.log("props.properties.properties", this.props.properties);
-    // let myProperties = this.props.properties.map((property, ind) => {
-    //   return (
-    //     <div
-    //       onClick={() => this.goToProperty(property.id)}
-    //       key={property.id}
-    //       className="propertieslist"
-    //     >
-    //       {/* <div id="propertiesimg">Image Goes Here</div> */}
-    //       <img src={property.image_url} id="propertiesimg" alt="" />
-    //       <div>{property.property_title}</div>
-    //       {/* <div>{property.property_location}</div> */}
-    //       <div>{property.address}</div>
-    //       <div>Baths: {property.baths}</div>
-    //       <div>Beds: {property.beds}</div>
-    //       <div>Rate: ${property.price}</div>
-    //     </div>
-    //   );
-    // });
-
+    console.log(this.props);
     //set up to use a search function to look for the city title. if nothing in search bar, will display all properties
     let searchDisplay = this.props.properties
       .filter((property, ind) => {
@@ -68,7 +50,7 @@ class Properties extends Component {
         );
       })
       .map((property, ind) => {
-        console.log(property);
+        // console.log(property);
         return (
           <div
             onClick={() => this.goToProperty(property.id)}
@@ -106,15 +88,16 @@ class Properties extends Component {
 }
 
 // const mapStateToProps = state => state;
-const mapStateToProps = ({ properties, user, reviews }) => ({
+const mapStateToProps = ({ properties, user, reviews, rating }) => ({
   ...properties,
   ...user,
-  ...reviews
+  ...reviews,
+  ...rating
 });
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { getProperties, getUser, getReviews }
+    { getProperties, getUser, getReviews, getAvgRating }
   )(Properties)
 );

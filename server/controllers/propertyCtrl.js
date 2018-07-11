@@ -9,7 +9,7 @@ const getAllProperties = (req, res) => {
 };
 
 const addProperty = (req, res) => {
-  // console.log(req.body);
+  console.log(req.body);
   const {
     property_title,
     // property_location,

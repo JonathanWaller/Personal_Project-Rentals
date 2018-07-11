@@ -1,23 +1,30 @@
+import axios from "axios";
+
 //constants
-const UPDATE_RATING = "UPDATE_RATING";
+// const UPDATE_RATING = "UPDATE_RATING";
+const GET_AVGRATING = "GET_AVGRATING";
+
 //action creators
-export function updateRating(rating) {
+export function getAvgRating() {
   return {
-    type: UPDATE_RATING,
-    payload: rating
+    type: GET_AVGRATING,
+    payload: axios.get(`/api/rating`)
   };
 }
 //initial state
 const initialState = {
-  rating: 0
+  avgRating: []
 };
 //reducer
 export default function ratingReducer(state = initialState, action) {
+  console.log("action payload", action.payload);
+  console.log("action type!  ", action.type);
   switch (action.type) {
-    case UPDATE_RATING:
+    case `${GET_AVGRATING}_FULFILLED`:
       return {
         ...state,
-        rating: action.payload
+        avgRating: action.payload.data
+        // avgRating: 25
       };
     default:
       return state;

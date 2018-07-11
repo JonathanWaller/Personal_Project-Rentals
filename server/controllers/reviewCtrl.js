@@ -22,7 +22,7 @@ const addReview = (req, res) => {
 const getReviews = (req, res) => {
   let db = req.app.get("db");
   db.reviews.getAllReviews().then(response => {
-    // console.log(response);
+    console.log("response", response);
     res.status(200).json(response);
   });
 };

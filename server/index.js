@@ -7,8 +7,8 @@ const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
 
+// bringing in controllers
 const { strat, logout } = require(`${__dirname}/controllers/authCtrl`);
-// const strat = require("./controllers/authCtrl");
 const {
   getAllProperties,
   addProperty,
@@ -17,13 +17,12 @@ const {
   updateProperty,
   addUploadImage
 } = require(`${__dirname}/controllers/propertyCtrl`);
-
 const {
   addReview,
   getReviews
 } = require(`${__dirname}/controllers/reviewCtrl`);
-
-const { addRating } = require(`${__dirname}/controllers/ratingCtrl`);
+const { getAvgRating } = require(`${__dirname}/controllers/ratingCtrl`);
+// const { addRating } = require(`${__dirname}/controllers/ratingCtrl`);
 
 const app = express();
 
@@ -108,8 +107,9 @@ app.put("/api/property/:id", updateProperty);
 app.post("/api/review", addReview);
 app.get("/api/reviews", getReviews);
 
-//ratings
-app.post("/api/rating", addRating);
+//avg ratings
+// app.post("/api/rating", addRating);
+app.get("/api/rating", getAvgRating);
 
 //need for uploading from Firebase
 app.post("/api/addUploadImg", addUploadImage);

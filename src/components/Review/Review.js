@@ -44,6 +44,7 @@ class Review extends Component {
   render() {
     // console.log("rating props", this.props);
     console.log("state", this.state);
+    console.log("props", this.props);
     return (
       <div>
         <div>Leave Review of {this.props.property.property_title}</div>
@@ -67,7 +68,7 @@ class Review extends Component {
               this.state.userInput,
               this.props.property.id,
               this.props.property.user_id,
-              this.props.user.user.id,
+              this.props.user.user.userid,
               this.state.time,
               this.state.rating
             )

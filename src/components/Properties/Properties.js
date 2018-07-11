@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
+import StarRatings from "react-star-ratings";
 
 import "./Properties.css";
 
@@ -40,7 +41,15 @@ class Properties extends Component {
   // };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
+    console.log("testtting", this.props.properties[1]);
+    console.log(
+      this.props.properties[1] && typeof +this.props.properties[1].round
+    );
+    // console.log(
+    //   this.props.properties[0] ? this.props.properties[0].round : null
+    // );
+    //^^^^^^^^^SHORT CIRCUIT EVALUATION ^^^^^^^^^
     //set up to use a search function to look for the city title. if nothing in search bar, will display all properties
     let searchDisplay = this.props.properties
       .filter((property, ind) => {
@@ -60,6 +69,12 @@ class Properties extends Component {
             {/* <div id="propertiesimg">Image Goes Here</div> */}
             <img src={property.image_url} id="propertiesimg" alt="" />
             <div>{property.property_title}</div>
+            <StarRatings
+              rating={+property.round}
+              starRatedColor="gold"
+              numberOfStars={5}
+              starDimension="30px"
+            />
             <div>{property.city}</div>
             {/* <div>{property.address}</div> */}
             <div>Baths: {property.baths}</div>

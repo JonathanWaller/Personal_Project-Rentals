@@ -17,8 +17,8 @@ const initialState = {
 };
 //reducer
 export default function ratingReducer(state = initialState, action) {
-  console.log("action payload", action.payload);
-  console.log("action type!  ", action.type);
+  // console.log("action payload", action.payload);
+  // console.log("action type!  ", action.type);
   switch (action.type) {
     case `${GET_AVGRATING}_FULFILLED`:
       return {

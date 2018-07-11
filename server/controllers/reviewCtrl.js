@@ -5,7 +5,7 @@ const addReview = (req, res) => {
     .addReview([review, post_id, user_id, reviewer_id, moment, rating])
     .then(review => {
       // console.log(review);
-      console.log("req.body", req.body);
+      // console.log("req.body", req.body);
       return res.status(200).send(review);
     });
 };
@@ -22,7 +22,7 @@ const addReview = (req, res) => {
 const getReviews = (req, res) => {
   let db = req.app.get("db");
   db.reviews.getAllReviews().then(response => {
-    console.log("response", response);
+    // console.log("response", response);
     res.status(200).json(response);
   });
 };

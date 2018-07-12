@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import EditListing from "../EditListing/EditListing";
 import Map from "../Map/Map/Map";
-import Review from "../Review/Review";
+// import Review from "../Review/Review";
 import AllReviews from "../Review/AllReviews";
 import Moment from "react-moment";
 import StarRatings from "react-star-ratings";
@@ -86,7 +86,7 @@ class Property extends Component {
             <div>{property.description}</div>
             <div>
               Hosted by: {property.user_name}
-              <img src={property.user_avatar} id="avatarimg" />
+              <img src={property.user_avatar} id="avatarimg" alt="" />
             </div>
             <a
               href={`mailto:${
@@ -130,6 +130,7 @@ class Property extends Component {
                         width="30"
                         height="30"
                         src={this.props.review[0].user_avatar}
+                        alt=""
                       />
                     </div>
                   </div>

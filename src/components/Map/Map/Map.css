@@ -1,0 +1,12 @@
+.mypin {
+  background-image: url("https://www.sketchappsources.com/resources/source-image/pin.jpg");
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.pin {
+  width: 50px;
+  height: 50px;
+}

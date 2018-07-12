@@ -15,14 +15,14 @@ import {
 } from "../../../ducks/locationReducer";
 
 class LocationSearchInput extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   address: "",
-    //   lat: 0,
-    //   lng: 0
-    // };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // this.state = {
+  //   //   address: "",
+  //   //   lat: 0,
+  //   //   lng: 0
+  //   // };
+  // }
 
   //   handleChange = address => {
   //     this.setState({ address });
@@ -53,27 +53,8 @@ class LocationSearchInput extends React.Component {
   };
 
   render() {
-    const { addresses, lat, lng } = this.props;
-    // console.log("i am props", this.props);
-    // console.log("props address", this.props.address);
-    // console.log("props latty", this.props.lat);
-    // console.log("props longy", this.props.lng);
-
-    // console.log(this.state);
-    // console.log(
-    //   "state_address",
-    //   this.state.address,
-    //   "state_lat",
-    //   this.state.lat,
-    //   "state_lng",
-    //   this.state.lng
-    // );
+    // const { addresses, lat, lng } = this.props;
     return (
-      //   <PlacesAutocomplete
-      //     value={this.state.address}
-      //     onChange={this.handleChange}
-      //     onSelect={this.handleSelect}
-      //   >
       <PlacesAutocomplete
         value={this.props.address}
         onChange={this.props.handleChange}
@@ -118,12 +99,6 @@ class LocationSearchInput extends React.Component {
     );
   }
 }
-
-// const mapStateToProps = ({ address, lat, lng }) => ({
-//   ...address,
-//   ...lat,
-//   ...lng
-// });
 
 const mapStateToProps = state => state.location;
 

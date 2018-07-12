@@ -77,10 +77,11 @@ class Property extends Component {
               ) : (
                 <div>{property.beds} beds </div>
               )}
-              {property.baths === 1 ? (
+              <br />
+              {+property.baths === 1 ? (
                 <div>{property.baths} bath </div>
               ) : (
-                <div>{property.baths} bath </div>
+                <div>{property.baths} baths </div>
               )}
             </div>
             <div>{property.description}</div>

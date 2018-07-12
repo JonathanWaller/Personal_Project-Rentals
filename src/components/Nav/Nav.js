@@ -12,7 +12,10 @@ class Nav extends Component {
           <Link to="/">Home</Link>
           <Link to="/properties">Listings</Link>
           {!this.props.user.isAuthed ? (
-            <Link to="/login">Login</Link>
+            // <Link to="/login">Login</Link>
+            <a href={process.env.REACT_APP_LOGIN}>
+              <div>Login</div>
+            </a>
           ) : (
             <a href={process.env.REACT_APP_LOGOUT}>Logout</a>
           )}

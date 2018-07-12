@@ -111,7 +111,7 @@ class EditListing extends Component {
     });
   };
 
-  submitHandler = (
+  submitHandler = () => (
     property_title,
     // property_location,
     beds,
@@ -155,15 +155,11 @@ class EditListing extends Component {
         image_url: this.state.firebaseImg
       })
       .then(() => this.props.history.replace("/properties"));
-    // .then(()=>console.log(this.props))
-
-    // (response => {
-    //   console.log(response);
-    // });
+    // .then(() => this.props.history.replace(`/property/${this.props.id}`));
   };
 
   render(props) {
-    // console.log("this is props", this.props);
+    console.log("this is props", this.props);
     return (
       <div className="addlistingmain">
         <h1>

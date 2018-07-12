@@ -7,6 +7,7 @@ import Map from "../Map/Map/Map";
 import Review from "../Review/Review";
 import AllReviews from "../Review/AllReviews";
 import Moment from "react-moment";
+import StarRatings from "react-star-ratings";
 
 // import { getProperties } from "../../ducks/propertyReducer";
 
@@ -100,6 +101,12 @@ class Property extends Component {
               <li>{property.amen_2}</li>
               <li>{property.amen_3}</li>
             </div>
+            <StarRatings
+              rating={+property.round}
+              starRatedColor="gold"
+              numberOfStars={5}
+              starDimension="16px"
+            />
             <div>${property.price} per night</div>
             <Map
               lat={+this.props.property.lat}

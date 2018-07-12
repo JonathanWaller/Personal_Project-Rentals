@@ -41,11 +41,11 @@ class Properties extends Component {
   // };
 
   render() {
-    // console.log(this.props);
-    console.log("testtting", this.props.properties[1]);
-    console.log(
-      this.props.properties[1] && typeof +this.props.properties[1].round
-    );
+    console.log(this.props);
+    // console.log("testtting", this.props.properties[1]);
+    // console.log(
+    //   this.props.properties[1] && typeof +this.props.properties[1].round
+    // );
     // console.log(
     //   this.props.properties[0] ? this.props.properties[0].round : null
     // );
@@ -71,9 +71,9 @@ class Properties extends Component {
             <div>{property.property_title}</div>
             <StarRatings
               rating={+property.round}
-              starRatedColor="gold"
+              starRatedColor="dark gold"
               numberOfStars={5}
-              starDimension="30px"
+              starDimension="16px"
             />
             <div>{property.city}</div>
             {/* <div>{property.address}</div> */}

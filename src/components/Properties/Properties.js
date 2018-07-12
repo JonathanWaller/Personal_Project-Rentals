@@ -36,19 +36,9 @@ class Properties extends Component {
     this.setState({ filterString: e.target.value });
   };
 
-  // deleteHandler = id => {
-  //   axios.delete(`/api/property/${id}`);
-  // };
-
   render() {
-    console.log(this.props);
-    // console.log("testtting", this.props.properties[1]);
-    // console.log(
-    //   this.props.properties[1] && typeof +this.props.properties[1].round
-    // );
-    // console.log(
-    //   this.props.properties[0] ? this.props.properties[0].round : null
-    // );
+    // console.log(this.props);
+    // console.log(this.props.properties[0] ? this.props.properties[0].round : null);
     //^^^^^^^^^SHORT CIRCUIT EVALUATION ^^^^^^^^^
     //set up to use a search function to look for the city title. if nothing in search bar, will display all properties
     let searchDisplay = this.props.properties
@@ -59,19 +49,17 @@ class Properties extends Component {
         );
       })
       .map((property, ind) => {
-        // console.log(property);
         return (
           <div
             onClick={() => this.goToProperty(property.id)}
             key={property.id}
             className="propertieslist"
           >
-            {/* <div id="propertiesimg">Image Goes Here</div> */}
             <img src={property.image_url} id="propertiesimg" alt="" />
             <div>{property.property_title}</div>
             <StarRatings
               rating={+property.round}
-              starRatedColor="dark gold"
+              starRatedColor="gold"
               numberOfStars={5}
               starDimension="16px"
             />
@@ -92,10 +80,18 @@ class Properties extends Component {
         <input onChange={e => this.cityHandler(e)} placeholder="search city" />
         <br />
         <br />
-        <Link to="/addproperty">
-          <button>Add Listing</button>
-        </Link>
-        {/* <div>{myProperties}</div> */}
+        {this.props.isAuthed ? (
+          <Link to="/addproperty">
+            <button>Add Listing</button>
+          </Link>
+        ) : (
+          // ) : null}
+          <div>
+            <a href={process.env.REACT_APP_LOGIN}>
+              <button>Login to add listing</button>
+            </a>
+          </div>
+        )}
         <div>{searchDisplay}</div>
       </div>
     );

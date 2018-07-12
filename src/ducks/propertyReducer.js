@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Constants
 const GET_PROPERTIES = "GET_PROPERTIES";
-const GET_AVGRATING = "GET_AVGRATING";
+// const GET_AVGRATING = "GET_AVGRATING";
 
 // Action Creator
 export function getProperties() {
@@ -12,18 +12,18 @@ export function getProperties() {
   };
 }
 
-export function getAvgRating() {
-  return {
-    type: GET_AVGRATING,
-    payload: axios.get(`/api/rating`)
-  };
-}
+// export function getAvgRating() {
+//   return {
+//     type: GET_AVGRATING,
+//     payload: axios.get(`/api/rating`)
+//   };
+// }
 
 // Initial State
 const initialState = {
   properties: [],
-  isLoading: false,
-  avgRating: []
+  isLoading: false
+  // avgRating: []
   //using above isLoading for the below reducer function. used in case you're accessing lots of data and it takes some time to return
 };
 

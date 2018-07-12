@@ -3,7 +3,7 @@ import Moment from "react-moment";
 
 class AllReviews extends Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     let myReviews = this.props.propertyReviews.map(elem => {
       return (
         <div key={elem.id}>

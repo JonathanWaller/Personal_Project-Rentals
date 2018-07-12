@@ -163,12 +163,7 @@ class EditListing extends Component {
   };
 
   render(props) {
-    console.log("this is props", this.props);
-    // console.log("this is state", this.state);
-    // console.log(this.props.id);
-    // console.log(this.props.property.id);
-    // console.log(this.props.property.user_id);
-    // console.log(this.props.user.id);
+    // console.log("this is props", this.props);
     return (
       <div className="addlistingmain">
         <h1>

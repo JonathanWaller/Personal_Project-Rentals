@@ -50,6 +50,20 @@ const addProperty = (req, res) => {
         return res.status(200).send(property);
       });
     });
+  // .then(image => {
+  //   db.reviews
+  //     .addReview([
+  //       "test review",
+  //       image[0].posting_id,
+  //       1,
+  //       1,
+  //       "2018-07-10T18:59:06.403Z",
+  //       5
+  //     ])
+  //     .then(review => {
+  //       return res.status(200).send(review);
+  //     });
+  // });
 };
 
 const updateImage = (req, res, next) => {

@@ -60,11 +60,6 @@ class AddListing extends Component {
       title: e.target.value
     });
   };
-  // locationHandler = e => {
-  //   this.setState({
-  //     location: e.target.value
-  //   });
-  // };
   cityHandler = e => {
     this.setState({
       city: e.target.value
@@ -117,9 +112,44 @@ class AddListing extends Component {
     });
   };
 
+  // submitHandler = (
+  //   property_title,
+  //   address,
+  //   lat,
+  //   lng,
+  //   city,
+  //   beds,
+  //   baths,
+  //   description,
+  //   amen_1,
+  //   amen_2,
+  //   amen_3,
+  //   price,
+  //   firebaseImg,
+  //   user_id
+  // ) => {
+  //   axios
+  //     .post("api/property", {
+  //       property_title,
+  //       address,
+  //       lat,
+  //       lng,
+  //       city,
+  //       beds,
+  //       baths,
+  //       description,
+  //       amen_1,
+  //       amen_2,
+  //       amen_3,
+  //       price,
+  //       firebaseImg,
+  //       user_id
+  //     })
+  //     .then(() => this.props.history.replace("/properties"));
+  // };
+
   submitHandler = (
     property_title,
-    // property_location,
     address,
     lat,
     lng,
@@ -137,7 +167,6 @@ class AddListing extends Component {
     axios
       .post("api/property", {
         property_title,
-        // property_location,
         address,
         lat,
         lng,
@@ -152,6 +181,9 @@ class AddListing extends Component {
         firebaseImg,
         user_id
       })
+      // .then(() => {
+      //   axios.post("/api/review", {null});
+      // })
       .then(() => this.props.history.replace("/properties"));
   };
 
@@ -255,7 +287,6 @@ class AddListing extends Component {
           onClick={() =>
             this.submitHandler(
               this.state.title,
-              // this.state.location,
               this.props.address,
               this.props.lat,
               this.props.lng,
@@ -283,19 +314,6 @@ class AddListing extends Component {
       </div>
     );
   }
-}
-
-{
-  /* <script>
-  function activatePlacesSearch() {
-  var input = document.getElementById("auto_complete");
-  var autocomplete = new google.maps.places.Autocomplete(input);
-}
-</script>
-<script
-  type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5uIm_ZPxZT0vO5p9JXXw1xQCUeyGCCws&libraries=places&callback=activatePlacesSearch"
-></script> */
 }
 
 const mapStateToProps = ({ user, location }) => ({ ...user, ...location });

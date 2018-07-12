@@ -5,7 +5,7 @@ import Room from "@material-ui/icons/Room";
 
 // const Marker = ({ text }) => <div>{text}</div>;
 const Marker = props => {
-  return <Room className="pin" />;
+  return <Room style={{ fill: "red" }} />;
 };
 
 class Map extends Component {
@@ -21,7 +21,7 @@ class Map extends Component {
   }
 
   render() {
-    console.log("map props", this.props);
+    // console.log("map props", this.props);
     return (
       <div style={{ height: "20vh", width: "100%" }}>
         <GoogleMapReact

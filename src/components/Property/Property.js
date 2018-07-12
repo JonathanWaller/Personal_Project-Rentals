@@ -58,7 +58,7 @@ class Property extends Component {
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     let { property } = this.props;
     // let ratings =
     // console.log(Math.avg(2, 3, 5));
@@ -145,7 +145,7 @@ class Property extends Component {
             {this.props.review.length ? (
               <button onClick={this.toggleReviews}>
                 {!this.state.reviewsShow ? (
-                  <p>See All Reviews</p>
+                  <p>See All {+this.props.property.count} Reviews</p>
                 ) : (
                   <p>Minimize Reviews</p>
                 )}
@@ -162,9 +162,17 @@ class Property extends Component {
               Delete Listing
             </button>
             <button onClick={() => this.toggleEditView()}>Edit Listing</button>
-            <button onClick={() => this.goToProperty(this.props.property.id)}>
-              Add Review
-            </button>
+            {this.props.isAuthed ? (
+              <button onClick={() => this.goToProperty(this.props.property.id)}>
+                Add Review
+              </button>
+            ) : (
+              <div>
+                <a href={process.env.REACT_APP_LOGIN}>
+                  <button>Login to add review</button>
+                </a>
+              </div>
+            )}
           </div>
         ) : (
           <EditListing

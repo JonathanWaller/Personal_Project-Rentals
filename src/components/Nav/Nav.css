@@ -1,7 +1,10 @@
 .navmain {
-  width: 100vw;
   background: black;
 }
+/* .navmain {
+  width: 100vw;
+  background: black;
+} */
 
 /* .nav_links {
   height: 5vh;
@@ -11,17 +14,17 @@
   align-items: center;
 } */
 
-.nav_links {
+/* .nav_links {
   height: 10vh;
   width: 5vw;
   display: flex;
   flex-direction: column;
-  color: red;
+  color: white;
   justify-content: space-evenly;
   align-items: center;
-}
+} */
 
 a {
   text-decoration: none;
-  color: red;
+  color: white;
 }

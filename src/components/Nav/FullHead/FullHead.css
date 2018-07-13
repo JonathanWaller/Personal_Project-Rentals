@@ -1,0 +1,15 @@
+.fullmain {
+  width: 100vw;
+  height: 10vh;
+  background: black;
+}
+
+.nav_links {
+  /* height: 50vh;
+  width: 5vw; */
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: space-evenly;
+  align-items: center;
+}

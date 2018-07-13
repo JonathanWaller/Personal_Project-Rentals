@@ -3,39 +3,21 @@ import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 // import "./Nav.css";
 // import Dehaze from "@material-ui/icons/Dehaze";
+import "./FullHead.css";
 
 import { connect } from "react-redux";
 
-class Nav extends Component {
-  //   constructor() {
-  //     super();
-  //     this.state = {
-  //       hamShow: true,
-  //       linksShow: false
-  //     };
-  //   }
+class FullHead extends Component {
   goToFavorites = id => {
     this.props.history.push(`/favorites/${id}`);
   };
 
-  //   handleClick = () => {
-  //     this.setState({
-  //       hamShow: false,
-  //       linksShow: true
-  //     });
-  //   };
-
-  render() {
+  render(props) {
+    console.log(this.props);
     return (
-      <div className="navmain">
-        {/* {this.state.hamShow ? (
-          <Dehaze
-            onClick={this.handleClick}
-            style={{ fill: "white" }}
-            className="ham"
-          />
-        ) : ( */}
+      <div className="fullmain" onMouseLeave={this.props.exitSliderHandler}>
         <div className="nav_links">
+          {/* <p>hi from FullHead</p> */}
           <Link to="/">Home</Link>
           {this.props.user.isAuthed ? (
             <div
@@ -44,11 +26,8 @@ class Nav extends Component {
               Favorites
             </div>
           ) : null}
-          {/* <Link to="/favorites">Favorites</Link> */}
-          {/* <Link to=`/favorites/${this.props.user.userid}`>Favorites</Link> */}
           <Link to="/properties">Listings</Link>
           {!this.props.user.isAuthed ? (
-            // <Link to="/login">Login</Link>
             <a href={process.env.REACT_APP_LOGIN}>
               <div>Login</div>
             </a>
@@ -57,7 +36,6 @@ class Nav extends Component {
           )}
           <Link to="/about">About</Link>
         </div>
-        {/* )} */}
       </div>
     );
   }
@@ -65,4 +43,5 @@ class Nav extends Component {
 
 const mapStateToProps = state => state;
 
-export default withRouter(connect(mapStateToProps)(Nav));
+// export default withRouter(connect(mapStateToProps)(Nav));
+export default withRouter(connect(mapStateToProps)(FullHead));

@@ -58,7 +58,7 @@ class Property extends Component {
   };
 
   render() {
-    // console.log(this.props);
+    console.log(this.props);
     let { property } = this.props;
     // let ratings =
     // console.log(Math.avg(2, 3, 5));
@@ -174,6 +174,7 @@ class Property extends Component {
                 </a>
               </div>
             )}
+            <button>Add to Favorites</button>
           </div>
         ) : (
           <EditListing

@@ -9,6 +9,7 @@ const passport = require("passport");
 
 // bringing in controllers
 const { strat, logout } = require(`${__dirname}/controllers/authCtrl`);
+
 const {
   getAllProperties,
   addProperty,
@@ -17,12 +18,18 @@ const {
   updateProperty,
   addUploadImage
 } = require(`${__dirname}/controllers/propertyCtrl`);
+
 const {
   addReview,
   getReviews
 } = require(`${__dirname}/controllers/reviewCtrl`);
+
 const { getAvgRating } = require(`${__dirname}/controllers/ratingCtrl`);
 // const { addRating } = require(`${__dirname}/controllers/ratingCtrl`);
+const {
+  addFavorite,
+  getFavorites
+} = require(`${__dirname}/controllers/favoritesCtrl`);
 
 const app = express();
 
@@ -110,6 +117,10 @@ app.get("/api/reviews", getReviews);
 //avg ratings
 // app.post("/api/rating", addRating);
 app.get("/api/rating", getAvgRating);
+
+//favorites
+app.post("/api/favorite", addFavorite);
+app.get("/api/favorites/:id", getFavorites);
 
 //need for uploading from Firebase
 app.post("/api/addUploadImg", addUploadImage);

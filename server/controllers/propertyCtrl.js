@@ -8,11 +8,10 @@ const getAllProperties = (req, res) => {
     .catch(err => res.status(500).json(err));
 };
 
-const addProperty = (req, res) => {
-  // console.log(req.body);
+//using async / 'await' below in place of multiple .then statements
+const addProperty = async (req, res) => {
   const {
     property_title,
-    // property_location,
     address,
     lat,
     lng,
@@ -28,42 +27,24 @@ const addProperty = (req, res) => {
     user_id
   } = req.body;
   let db = req.app.get("db");
-  db.properties
-    .addProperty([
-      property_title,
-      // property_location,
-      address,
-      lat,
-      lng,
-      city,
-      beds,
-      baths,
-      description,
-      amen_1,
-      amen_2,
-      amen_3,
-      price,
-      user_id
-    ])
-    .then(property => {
-      db.images.addUploadImg([firebaseImg, property[0].id]).then(image => {
-        return res.status(200).send(property);
-      });
-    });
-  // .then(image => {
-  //   db.reviews
-  //     .addReview([
-  //       "test review",
-  //       image[0].posting_id,
-  //       1,
-  //       1,
-  //       "2018-07-10T18:59:06.403Z",
-  //       5
-  //     ])
-  //     .then(review => {
-  //       return res.status(200).send(review);
-  //     });
-  // });
+  const property = await db.properties.addProperty([
+    property_title,
+    address,
+    lat,
+    lng,
+    city,
+    beds,
+    baths,
+    description,
+    amen_1,
+    amen_2,
+    amen_3,
+    price,
+    user_id
+  ]);
+  const image = await db.images.addUploadImg([firebaseImg, property[0].id]);
+  const review = await db.reviews.addDefaultReview([property[0].id, user_id]);
+  return res.status(200).send(property);
 };
 
 const updateImage = (req, res, next) => {
@@ -99,15 +80,6 @@ const deleteProperty = (req, res) => {
 };
 
 const updateProperty = (req, res) => {
-  console.log(req.body);
-  console.log(req.params);
-  console.log("image_url", req.body.image_url);
-  console.log("btm req.params.id", req.params.id);
-  // console.log(req.body.firebaseImg);
-  // console.log("typeof params", typeof req.params);
-  // console.log(req.params.id);
-  // console.log(typeof req.params.id);
-  // const { id } = req.params;
   let db = req.app.get("db");
   db.properties.updateProperty(
     req.params.id,

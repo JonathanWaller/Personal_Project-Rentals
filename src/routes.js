@@ -7,6 +7,7 @@ import Property from "./components/Property/Property";
 import AddListing from "./components/AddListing/AddListing";
 import Review from "./components/Review/Review";
 import Favorites from "./components/Favorites/Favorites";
+import About from "./components/About/About";
 // import EditListing from "./components/EditListing/EditListing";
 
 import { connect } from "react-redux";
@@ -72,6 +73,7 @@ export default (
       path={`/favorites/${this.props && this.props.user.userid}`}
       component={Favorites}
     /> */}
+    <Route path="/about" component={About} />
     <Route path="*" render={() => <div>FourOhFour</div>} />
   </Switch>
 );

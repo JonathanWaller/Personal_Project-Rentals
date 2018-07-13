@@ -8,8 +8,8 @@ class Favorites extends Component {
     this.props.getFavorites(this.props.match.params.id);
   }
   render() {
-    console.log(this.props);
-    console.log(this.props.properties);
+    // console.log(this.props);
+    // console.log(this.props.properties);
     let favorites =
       this.props.properties &&
       this.props.properties.map(property => {

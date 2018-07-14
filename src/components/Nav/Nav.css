@@ -1,6 +1,11 @@
 .navmain {
   background: black;
 }
+
+.userimg {
+  height: 30px;
+  width: 30px;
+}
 /* .navmain {
   width: 100vw;
   background: black;

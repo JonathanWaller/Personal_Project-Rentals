@@ -35,6 +35,7 @@ class Nav extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className="navmain">
         {!this.props.user.isAuthed ? (
@@ -52,6 +53,9 @@ class Nav extends Component {
         ) : (
           <FullHead exitSliderHandler={this.exitSliderHandler} />
         )}
+        {this.props.user.isAuthed ? (
+          <img src={this.props.user.user.user_avatar} className="userimg" />
+        ) : null}
 
         {/* {this.state.hamShow ? (
           <Dehaze

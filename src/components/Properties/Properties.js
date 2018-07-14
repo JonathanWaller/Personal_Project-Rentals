@@ -141,7 +141,10 @@ class Properties extends Component {
 
     return (
       <div>
-        <input onChange={e => this.cityHandler(e)} placeholder="search city" />
+        <input
+          onChange={e => this.cityHandler(e)}
+          placeholder="search by city (Dallas) or state (CA)"
+        />
         <br />
         <br />
         {this.props.isAuthed ? (

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import axios from "axios";
 // import { Link } from "react-router-dom";
 import EditListing from "../EditListing/EditListing";
@@ -69,6 +70,9 @@ class Property extends Component {
         {this.state.propertyShow ? (
           <div className="propertymain">
             <img src={property.image_url} id="propertyimg" alt="" />
+            <Link to="/properties">
+              <button>Back to All Listings</button>
+            </Link>
             <h1 className="propertytitle">{property.property_title}</h1>
             <div>{property.address}</div>
             <div className="bedbath">

@@ -61,6 +61,7 @@ class Property extends Component {
   render() {
     console.log(this.props);
     let { property } = this.props;
+    console.log(this.props.user.userid);
     // let ratings =
     // console.log(Math.avg(2, 3, 5));
     // let { property } = this.props;
@@ -156,16 +157,11 @@ class Property extends Component {
                 )}
               </button>
             ) : null}
-            {/* <a
-              href={`mailto:${
-                this.props.property.user_email
-              }?subject=About your property at ${this.props.property.address}`}
-            >
-              <button>Email Owner</button>
-            </a> */}
-            <button onClick={() => this.deleteHandler(property.id)}>
-              Delete Listing
-            </button>
+            {this.props.user.userid == this.props.property.user_id ? (
+              <button onClick={() => this.deleteHandler(property.id)}>
+                Delete Listing
+              </button>
+            ) : null}
             <button onClick={() => this.toggleEditView()}>Edit Listing</button>
             {this.props.isAuthed ? (
               <button onClick={() => this.goToProperty(this.props.property.id)}>

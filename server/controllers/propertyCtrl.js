@@ -10,6 +10,7 @@ const getAllProperties = (req, res) => {
 
 //using async / 'await' below in place of multiple .then statements
 const addProperty = async (req, res) => {
+  console.log(req.body);
   const {
     property_title,
     address,

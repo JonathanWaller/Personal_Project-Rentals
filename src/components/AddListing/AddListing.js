@@ -24,8 +24,8 @@ class AddListing extends Component {
       amen2: "",
       amen3: "",
       rate: 0,
-      image: "",
-      firebaseImg: "",
+      // image: "",
+      firebaseImg: "https://www.owensoundhonda.on.ca/dist/img/nophoto.jpg",
       uploadImg: "",
       isUploading: false,
       progress: 0,
@@ -51,7 +51,17 @@ class AddListing extends Component {
       .then(url => {
         console.log(url);
         this.setState({ firebaseImg: url });
+
         // axios.post("/api/addUploadImg", { url });
+      })
+      .then(() => {
+        this.setState({
+          firebaseImg: this.state.firebaseImg.replace(
+            "/o/images%2F",
+            "/o/resized-"
+          )
+        });
+        // this.state.firebaseImg.replace("/o/images%2F", "'/o/resized-");
       });
   };
 
@@ -106,11 +116,11 @@ class AddListing extends Component {
     });
   };
 
-  imageHandler = e => {
-    this.setState({
-      image: e.target.value
-    });
-  };
+  // imageHandler = e => {
+  //   this.setState({
+  //     image: e.target.value
+  //   });
+  // };
 
   // submitHandler = (
   //   property_title,
@@ -207,8 +217,8 @@ class AddListing extends Component {
   // };
 
   render() {
-    // console.log(this.state);
-    console.log(this.props);
+    console.log(this.state);
+    // console.log(this.props);
     // console.log(this.props.user.id);
     return (
       <div className="addlistingmain">
@@ -217,7 +227,7 @@ class AddListing extends Component {
           <form className="upload-form">
             {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
             <label>
-              Upload Your Image
+              Click Here To Upload Your Image
               <FileUploader
                 hidden
                 accept="image/*"
@@ -299,6 +309,7 @@ class AddListing extends Component {
               this.state.amen3,
               this.state.rate,
               this.state.firebaseImg,
+              // this.state.firebaseImg.replace("/o/", "/o/resized-"),
               this.props.user.userid
             )
           }

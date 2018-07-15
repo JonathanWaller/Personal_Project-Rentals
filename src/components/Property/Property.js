@@ -2,18 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// import { Link } from "react-router-dom";
 import EditListing from "../EditListing/EditListing";
 import Map from "../Map/Map/Map";
-// import Review from "../Review/Review";
 import AllReviews from "../Review/AllReviews";
 import Moment from "react-moment";
 import StarRatings from "react-star-ratings";
-
-// import { getProperties } from "../../ducks/propertyReducer";
-
-// import Map from "../Map/Map";
-// import { Map } from "../Map/Map";
 
 import "./Property.css";
 
@@ -24,7 +17,6 @@ class Property extends Component {
       propertyShow: true,
       editShow: false,
       reviewsShow: false
-      // addReviewShow: false
     };
   }
   deleteHandler = id => {
@@ -61,10 +53,6 @@ class Property extends Component {
   render() {
     console.log(this.props);
     let { property } = this.props;
-    console.log(this.props.user.userid);
-    // let ratings =
-    // console.log(Math.avg(2, 3, 5));
-    // let { property } = this.props;
 
     return (
       <div>
@@ -158,23 +146,28 @@ class Property extends Component {
               </button>
             ) : null}
             {this.props.user.userid == this.props.property.user_id ? (
-              <button onClick={() => this.deleteHandler(property.id)}>
-                Delete Listing
-              </button>
-            ) : null}
-            <button onClick={() => this.toggleEditView()}>Edit Listing</button>
-            {this.props.isAuthed ? (
-              <button onClick={() => this.goToProperty(this.props.property.id)}>
-                Add Review
-              </button>
-            ) : (
               <div>
-                <a href={process.env.REACT_APP_LOGIN}>
-                  <button>Login to add review</button>
-                </a>
+                <button onClick={() => this.deleteHandler(property.id)}>
+                  Delete Listing
+                </button>
+                <button onClick={() => this.toggleEditView()}>
+                  Edit Listing
+                </button>
+                {this.props.isAuthed ? (
+                  <button
+                    onClick={() => this.goToProperty(this.props.property.id)}
+                  >
+                    Add Review
+                  </button>
+                ) : (
+                  <div>
+                    <a href={process.env.REACT_APP_LOGIN}>
+                      <button>Login to add review</button>
+                    </a>
+                  </div>
+                )}
               </div>
-            )}
-            <button>Add to Favorites</button>
+            ) : null}
           </div>
         ) : (
           <EditListing
@@ -204,5 +197,3 @@ class Property extends Component {
 const mapStateToProps = ({ properties, user }) => ({ ...properties, ...user });
 
 export default connect(mapStateToProps)(Property);
-
-// export default connect(({ properties, user }) => ({ properties }))(Property);

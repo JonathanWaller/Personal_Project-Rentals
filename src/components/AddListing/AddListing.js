@@ -51,7 +51,6 @@ class AddListing extends Component {
       .then(url => {
         console.log(url);
         this.setState({ firebaseImg: url });
-
         // axios.post("/api/addUploadImg", { url });
       })
       .then(() => {
@@ -309,7 +308,6 @@ class AddListing extends Component {
               this.state.amen3,
               this.state.rate,
               this.state.firebaseImg,
-              // this.state.firebaseImg.replace("/o/", "/o/resized-"),
               this.props.user.userid
             )
           }

@@ -52,6 +52,15 @@ class EditListing extends Component {
         console.log(url);
         this.setState({ firebaseImg: url });
         // axios.post("/api/addUploadImg", { url });
+      })
+      .then(() => {
+        this.setState({
+          firebaseImg: this.state.firebaseImg.replace(
+            "/o/images%2F",
+            "/o/resized-"
+          )
+        });
+        // this.state.firebaseImg.replace("/o/images%2F", "'/o/resized-");
       });
   };
 

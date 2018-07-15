@@ -17,7 +17,6 @@ class FullHead extends Component {
     return (
       <div className="fullmain" onMouseLeave={this.props.exitSliderHandler}>
         <div className="nav_links">
-          {/* <p>hi from FullHead</p> */}
           <Link to="/">Home</Link>
           {this.props.user.isAuthed ? (
             <div

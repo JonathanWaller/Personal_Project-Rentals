@@ -13,6 +13,7 @@ import { getProperties } from "../../ducks/propertyReducer";
 import { getUser } from "../../ducks/userReducer";
 import { getReviews } from "../../ducks/reviewReducer";
 import { getAvgRating } from "../../ducks/ratingReducer";
+import { addFavorite } from "../../ducks/favoritesReducer";
 
 class Properties extends Component {
   constructor() {
@@ -37,40 +38,40 @@ class Properties extends Component {
     this.setState({ filterString: e.target.value });
   };
 
-  handleFavorite = (
-    image_url,
-    owner_post_id,
-    property_title,
-    beds,
-    baths,
-    description,
-    price,
-    address,
-    city,
-    round,
-    owner_name,
-    owner_avatar,
-    user_id
-  ) => {
-    // console.log(property);
-    axios.post("/api/favorite", {
-      image_url,
-      owner_post_id,
-      property_title,
-      beds,
-      baths,
-      description,
-      price,
-      address,
-      city,
-      round,
-      owner_name,
-      owner_avatar,
-      user_id
-    });
-  };
+  // handleFavorite = (
+  //   image_url,
+  //   owner_post_id,
+  //   property_title,
+  //   beds,
+  //   baths,
+  //   description,
+  //   price,
+  //   address,
+  //   city,
+  //   round,
+  //   owner_name,
+  //   owner_avatar,
+  //   user_id
+  // ) => {
+  //   axios.post("/api/favorite", {
+  //     image_url,
+  //     owner_post_id,
+  //     property_title,
+  //     beds,
+  //     baths,
+  //     description,
+  //     price,
+  //     address,
+  //     city,
+  //     round,
+  //     owner_name,
+  //     owner_avatar,
+  //     user_id
+  //   });
+  // };
 
   render() {
+    console.log(this.props);
     // console.log(this.props.properties[0] ? this.props.properties[0].round : null);
     //^^^^^^^^^SHORT CIRCUIT EVALUATION ^^^^^^^^^
     //set up to use a search function to look for the city title. if nothing in search bar, will display all properties
@@ -87,7 +88,8 @@ class Properties extends Component {
             {/* <button onClick={() => this.handleFavorite(property)}> */}
             <button
               onClick={() =>
-                this.handleFavorite(
+                // this.handleFavorite(
+                this.props.addFavorite(
                   property.image_url,
                   property.post_id,
                   property.property_title,
@@ -130,7 +132,6 @@ class Properties extends Component {
                 <div>Bed: {property.beds}</div>
               )}
               <div>Rate: ${property.price}</div>
-              {/* <button>Add to Favorites</button> */}
               {/* <button onClick={() => this.deleteHandler(property.id)}>
               Delete Listing
             </button> */}
@@ -166,16 +167,17 @@ class Properties extends Component {
 }
 
 // const mapStateToProps = state => state;
-const mapStateToProps = ({ properties, user, reviews, rating }) => ({
+const mapStateToProps = ({ properties, user, reviews, rating, favorites }) => ({
   ...properties,
   ...user,
   ...reviews,
-  ...rating
+  ...rating,
+  ...favorites
 });
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { getProperties, getUser, getReviews, getAvgRating }
+    { getProperties, getUser, getReviews, getAvgRating, addFavorite }
   )(Properties)
 );

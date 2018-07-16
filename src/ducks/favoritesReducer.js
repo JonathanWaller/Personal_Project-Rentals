@@ -66,6 +66,7 @@ export default function favoritesReducer(state = initialState, action) {
         ...state,
         isLoading: false,
         properties: action.payload.data
+        // favorites: action.payload.data
       };
     case `${ADD_FAVORITE}_PENDING`:
       return {

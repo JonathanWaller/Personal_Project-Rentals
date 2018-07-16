@@ -167,12 +167,11 @@ class Properties extends Component {
 }
 
 // const mapStateToProps = state => state;
-const mapStateToProps = ({ properties, user, reviews, rating, favorites }) => ({
+const mapStateToProps = ({ properties, user, reviews, rating }) => ({
   ...properties,
   ...user,
   ...reviews,
-  ...rating,
-  ...favorites
+  ...rating
 });
 
 export default withRouter(

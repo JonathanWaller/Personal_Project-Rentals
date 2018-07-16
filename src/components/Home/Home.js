@@ -31,6 +31,7 @@ class Home extends Component {
           <div>
             <div className="homemain">
               <img className="homeimage" alt="" />
+              <div>Welcome Home</div>
               <Link to="/properties">
                 <button className="enterbutton">Enter</button>
               </Link>

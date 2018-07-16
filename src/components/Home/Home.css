@@ -1,5 +1,6 @@
 .homemain {
-  height: 75vh;
+  /* height: 75vh; */
+  height: 95vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -7,8 +8,14 @@
 
 .homeimage {
   /* background-image: url("http://imgs.abduzeedo.com/files/gismullr/beautifulhouses/bh245/chl01.jpg"); */
-  background-image: url("http://dynamicpeople.club/wp-content/uploads/2018/03/lofts-in-san-francisco-collect-this-idea-architecture-beautiful-loft-bennett-lofts-san-francisco.jpg");
-  height: 45vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(217, 217, 217, 0.8),
+      rgba(77, 77, 77, 0.8)
+    ),
+    url("http://dynamicpeople.club/wp-content/uploads/2018/03/lofts-in-san-francisco-collect-this-idea-architecture-beautiful-loft-bennett-lofts-san-francisco.jpg");
+  /* height: 45vh; */
+  height: 95vh;
   width: 100vw;
   background-size: cover;
   /* background-position: center bottom; */

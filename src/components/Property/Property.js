@@ -7,6 +7,7 @@ import Map from "../Map/Map/Map";
 import AllReviews from "../Review/AllReviews";
 import Moment from "react-moment";
 import StarRatings from "react-star-ratings";
+import { addFavorite } from "../../ducks/favoritesReducer";
 
 import "./Property.css";
 
@@ -62,6 +63,27 @@ class Property extends Component {
             <Link to="/properties">
               <button>Back to All Listings</button>
             </Link>
+            <button
+              onClick={() =>
+                this.props.addFavorite(
+                  property.image_url,
+                  property.post_id,
+                  property.property_title,
+                  property.beds,
+                  property.baths,
+                  property.description,
+                  property.price,
+                  property.address,
+                  property.city,
+                  property.round,
+                  property.user_name,
+                  property.user_avatar,
+                  this.props.user.userid
+                )
+              }
+            >
+              Add to Favorites
+            </button>
             <h1 className="propertytitle">{property.property_title}</h1>
             <div>{property.address}</div>
             <div className="bedbath">
@@ -196,4 +218,7 @@ class Property extends Component {
 
 const mapStateToProps = ({ properties, user }) => ({ ...properties, ...user });
 
-export default connect(mapStateToProps)(Property);
+export default connect(
+  mapStateToProps,
+  { addFavorite }
+)(Property);

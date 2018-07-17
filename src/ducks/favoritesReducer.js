@@ -62,11 +62,12 @@ export default function favoritesReducer(state = initialState, action) {
         isLoading: true
       };
     case `${GET_FAVORITES}_FULFILLED`:
+      // console.log(action.payload);
       return {
         ...state,
         isLoading: false,
-        properties: action.payload.data
-        // favorites: action.payload.data
+        // properties: action.payload.data
+        favorites: action.payload.data
       };
     case `${ADD_FAVORITE}_PENDING`:
       return {

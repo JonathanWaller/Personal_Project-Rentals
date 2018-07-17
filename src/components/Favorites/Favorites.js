@@ -13,8 +13,8 @@ class Favorites extends Component {
     console.log(this.props);
     // console.log(this.props.properties);
     let favorites =
-      this.props.properties &&
-      this.props.properties.map(property => {
+      this.props.favorites &&
+      this.props.favorites.map(property => {
         return (
           <div key={property.id}>
             <div>{property.property_title}</div>

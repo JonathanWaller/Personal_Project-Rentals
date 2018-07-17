@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { getUser } from "../../ducks/userReducer";
 import Properties from "../Properties/Properties";
 // import Rating from "../Ratings/Rating";
+// import { Button } from "react-bootstrap";
 
 import "./Home.css";
 
@@ -32,6 +33,7 @@ class Home extends Component {
             <div className="homemain">
               <img className="homeimage" alt="" />
               <div>Welcome Home</div>
+
               <Link to="/properties">
                 <button className="enterbutton">Enter</button>
               </Link>

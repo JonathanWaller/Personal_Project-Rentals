@@ -41,3 +41,21 @@
   display: flex;
   justify-content: space-around;
 }
+
+/* heart like button */
+#like-button:hover {
+  cursor: pointer;
+  color: #cd0928;
+}
+
+#like-button.not-liked {
+  color: #000;
+}
+
+#like-button.not-liked:hover {
+  color: #cd0928;
+}
+
+#like-button.liked {
+  color: #cd0928;
+}

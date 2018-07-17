@@ -7,7 +7,7 @@ import Map from "../Map/Map/Map";
 import AllReviews from "../Review/AllReviews";
 import Moment from "react-moment";
 import StarRatings from "react-star-ratings";
-import { addFavorite } from "../../ducks/favoritesReducer";
+import { addFavorite, getFavorites } from "../../ducks/favoritesReducer";
 
 import "./Property.css";
 
@@ -17,9 +17,16 @@ class Property extends Component {
     this.state = {
       propertyShow: true,
       editShow: false,
-      reviewsShow: false
+      reviewsShow: false,
+      noLike: "fa fa-2x fa-heart-o not-liked",
+      liked: "fa fa-2x fa-heart liked"
     };
   }
+
+  componentDidMount() {
+    this.props.getFavorites(this.props.user.userid);
+  }
+
   deleteHandler = id => {
     axios
       .delete(`/api/property/${id}`)
@@ -51,9 +58,31 @@ class Property extends Component {
     this.props.history.push(`/addReview/${id}`);
   };
 
+  // toggleHover = () => {
+  //   this.setState({
+  //     noLike: "fa fa-2x fa-heart-o liked"
+  //   });
+  // };
+  toggleLeave = () => {
+    this.setState({
+      noLike: "fa fa-2x fa-heart-o not-liked"
+    });
+  };
+  toggleLiked = () => {
+    this.setState({
+      noLike: "fa fa-2x fa-heart liked"
+    });
+  };
+
   render() {
-    console.log(this.props);
+    console.log("props", this.props);
+    console.log("stae", this.state);
+    console.log("fav length", this.props.favorites.favorites.length);
     let { property } = this.props;
+    let test = this.props.favorites.favorites.find(
+      fav => fav.owner_post_id === this.props.property.id
+    );
+    console.log(test);
 
     return (
       <div>
@@ -63,7 +92,7 @@ class Property extends Component {
             <Link to="/properties">
               <button>Back to All Listings</button>
             </Link>
-            <button
+            {/* <button
               onClick={() =>
                 this.props.addFavorite(
                   property.image_url,
@@ -83,7 +112,39 @@ class Property extends Component {
               }
             >
               Add to Favorites
-            </button>
+            </button> */}
+            {/* Setting function to check for favorited listing...for render red/blank heart */}
+            {test ? (
+              <id id="like-button" className={this.state.liked} />
+            ) : (
+              <i
+                id="like-button"
+                // className="fa fa-2x fa-heart-o not-liked"
+                className={this.state.noLike}
+                // onMouseEnter={this.toggleHover}
+                // onMouseLeave={this.toggleLeave}
+                // onClick={this.toggleLiked}
+                onClick={() =>
+                  this.props
+                    .addFavorite(
+                      property.image_url,
+                      property.post_id,
+                      property.property_title,
+                      property.beds,
+                      property.baths,
+                      property.description,
+                      property.price,
+                      property.address,
+                      property.city,
+                      property.round,
+                      property.user_name,
+                      property.user_avatar,
+                      this.props.user.userid
+                    )
+                    .then(() => this.toggleLiked())
+                }
+              />
+            )}
             <h1 className="propertytitle">{property.property_title}</h1>
             <div>{property.address}</div>
             <div className="bedbath">
@@ -157,7 +218,6 @@ class Property extends Component {
             ) : (
               <AllReviews propertyReviews={this.props.review} />
             )}
-
             {this.props.review.length ? (
               <button onClick={this.toggleReviews}>
                 {!this.state.reviewsShow ? (
@@ -220,5 +280,5 @@ const mapStateToProps = ({ properties, user }) => ({ ...properties, ...user });
 
 export default connect(
   mapStateToProps,
-  { addFavorite }
+  { addFavorite, getFavorites }
 )(Property);

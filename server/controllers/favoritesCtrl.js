@@ -45,7 +45,15 @@ const getFavorites = (req, res) => {
     .catch(err => console.log(err));
 };
 
+const deleteFavorite = (req, res) => {
+  const { id } = req.params;
+  let db = req.app.get("db");
+  db.favorites.deleteFavorite(id);
+  res.sendStatus(200);
+};
+
 module.exports = {
   addFavorite,
-  getFavorites
+  getFavorites,
+  deleteFavorite
 };

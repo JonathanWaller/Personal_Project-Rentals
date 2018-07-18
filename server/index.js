@@ -28,7 +28,8 @@ const { getAvgRating } = require(`${__dirname}/controllers/ratingCtrl`);
 // const { addRating } = require(`${__dirname}/controllers/ratingCtrl`);
 const {
   addFavorite,
-  getFavorites
+  getFavorites,
+  deleteFavorite
 } = require(`${__dirname}/controllers/favoritesCtrl`);
 
 const app = express();
@@ -123,6 +124,7 @@ app.get("/api/rating", getAvgRating);
 //favorites
 app.post("/api/favorite", addFavorite);
 app.get("/api/favorites/:id", getFavorites);
+app.delete("/api/favorite/:id", deleteFavorite);
 
 //need for uploading from Firebase
 app.post("/api/addUploadImg", addUploadImage);

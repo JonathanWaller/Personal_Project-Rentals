@@ -76,75 +76,59 @@ class Property extends Component {
 
   render() {
     console.log("props", this.props);
-    console.log("stae", this.state);
-    console.log("fav length", this.props.favorites.favorites.length);
+    // console.log("stae", this.state);
+    // console.log("fav length", this.props.favorites.favorites.length);
     let { property } = this.props;
-    let test = this.props.favorites.favorites.find(
+    // checking the user's favorites to see if any match the current property
+    let likeCheck = this.props.favorites.favorites.find(
       fav => fav.owner_post_id === this.props.property.id
     );
-    console.log(test);
+    // console.log(test);
 
     return (
       <div>
         {this.state.propertyShow ? (
           <div className="propertymain">
-            <img src={property.image_url} id="propertyimg" alt="" />
+            <div className="imglike">
+              <img src={property.image_url} id="propertyimg" alt="" />
+              {/* Setting function to check for favorited listing...for render red/blank heart */}
+              {this.props.isAuthed ? (
+                <div>
+                  {/* reference likeCheck under render above */}
+                  {likeCheck ? (
+                    <i id="like-button" className={this.state.liked} />
+                  ) : (
+                    <i
+                      id="like-button"
+                      // className="fa fa-2x fa-heart-o not-liked"
+                      className={this.state.noLike}
+                      onClick={() =>
+                        this.props
+                          .addFavorite(
+                            property.image_url,
+                            property.post_id,
+                            property.property_title,
+                            property.beds,
+                            property.baths,
+                            property.description,
+                            property.price,
+                            property.address,
+                            property.city,
+                            property.round,
+                            property.user_name,
+                            property.user_avatar,
+                            this.props.user.userid
+                          )
+                          .then(() => this.toggleLiked())
+                      }
+                    />
+                  )}
+                </div>
+              ) : null}
+            </div>
             <Link to="/properties">
               <button>Back to All Listings</button>
             </Link>
-            {/* <button
-              onClick={() =>
-                this.props.addFavorite(
-                  property.image_url,
-                  property.post_id,
-                  property.property_title,
-                  property.beds,
-                  property.baths,
-                  property.description,
-                  property.price,
-                  property.address,
-                  property.city,
-                  property.round,
-                  property.user_name,
-                  property.user_avatar,
-                  this.props.user.userid
-                )
-              }
-            >
-              Add to Favorites
-            </button> */}
-            {/* Setting function to check for favorited listing...for render red/blank heart */}
-            {test ? (
-              <id id="like-button" className={this.state.liked} />
-            ) : (
-              <i
-                id="like-button"
-                // className="fa fa-2x fa-heart-o not-liked"
-                className={this.state.noLike}
-                // onMouseEnter={this.toggleHover}
-                // onMouseLeave={this.toggleLeave}
-                // onClick={this.toggleLiked}
-                onClick={() =>
-                  this.props
-                    .addFavorite(
-                      property.image_url,
-                      property.post_id,
-                      property.property_title,
-                      property.beds,
-                      property.baths,
-                      property.description,
-                      property.price,
-                      property.address,
-                      property.city,
-                      property.round,
-                      property.user_name,
-                      property.user_avatar,
-                      this.props.user.userid
-                    )
-                    .then(() => this.toggleLiked())
-                }
-              />
-            )}
             <h1 className="propertytitle">{property.property_title}</h1>
             <div>{property.address}</div>
             <div className="bedbath">

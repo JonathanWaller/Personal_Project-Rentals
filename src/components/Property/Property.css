@@ -12,6 +12,16 @@
   /* height: 100px; */
   width: 100vw;
   /* object-fit: cover; */
+  position: relative;
+  /* top: 0;
+  left: 0; */
+  z-index: 1;
+}
+#like-button {
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  z-index: 2;
 }
 
 #avatarimg {
@@ -49,7 +59,7 @@
 }
 
 #like-button.not-liked {
-  color: #000;
+  color: #ffffff;
 }
 
 #like-button.not-liked:hover {

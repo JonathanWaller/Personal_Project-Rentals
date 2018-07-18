@@ -61,7 +61,9 @@ passport.serializeUser((user, done) => {
   const db = app.get("db");
   db.getUserByAuthid([user.id])
     .then(response => {
+      console.log(response);
       if (!response[0]) {
+        console.log(response);
         db.addUserByAuthid([
           user.displayName,
           user.id,

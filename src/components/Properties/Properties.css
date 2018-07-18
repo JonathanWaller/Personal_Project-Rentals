@@ -7,10 +7,38 @@
   width: 90vw;
   margin: 45px auto;
   border: 0.5px solid lightgray;
+  position: relative;
 }
 
 #propertiesimg {
   height: 150px;
   width: 250px;
   background-color: lightgray;
+  position: relative;
+  z-index: 1;
+}
+
+#like-btn {
+  position: absolute;
+  top: 15px;
+  right: 50px;
+  z-index: 2;
+}
+
+/* heart like button */
+#like-btn:hover {
+  cursor: pointer;
+  color: #cd0928;
+}
+
+#like-btn.not-liked {
+  color: #ffffff;
+}
+
+#like-btn.not-liked:hover {
+  color: #cd0928;
+}
+
+#like-btn.liked {
+  color: #cd0928;
 }

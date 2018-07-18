@@ -48,19 +48,13 @@ class AddListing extends Component {
       .child(filename)
       .getDownloadURL()
       // .then(url => this.setState({ uploadImgURL: url }));
+      // .then(url => {
+      //   console.log(url);
+      //   this.setState({ firebaseImg: url });
       .then(url => {
-        console.log(url);
-        this.setState({ firebaseImg: url });
-        // axios.post("/api/addUploadImg", { url });
-      })
-      .then(() => {
         this.setState({
-          firebaseImg: this.state.firebaseImg.replace(
-            "/o/images%2F",
-            "/o/resized-"
-          )
+          firebaseImg: url.replace("/o/images%2F", "/o/resized-")
         });
-        // this.state.firebaseImg.replace("/o/images%2F", "'/o/resized-");
       });
   };
 
@@ -115,48 +109,6 @@ class AddListing extends Component {
     });
   };
 
-  // imageHandler = e => {
-  //   this.setState({
-  //     image: e.target.value
-  //   });
-  // };
-
-  // submitHandler = (
-  //   property_title,
-  //   address,
-  //   lat,
-  //   lng,
-  //   city,
-  //   beds,
-  //   baths,
-  //   description,
-  //   amen_1,
-  //   amen_2,
-  //   amen_3,
-  //   price,
-  //   firebaseImg,
-  //   user_id
-  // ) => {
-  //   axios
-  //     .post("api/property", {
-  //       property_title,
-  //       address,
-  //       lat,
-  //       lng,
-  //       city,
-  //       beds,
-  //       baths,
-  //       description,
-  //       amen_1,
-  //       amen_2,
-  //       amen_3,
-  //       price,
-  //       firebaseImg,
-  //       user_id
-  //     })
-  //     .then(() => this.props.history.replace("/properties"));
-  // };
-
   submitHandler = (
     property_title,
     address,
@@ -195,25 +147,6 @@ class AddListing extends Component {
       // })
       .then(() => this.props.history.replace("/properties"));
   };
-
-  // editHandler = id => {
-  //   axios
-  //     .put(`/api/property/${id}`, {
-  //       property_title: this.state.title,
-  //       property_location: this.state.location,
-  //       beds: this.state.beds,
-  //       baths: this.state.baths,
-  //       description: this.state.description,
-  //       amen_1: this.state.amen1,
-  //       amen_2: this.state.amen2,
-  //       amen_3: this.state.amen3,
-  //       price: this.state.rate,
-  //       firebaseImg: this.state.firebaseImg
-  //     })
-  //     .then(response => {
-  //       console.log(response);
-  //     });
-  // };
 
   render() {
     console.log(this.state);

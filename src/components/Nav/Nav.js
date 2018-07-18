@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import "./Nav.css";
 import Dehaze from "@material-ui/icons/Dehaze";
@@ -54,7 +54,11 @@ class Nav extends Component {
           <FullHead exitSliderHandler={this.exitSliderHandler} />
         )}
         {this.props.user.isAuthed ? (
-          <img src={this.props.user.user.user_avatar} className="userimg" />
+          <img
+            src={this.props.user.user.user_avatar}
+            className="userimg"
+            alt=""
+          />
         ) : null}
 
         {/* {this.state.hamShow ? (

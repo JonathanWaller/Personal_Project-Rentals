@@ -87,11 +87,13 @@ class Property extends Component {
 
     return (
       <div>
+        {/* either showing the property or the review input form */}
         {this.state.propertyShow ? (
           <div className="propertymain">
             <div className="imglike">
               <img src={property.image_url} id="propertyimg" alt="" />
               {/* Setting function to check for favorited listing...for render red/blank heart */}
+
               {this.props.isAuthed ? (
                 <div>
                   {/* reference likeCheck under render above */}
@@ -126,6 +128,7 @@ class Property extends Component {
                 </div>
               ) : null}
             </div>
+
             <Link to="/properties">
               <button>Back to All Listings</button>
             </Link>
@@ -149,13 +152,19 @@ class Property extends Component {
               Hosted by: {property.user_name}
               <img src={property.user_avatar} id="avatarimg" alt="" />
             </div>
-            <a
-              href={`mailto:${
-                this.props.property.user_email
-              }?subject=About your property at ${this.props.property.address}`}
-            >
-              <button>contact {property.user_name}</button>
-            </a>
+
+            {this.props.isAuthed ? (
+              <a
+                href={`mailto:${
+                  this.props.property.user_email
+                }?subject=About your property at ${
+                  this.props.property.address
+                }`}
+              >
+                <button>contact {property.user_name}</button>
+              </a>
+            ) : null}
+
             <div className="amenities">
               <ul id="amenitiestitle">Amenities:</ul>
               <li>{property.amen_1}</li>
@@ -178,6 +187,7 @@ class Property extends Component {
                 lng: +this.props.property.lng
               }}
             />
+
             <div>Reviews</div>
             {!this.state.reviewsShow ? (
               <div>
@@ -211,6 +221,37 @@ class Property extends Component {
                 )}
               </button>
             ) : null}
+
+            {/* {this.props.user.userid == this.props.property.user_id ? 
+              <div>
+                <button onClick={() => this.deleteHandler(property.id)}>
+                  Delete Listing
+                </button>
+                <button onClick={() => this.toggleEditView()}>
+                  Edit Listing
+                </button>
+                
+                
+                
+                {this.props.isAuthed ? (
+                  <button
+                    onClick={() => this.goToProperty(this.props.property.id)}
+                  >
+                    Add Review
+                  </button>
+                ) : (
+                  <div>
+                    <a href={process.env.REACT_APP_LOGIN}>
+                      <button>Login to add review</button>
+                    </a>
+                  </div>
+                )}
+
+
+
+              </div>
+             : null} */}
+
             {this.props.user.userid == this.props.property.user_id ? (
               <div>
                 <button onClick={() => this.deleteHandler(property.id)}>
@@ -219,6 +260,9 @@ class Property extends Component {
                 <button onClick={() => this.toggleEditView()}>
                   Edit Listing
                 </button>
+              </div>
+            ) : (
+              <div>
                 {this.props.isAuthed ? (
                   <button
                     onClick={() => this.goToProperty(this.props.property.id)}
@@ -233,7 +277,7 @@ class Property extends Component {
                   </div>
                 )}
               </div>
-            ) : null}
+            )}
           </div>
         ) : (
           <EditListing

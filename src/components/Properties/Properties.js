@@ -32,33 +32,25 @@ class Properties extends Component {
   }
 
   goToProperty = id => {
-    // console.log(this.props);
     this.props.history.push(`/property/${id}`);
-    // this.props.history.replace(`/property/${id}`);
   };
 
   cityHandler = e => {
     this.setState({ filterString: e.target.value });
   };
 
-  toggleLeave = () => {
-    this.setState({
-      noLike: "fa fa-2x fa-heart-o not-liked"
-    });
-  };
-  toggleLiked = () => {
-    this.setState({
-      noLike: "fa fa-1x fa-heart liked"
-    });
+  // re-renders page, to set the heart-fill to only be the property that was clicked
+  toggleLiked = async ind => {
+    await Promise.all([
+      this.props.getProperties(),
+      this.props.getReviews(),
+      this.props.getAvgRating(),
+      this.props.getFavorites(this.props.user.userid)
+    ]);
   };
 
   render() {
-    console.log(this.props);
-    // let likeCheck = this.props.favorites.filter(property, ind)=>{
-    //   return property.owner_post_id.includes()
-    // }
-    // console.log(this.props.properties[0] ? this.props.properties[0].round : null);
-    //^^^^^^^^^SHORT CIRCUIT EVALUATION ^^^^^^^^^
+    // console.log(this.props);
     //set up to use a search function to look for the city title. if nothing in search bar, will display all properties
     let searchDisplay = this.props.properties
       .filter((property, ind) => {
@@ -68,35 +60,12 @@ class Properties extends Component {
         );
       })
       .map((property, ind) => {
-        // console.log("logging each property", property);
+        // checking for properties that are in favorites table
         let likeCheck = this.props.favorites.find(
           fav => fav.owner_post_id === property.post_id
         );
-        // console.log("likeCheck", likeCheck);
         return (
           <div key={property.id}>
-            {/* <button onClick={() => this.handleFavorite(property)}> */}
-            {/* <button
-              onClick={() =>
-                this.props.addFavorite(
-                  property.image_url,
-                  property.post_id,
-                  property.property_title,
-                  property.beds,
-                  property.baths,
-                  property.description,
-                  property.price,
-                  property.address,
-                  property.city,
-                  property.round,
-                  property.user_name,
-                  property.user_avatar,
-                  this.props.user.userid
-                )
-              }
-            >
-              Add to Favorites
-            </button> */}
             <div className="propertieslist">
               <div className="propertyLike">
                 <img

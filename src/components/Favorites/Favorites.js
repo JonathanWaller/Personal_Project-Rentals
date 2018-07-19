@@ -19,7 +19,7 @@ class Favorites extends Component {
   };
 
   render() {
-    console.log(this.props);
+    console.log("favorites props", this.props);
     // console.log(this.props.properties);
     let favorites =
       this.props.favorites &&

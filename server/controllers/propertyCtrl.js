@@ -1,11 +1,22 @@
 const getAllProperties = (req, res) => {
-  req.app
-    .get("db")
-    .properties.getAllProperties()
-    .then(response => {
-      return res.status(200).json(response);
-    })
-    .catch(err => res.status(500).json(err));
+  {
+    console.log(req.query);
+    req.query.address
+      ? req.app
+          .get("db")
+          .properties.propertySearch([`%${req.query.address}%`])
+          .then(response => {
+            console.log(response);
+            return res.status(200).json(response);
+          })
+      : req.app
+          .get("db")
+          .properties.getAllProperties()
+          .then(response => {
+            return res.status(200).json(response);
+          })
+          .catch(err => res.status(500).json(err));
+  }
 };
 
 //using async / 'await' below in place of multiple .then statements

@@ -8,6 +8,7 @@ import AddListing from "./components/AddListing/AddListing";
 import Review from "./components/Review/Review";
 import Favorites from "./components/Favorites/Favorites";
 import About from "./components/About/About";
+import CircularProgress from "@material-ui/core/CircularProgress";
 // import EditListing from "./components/EditListing/EditListing";
 
 import { connect } from "react-redux";
@@ -63,7 +64,8 @@ export default (
             />
           );
         } else {
-          return "Loading";
+          // return "Loading";
+          return <CircularProgress />;
         }
       })}
     />

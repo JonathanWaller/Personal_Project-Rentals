@@ -1,27 +1,46 @@
 .homemain {
-  /* height: 75vh; */
   height: 95vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.homeimage {
-  /* background-image: url("http://imgs.abduzeedo.com/files/gismullr/beautifulhouses/bh245/chl01.jpg"); */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
   background-image: linear-gradient(
       to right bottom,
       rgba(217, 217, 217, 0.8),
       rgba(77, 77, 77, 0.8)
     ),
     url("http://dynamicpeople.club/wp-content/uploads/2018/03/lofts-in-san-francisco-collect-this-idea-architecture-beautiful-loft-bennett-lofts-san-francisco.jpg");
-  /* height: 45vh; */
+  background-size: cover;
+  background-position: top;
+  position: relative;
+}
+
+.header_text-box {
+  position: absolute;
+  top: 40%;
+  /* left: 50%; */
+  text-align: center;
+}
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-size: 40px;
+}
+
+/* .homeimage {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(217, 217, 217, 0.8),
+      rgba(77, 77, 77, 0.8)
+    ),
+    url("http://dynamicpeople.club/wp-content/uploads/2018/03/lofts-in-san-francisco-collect-this-idea-architecture-beautiful-loft-bennett-lofts-san-francisco.jpg");
   height: 95vh;
   width: 100vw;
-  background-size: cover;
-  /* background-position: center bottom; */
+  background-size: cover; */
+/* background-position: center bottom; */
 
-  /* background-position: 5% 10%; */
-}
+/* background-position: 5% 10%; */
+/* } */
 
 .enterbutton {
   font-size: 20px;

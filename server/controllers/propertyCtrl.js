@@ -1,6 +1,6 @@
 const getAllProperties = (req, res) => {
   {
-    console.log(req.query);
+    // console.log(req.query);
     req.query.address
       ? req.app
           .get("db")
@@ -17,6 +17,13 @@ const getAllProperties = (req, res) => {
           })
           .catch(err => res.status(500).json(err));
   }
+};
+
+const getProperty = (req, res) => {
+  let db = req.app.get("db");
+  db.properties
+    .getProperty([req.params.id])
+    .then(response => res.status(200).json(response));
 };
 
 //using async / 'await' below in place of multiple .then statements
@@ -125,5 +132,6 @@ module.exports = {
   deleteProperty,
   updateProperty,
   updateImage,
-  addUploadImage
+  addUploadImage,
+  getProperty
 };

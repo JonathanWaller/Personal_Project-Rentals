@@ -47,7 +47,6 @@ export default (
     />
     {/* <Route path="/editproperty" component={EditListing} /> */}
     <Route
-      exact
       path="/property/:id"
       // component={Property}
       component={connect(state => state)(props => {

@@ -24,7 +24,7 @@ class Property extends Component {
   }
 
   componentDidMount() {
-    this.props.getFavorites(this.props.user.userid);
+    this.props.user && this.props.getFavorites(this.props.user.userid);
   }
 
   deleteHandler = id => {
@@ -47,22 +47,9 @@ class Property extends Component {
     });
   };
 
-  // toggleAddReview = ()=>{
-  //   this.setState({
-  //     propertyShow: !this.state.propertyShow,
-  //     addReviewShow: !this.state.editShow
-  //   });
-  // }
-
   goToProperty = id => {
     this.props.history.push(`/addReview/${id}`);
   };
-
-  // toggleHover = () => {
-  //   this.setState({
-  //     noLike: "fa fa-2x fa-heart-o liked"
-  //   });
-  // };
   toggleLeave = () => {
     this.setState({
       noLike: "fa fa-2x fa-heart-o not-liked"
@@ -221,36 +208,6 @@ class Property extends Component {
                 )}
               </button>
             ) : null}
-
-            {/* {this.props.user.userid == this.props.property.user_id ? 
-              <div>
-                <button onClick={() => this.deleteHandler(property.id)}>
-                  Delete Listing
-                </button>
-                <button onClick={() => this.toggleEditView()}>
-                  Edit Listing
-                </button>
-                
-                
-                
-                {this.props.isAuthed ? (
-                  <button
-                    onClick={() => this.goToProperty(this.props.property.id)}
-                  >
-                    Add Review
-                  </button>
-                ) : (
-                  <div>
-                    <a href={process.env.REACT_APP_LOGIN}>
-                      <button>Login to add review</button>
-                    </a>
-                  </div>
-                )}
-
-
-
-              </div>
-             : null} */}
 
             {this.props.user.userid == this.props.property.user_id ? (
               <div>

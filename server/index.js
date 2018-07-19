@@ -16,7 +16,8 @@ const {
   addImage,
   deleteProperty,
   updateProperty,
-  addUploadImage
+  addUploadImage,
+  getProperty
 } = require(`${__dirname}/controllers/propertyCtrl`);
 
 const {
@@ -108,6 +109,7 @@ app.get("/logout", logout);
 
 //properties
 app.get("/api/properties", getAllProperties);
+// app.get("/api/property/:id", getProperty);
 app.post("/api/property", addProperty);
 // app.post("/api/image", addImage);
 app.delete("/api/property/:id", deleteProperty);

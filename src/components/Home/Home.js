@@ -6,42 +6,59 @@ import { getUser } from "../../ducks/userReducer";
 import Properties from "../Properties/Properties";
 import { getProperties } from "../../ducks/propertyReducer";
 import axios from "axios";
+import SingleProperty from "../Property/SingleProperty";
 // import Rating from "../Ratings/Rating";
 // import { Button } from "react-bootstrap";
 
 import "./Home.css";
 
 class Home extends Component {
-  constructor() {
-    super();
-    this.state = {
-      search: "",
-      searchProperties: []
-    };
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     search: "",
+  //     searchProperties: []
+  //   };
+  // }
   componentDidMount() {
     this.props.getUser();
     this.props.getProperties();
   }
 
-  handleSearchInput = e => {
-    this.setState({ search: e.target.value });
-  };
+  // handleSearchInput = e => {
+  //   this.setState({ search: e.target.value });
+  // };
 
-  handleSearchSubmit = () => {
-    axios.get(`/api/properties?address=${this.state.search}`).then(response => {
-      console.log(response);
-      this.setState({ searchProperties: response });
-    });
-  };
+  // handleSearchSubmit = () => {
+  //   axios.get(`/api/properties?address=${this.state.search}`).then(response => {
+  //     console.log(response);
+  //     this.setState({ searchProperties: response.data });
+  //   });
+  // };
 
   // handleSearchSubmit = () => {
   //   axios.get(`/api/properties?address=${this.state.search}`);
   // };
 
   render() {
-    console.log("home state", this.state);
-    console.log("home props", this.props);
+    // let searchProperties =
+    //   this.state.searchProperties &&
+    //   this.state.searchProperties.map((property, i) => {
+    //     return (
+    //       <div key={i}>
+    //         <SingleProperty
+    //           image={property.image_url}
+    //           title={property.property_title}
+    //           city={property.city}
+    //           baths={property.baths}
+    //           beds={property.beds}
+    //           rate={property.price}
+    //           id={property.id}
+    //         />
+    //       </div>
+    //     );
+    //   });
+
     return (
       // <div>
       //   <div>
@@ -68,14 +85,15 @@ class Home extends Component {
                 <Link to="/properties">
                   <button className="enterbutton">Enter</button>
                 </Link>
-                <input
+                {/* <input
                   onChange={e => this.handleSearchInput(e)}
                   placeholder="search city"
                 />
                 <button onClick={() => this.handleSearchSubmit()}>
                   Search
-                </button>
+                </button> */}
               </div>
+
               {/* <form
                 onSubmit={e => {
                   e.preventDefault();
@@ -91,6 +109,7 @@ class Home extends Component {
                 <button className="enterbutton">Enter</button>
               </Link> */}
             </header>
+            {/* {searchProperties} */}
           </div>
         ) : (
           <Properties />

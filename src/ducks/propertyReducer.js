@@ -2,6 +2,7 @@ import axios from "axios";
 
 // Constants
 const GET_PROPERTIES = "GET_PROPERTIES";
+const GET_PROPERTY = "GET_PROPERTY";
 // const GET_AVGRATING = "GET_AVGRATING";
 
 // Action Creator
@@ -9,6 +10,13 @@ export function getProperties() {
   return {
     type: GET_PROPERTIES,
     payload: axios.get("/api/properties")
+  };
+}
+
+export function getProperty(id) {
+  return {
+    type: GET_PROPERTY,
+    payload: axios.get(`/api/property/${id}`)
   };
 }
 
@@ -36,6 +44,17 @@ export default function propertyReducer(state = initialState, action) {
         isLoading: true
       };
     case `${GET_PROPERTIES}_FULFILLED`:
+      return {
+        ...state,
+        isLoading: false,
+        properties: action.payload.data
+      };
+    case `${GET_PROPERTY}_PENDING`:
+      return {
+        ...state,
+        isloading: true
+      };
+    case `${GET_PROPERTY}_FULFILLED`:
       return {
         ...state,
         isLoading: false,

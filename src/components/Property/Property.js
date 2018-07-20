@@ -70,9 +70,9 @@ class Property extends Component {
 
     return (
       <div>
-        <Link to={`/editproperty/${property.id}`}>
+        {/* <Link to={`/editproperty/${property.id}`}>
           <div>Edit Me Test</div>
-        </Link>
+        </Link> */}
         {/* either showing the property or the review input form */}
         {/* {this.state.propertyShow ? ( */}
         <div className="propertymain">
@@ -224,9 +224,10 @@ class Property extends Component {
 
                 <div>Delete Listing</div>
               </div>
-              <button onClick={() => this.toggleEditView()}>
-                Edit Listing
-              </button>
+              <Link to={`/editproperty/${property.id}`}>
+                <i className="fa fa-edit" />
+                <div>Edit Listing</div>
+              </Link>
             </div>
           ) : (
             <div>
@@ -246,7 +247,6 @@ class Property extends Component {
             </div>
           )}
         </div>
-        }
       </div>
     );
   }

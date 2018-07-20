@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { getUser } from "../../ducks/userReducer";
 import Properties from "../Properties/Properties";
 import { getProperties } from "../../ducks/propertyReducer";
+import { getReviews } from "../../ducks/reviewReducer";
 import axios from "axios";
 import SingleProperty from "../Property/SingleProperty";
 import Property from "../Property/Property";
@@ -32,10 +33,15 @@ class Home extends Component {
   };
 
   handleSearchSubmit = () => {
-    axios.get(`/api/properties?address=${this.state.search}`).then(response => {
-      console.log(response);
-      this.setState({ searchProperties: response.data });
-    });
+    axios
+      .get(`/api/properties?address=${this.state.search}`)
+      .then(response => {
+        // console.log(response);
+        this.setState({ searchProperties: response.data });
+      })
+      .then(() => {
+        this.props.getReviews();
+      });
   };
 
   // handleSearchSubmit = () => {
@@ -90,13 +96,15 @@ class Home extends Component {
                 <Link to="/properties">
                   <span className="enterbutton">Enter</span>
                 </Link>
-                <input
-                  onChange={e => this.handleSearchInput(e)}
-                  placeholder="search city"
-                />
-                <button onClick={() => this.handleSearchSubmit()}>
+                <form onSubmit={() => this.handleSearchSubmit()}>
+                  <input
+                    onChange={e => this.handleSearchInput(e)}
+                    placeholder="search city"
+                  />
+                </form>
+                {/* <button onClick={() => this.handleSearchSubmit()}>
                   Search
-                </button>
+                </button> */}
               </div>
 
               {/* <form
@@ -129,5 +137,5 @@ const mapStateToProps = ({ user, properties }) => ({ ...user, ...properties });
 
 export default connect(
   mapStateToProps,
-  { getUser, getProperties }
+  { getUser, getProperties, getReviews }
 )(Home);

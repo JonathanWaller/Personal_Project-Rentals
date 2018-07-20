@@ -13,23 +13,31 @@ class EditListing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: this.props.title,
-      // location: this.props.myLocation,
-      // city: this.props.city,
-      beds: this.props.beds,
-      baths: this.props.baths,
-      description: this.props.desc,
-      amen1: this.props.amen1,
-      amen2: this.props.amen2,
-      amen3: this.props.amen3,
-      rate: this.props.price,
-      image: "",
-      firebaseImg: this.props.myImage,
+      // title: this.props.title,
+      // beds: this.props.beds,
+      // baths: this.props.baths,
+      // description: this.props.desc,
+      // amen1: this.props.amen1,
+      // amen2: this.props.amen2,
+      // amen3: this.props.amen3,
+      // rate: this.props.price,
+      // firebaseImg: this.props.myImage,
+      title: this.props.property.property_title,
+      beds: this.props.property.beds,
+      baths: this.props.property.baths,
+      description: this.props.property.description,
+      amen1: this.props.property.amen_1,
+      amen2: this.props.property.amen_2,
+      amen3: this.props.property.amen_3,
+      rate: this.props.property.price,
+      firebaseImg: this.props.property.image_url,
+
       uploadImg: "",
       isUploading: false,
       progress: 0,
       uploadImgURL: "",
       titleflag: true
+      // image: "",
     };
   }
 
@@ -60,7 +68,6 @@ class EditListing extends Component {
             "/o/resized-"
           )
         });
-        // this.state.firebaseImg.replace("/o/images%2F", "'/o/resized-");
       });
   };
 
@@ -69,11 +76,6 @@ class EditListing extends Component {
       title: e.target.value
     });
   };
-  // locationHandler = e => {
-  //   this.setState({
-  //     location: e.target.value
-  //   });
-  // };
   bedsHandler = e => {
     this.setState({
       beds: e.target.value
@@ -114,39 +116,11 @@ class EditListing extends Component {
     });
   };
 
-  imageHandler = e => {
-    this.setState({
-      image: e.target.value
-    });
-  };
-
-  submitHandler = () => (
-    property_title,
-    // property_location,
-    beds,
-    baths,
-    description,
-    amen_1,
-    amen_2,
-    amen_3,
-    price,
-    firebaseImg,
-    user_id
-  ) => {
-    axios.post("api/property", {
-      property_title,
-      // property_location,
-      beds,
-      baths,
-      description,
-      amen_1,
-      amen_2,
-      amen_3,
-      price,
-      firebaseImg,
-      user_id
-    });
-  };
+  // imageHandler = e => {
+  //   this.setState({
+  //     image: e.target.value
+  //   });
+  // };
 
   editHandler = id => {
     axios
@@ -196,20 +170,11 @@ class EditListing extends Component {
         </div>
         <img src={this.state.firebaseImg} className="uploadimg" alt="" />
         <div>Title:</div>
-        {/* <button>Edit</button> */}
         <input
           value={this.state.title}
           onChange={e => this.titleHandler(e)}
           placeholder="Enter Title"
         />
-        {/* <div>Location:</div>
-        <input
-          value={this.state.location}
-          onChange={e => {
-            this.locationHandler(e);
-          }}
-          placeholder="enter address here"
-        /> */}
         <div>Beds: {this.state.beds}</div>
         <input
           value={this.state.beds}
@@ -253,29 +218,9 @@ class EditListing extends Component {
           onChange={e => this.rateHandler(e)}
           placeholder="Enter price"
         />
-        {/* <button
-          onClick={() =>
-            this.submitHandler(
-              this.state.title,
-              this.state.location,
-              this.state.beds,
-              this.state.baths,
-              this.state.description,
-              this.state.amen1,
-              this.state.amen2,
-              this.state.amen3,
-              this.state.rate,
-              this.state.firebaseImg,
-              this.props.user.id
-            )
-          }
-        >
-          Submit Details
-        </button> */}
-        <button onClick={() => this.editHandler(this.props.id)}>
+        <button onClick={() => this.editHandler(this.props.property.post_id)}>
           Submit Edit
         </button>
-        {/* <button onClick={() => this.props.toggleView()}>Cancel</button> */}
         <Link to="/properties">
           <button>Cancel</button>
         </Link>

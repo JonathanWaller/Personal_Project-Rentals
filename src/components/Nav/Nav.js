@@ -49,7 +49,7 @@ class Nav extends Component {
         )}
 
         <div className="nav-right">
-          <div class="full-nav-links">
+          <div className="full-nav-links">
             {/* <div className="nav_links"> */}
             <Link to="/">Home</Link>
             {this.props.user.isAuthed ? (

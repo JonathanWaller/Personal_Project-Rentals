@@ -9,14 +9,14 @@ import Review from "./components/Review/Review";
 import Favorites from "./components/Favorites/Favorites";
 import About from "./components/About/About";
 import CircularProgress from "@material-ui/core/CircularProgress";
-// import EditListing from "./components/EditListing/EditListing";
+import EditListing from "./components/EditListing/EditListing";
 
 import { connect } from "react-redux";
 
 export default (
   <Switch>
     <Route exact path="/" component={Home} />
-    <Route path="/login" component={Login} />
+    {/* <Route path="/login" component={Login} /> */}
     <Route path="/properties" component={Properties} />
     <Route path="/addproperty" component={AddListing} />
     {/* <Route path="/addreview/:id" component={Review} /> */}
@@ -27,12 +27,6 @@ export default (
         //
         if (props.properties.properties.length) {
           return (
-            // <Review
-            //   reviewProperty={props.property.property.find(
-            //     p => p.id === +props.match.params.id
-            //   )}
-            //   {...props}
-            // />
             <Review
               property={props.properties.properties.find(
                 p => p.id === +props.match.params.id
@@ -45,7 +39,26 @@ export default (
         }
       })}
     />
-    {/* <Route path="/editproperty" component={EditListing} /> */}
+    {/* <Route path="/editproperty/:id" component={EditListing} /> */}
+
+    <Route
+      path="/editproperty/:id"
+      component={connect(state => state)(props => {
+        if (props.properties.properties.length) {
+          return (
+            <EditListing
+              property={props.properties.properties.find(
+                p => p.id === +props.match.params.id
+              )}
+              {...props}
+            />
+          );
+        } else {
+          return <CircularProgress />;
+        }
+      })}
+    />
+
     <Route
       path="/property/:id"
       // component={Property}
@@ -63,17 +76,11 @@ export default (
             />
           );
         } else {
-          // return "Loading";
           return <CircularProgress />;
         }
       })}
     />
-    {/* <Route path="/favorites" component={Favorites} /> */}
     <Route path="/favorites/:id" component={Favorites} />
-    {/* <Route
-      path={`/favorites/${this.props && this.props.user.userid}`}
-      component={Favorites}
-    /> */}
     <Route path="/about" component={About} />
     <Route path="*" render={() => <div>FourOhFour</div>} />
   </Switch>

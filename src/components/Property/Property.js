@@ -15,7 +15,6 @@ class Property extends Component {
   constructor() {
     super();
     this.state = {
-      propertyShow: true,
       editShow: false,
       reviewsShow: false,
       noLike: "fa fa-2x fa-heart-o not-liked",
@@ -33,12 +32,12 @@ class Property extends Component {
       .then(() => this.props.history.replace("/properties"));
   };
 
-  toggleEditView = () => {
-    this.setState({
-      propertyShow: !this.state.propertyShow,
-      editShow: !this.state.editShow
-    });
-  };
+  // toggleEditView = () => {
+  //   this.setState({
+  //     propertyShow: !this.state.propertyShow,
+  //     editShow: !this.state.editShow
+  //   });
+  // };
 
   toggleReviews = () => {
     this.setState({
@@ -49,11 +48,11 @@ class Property extends Component {
   goToProperty = id => {
     this.props.history.push(`/addReview/${id}`);
   };
-  toggleLeave = () => {
-    this.setState({
-      noLike: "fa fa-2x fa-heart-o not-liked"
-    });
-  };
+  // toggleLeave = () => {
+  //   this.setState({
+  //     noLike: "fa fa-2x fa-heart-o not-liked"
+  //   });
+  // };
   toggleLiked = () => {
     this.setState({
       noLike: "fa fa-2x fa-heart liked"
@@ -70,11 +69,6 @@ class Property extends Component {
 
     return (
       <div>
-        {/* <Link to={`/editproperty/${property.id}`}>
-          <div>Edit Me Test</div>
-        </Link> */}
-        {/* either showing the property or the review input form */}
-        {/* {this.state.propertyShow ? ( */}
         <div className="propertymain">
           <div className="imglike">
             <img src={property.image_url} id="propertyimg" alt="" />

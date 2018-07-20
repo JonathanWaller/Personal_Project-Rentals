@@ -8,20 +8,12 @@ import firebase from "../Firebase";
 import FileUploader from "react-firebase-file-uploader";
 
 import { getUser } from "../../ducks/userReducer";
+import { getProperties } from "../../ducks/propertyReducer";
 
 class EditListing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // title: this.props.title,
-      // beds: this.props.beds,
-      // baths: this.props.baths,
-      // description: this.props.desc,
-      // amen1: this.props.amen1,
-      // amen2: this.props.amen2,
-      // amen3: this.props.amen3,
-      // rate: this.props.price,
-      // firebaseImg: this.props.myImage,
       title: this.props.property.property_title,
       beds: this.props.property.beds,
       baths: this.props.property.baths,
@@ -31,7 +23,6 @@ class EditListing extends Component {
       amen3: this.props.property.amen_3,
       rate: this.props.property.price,
       firebaseImg: this.props.property.image_url,
-
       uploadImg: "",
       isUploading: false,
       progress: 0,
@@ -122,9 +113,9 @@ class EditListing extends Component {
   //   });
   // };
 
-  editHandler = id => {
-    axios
-      .put(`/api/property/${id}`, {
+  editHandler = async id => {
+    await Promise.all([
+      axios.put(`/api/property/${id}`, {
         property_title: this.state.title,
         // property_location: this.state.location,
         beds: this.state.beds,
@@ -136,13 +127,15 @@ class EditListing extends Component {
         price: this.state.rate,
         // firebaseImg: this.state.firebaseImg
         image_url: this.state.firebaseImg
-      })
-      .then(() => this.props.history.replace("/properties"));
-    // .then(() => this.props.history.replace(`/property/${this.props.id}`));
+      }),
+      this.props.getProperties(),
+      this.props.history.replace(`/property/${this.props.property.id}`)
+    ]);
   };
 
   render(props) {
     console.log("this is props", this.props);
+    let { property } = this.props;
     return (
       <div className="addlistingmain">
         <h1>
@@ -221,7 +214,8 @@ class EditListing extends Component {
         <button onClick={() => this.editHandler(this.props.property.post_id)}>
           Submit Edit
         </button>
-        <Link to="/properties">
+        {/* <Link to="/properties"> */}
+        <Link to={`/property/${property.id}`}>
           <button>Cancel</button>
         </Link>
       </div>
@@ -234,6 +228,6 @@ const mapStateToProps = ({ user, properties }) => ({ ...user, ...properties });
 export default withRouter(
   connect(
     mapStateToProps,
-    { getUser }
+    { getUser, getProperties }
   )(EditListing)
 );

@@ -6,6 +6,8 @@ const { json } = require("body-parser");
 const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
+const PORT = process.env.PORT || 3001;
+const path = require("path");
 
 // bringing in controllers
 const { strat, logout } = require(`${__dirname}/controllers/authCtrl`);
@@ -41,6 +43,7 @@ massive(process.env.CONNECTION_STRING).then(dbInstance => {
 
 app.use(json());
 app.use(cors());
+app.use(express.static(`${__dirname}/../build`));
 
 app.use(
   session({
@@ -85,8 +88,10 @@ app.get(
   "/login",
   passport.authenticate("auth0", {
     successRedirect: "http://localhost:3000/#/",
+    successRedirect: "http://localhost:3000/#/",
     // successRedirect: "/api/me",
     failureRedirect: "/login"
+    // successRedirect: "/"
   })
 );
 
@@ -131,5 +136,9 @@ app.delete("/api/favorite/:id", deleteFavorite);
 //need for uploading from Firebase
 app.post("/api/addUploadImg", addUploadImage);
 
-const PORT = process.env.PORT || 3001;
+// for build
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
+
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

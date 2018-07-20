@@ -8,7 +8,7 @@ import AllReviews from "../Review/AllReviews";
 import Moment from "react-moment";
 import StarRatings from "react-star-ratings";
 import { addFavorite, getFavorites } from "../../ducks/favoritesReducer";
-
+import FontAwesome from "react-fontawesome";
 import "./Property.css";
 
 class Property extends Component {
@@ -62,6 +62,7 @@ class Property extends Component {
   };
 
   render() {
+    // const FontAwesome = require("react-fontawesome");
     console.log("props", this.props);
     // console.log("stae", this.state);
     // console.log("fav length", this.props.favorites.favorites.length);
@@ -119,19 +120,31 @@ class Property extends Component {
             <Link to="/properties">
               <button>Back to All Listings</button>
             </Link>
+
             <h1 className="propertytitle">{property.property_title}</h1>
             <div>{property.address}</div>
             <div className="bedbath">
+              {/* <i className="fa fa-trash" />
+              <i className="fa fa-pencil" /> */}
+              {/* <i class="fa fa-bed" /> */}
               {property.beds === 1 ? (
-                <div>{property.beds} bed </div>
+                <div>
+                  <i className="fa fa-bed" /> {property.beds} bed{" "}
+                </div>
               ) : (
-                <div>{property.beds} beds </div>
+                <div>
+                  <i className="fa fa-bed" /> {property.beds} beds{" "}
+                </div>
               )}
               <br />
               {+property.baths === 1 ? (
-                <div>{property.baths} bath </div>
+                <div>
+                  <i className="fa fa-bath" /> {property.baths} bath{" "}
+                </div>
               ) : (
-                <div>{property.baths} baths </div>
+                <div>
+                  <i class="fa fa-bath" /> {property.baths} baths{" "}
+                </div>
               )}
             </div>
             <div>{property.description}</div>
@@ -185,8 +198,9 @@ class Property extends Component {
                     <div>
                       <Moment fromNow>{this.props.review[0].moment}</Moment>
                       <img
-                        width="30"
-                        height="30"
+                        id="avatarimg"
+                        // width="30"
+                        // height="30"
                         src={this.props.review[0].user_avatar}
                         alt=""
                       />
@@ -211,9 +225,14 @@ class Property extends Component {
 
             {this.props.user.userid == this.props.property.user_id ? (
               <div>
-                <button onClick={() => this.deleteHandler(property.id)}>
-                  Delete Listing
-                </button>
+                <div
+                  className="delete_btn"
+                  onClick={() => this.deleteHandler(property.id)}
+                >
+                  <i className="fa fa-trash" />
+
+                  <div>Delete Listing</div>
+                </div>
                 <button onClick={() => this.toggleEditView()}>
                   Edit Listing
                 </button>

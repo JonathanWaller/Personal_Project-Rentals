@@ -4,4 +4,6 @@ import "./index.css";
 import App from "./App";
 // import Bootstrap from "bootstrap/dist/css/bootstrap.css";
 
+import "../node_modules/font-awesome/css/font-awesome.min.css";
+
 ReactDOM.render(<App />, document.getElementById("root"));

@@ -83,7 +83,7 @@ class Home extends Component {
                 </h1>
                 {/* <div>Search Cities</div> */}
                 <Link to="/properties">
-                  <button className="enterbutton">Enter</button>
+                  <span className="enterbutton">Enter</span>
                 </Link>
                 {/* <input
                   onChange={e => this.handleSearchInput(e)}

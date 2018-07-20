@@ -1,17 +1,24 @@
 .homemain {
-  height: 95vh;
-  /* display: flex; */
+  height: 88vh;
+  display: flex;
+
   /* flex-direction: column; */
-  /* justify-content: space-between; */
+  justify-content: center;
   background-image: linear-gradient(
       to right bottom,
       rgba(217, 217, 217, 0.8),
       rgba(77, 77, 77, 0.8)
     ),
-    url("http://dynamicpeople.club/wp-content/uploads/2018/03/lofts-in-san-francisco-collect-this-idea-architecture-beautiful-loft-bennett-lofts-san-francisco.jpg");
+    /* url("../../images/Dry home.jpeg"); */
+      /* url("../../images/skyline.jpg"); */
+      /* url("../../images/Luxury.jpg"); */
+      /* url("../../images/mtn view.jpg"); */ url("../../images/test222.jpg");
+  /* url("http://dynamicpeople.club/wp-content/uploads/2018/03/lofts-in-san-francisco-collect-this-idea-architecture-beautiful-loft-bennett-lofts-san-francisco.jpg"); */
   background-size: cover;
   background-position: top;
   position: relative;
+  margin: 0 40px 40px 40px;
+  /* margin: 2vh 8vw 15vh 15vw; */
 }
 
 .header_text-box {
@@ -19,6 +26,7 @@
   top: 40%;
   /* left: 50%; */
   text-align: center;
+  /* color: #fff; */
 }
 .heading-primary {
   color: #fff;
@@ -44,4 +52,5 @@
 
 .enterbutton {
   font-size: 20px;
+  color: #fff;
 }

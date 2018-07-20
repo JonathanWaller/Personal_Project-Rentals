@@ -26,6 +26,7 @@ class FullHead extends Component {
             </div>
           ) : null}
           <Link to="/properties">Listings</Link>
+          <Link to="/about">About</Link>
           {!this.props.user.isAuthed ? (
             <a href={process.env.REACT_APP_LOGIN}>
               <div>Login</div>
@@ -33,7 +34,6 @@ class FullHead extends Component {
           ) : (
             <a href={process.env.REACT_APP_LOGOUT}>Logout</a>
           )}
-          <Link to="/about">About</Link>
         </div>
       </div>
     );

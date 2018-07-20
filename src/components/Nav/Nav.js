@@ -5,6 +5,7 @@ import "./Nav.css";
 import Dehaze from "@material-ui/icons/Dehaze";
 import Ham from "./Ham/Ham";
 import FullHead from "./FullHead/FullHead";
+import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 
@@ -38,13 +39,6 @@ class Nav extends Component {
     // console.log(this.props);
     return (
       <div className="navmain">
-        {!this.props.user.isAuthed ? (
-          <a href={process.env.REACT_APP_LOGIN}>
-            <div>Login</div>
-          </a>
-        ) : (
-          <a href={process.env.REACT_APP_LOGOUT}>Logout</a>
-        )}
         {this.state.hamShow ? (
           <div>
             <Ham handleClick={this.handleClick} />
@@ -53,13 +47,47 @@ class Nav extends Component {
         ) : (
           <FullHead exitSliderHandler={this.exitSliderHandler} />
         )}
-        {this.props.user.isAuthed ? (
-          <img
-            src={this.props.user.user.user_avatar}
-            className="userimg"
-            alt=""
-          />
-        ) : null}
+
+        <div className="nav-right">
+          <div class="full-nav-links">
+            {/* <div className="nav_links"> */}
+            <Link to="/">Home</Link>
+            {this.props.user.isAuthed ? (
+              <div
+                onClick={() => this.goToFavorites(this.props.user.user.userid)}
+              >
+                Favorites
+              </div>
+            ) : null}
+            <Link to="/properties">Listings</Link>
+            <Link to="/about">About</Link>
+            {/* {!this.props.user.isAuthed ? (
+                <a href={process.env.REACT_APP_LOGIN}>
+                  <div>Login</div>
+                </a>
+              ) : (
+                <a href={process.env.REACT_APP_LOGOUT}>Logout</a>
+              )} */}
+            {/* </div> */}
+          </div>
+          {!this.props.user.isAuthed ? (
+            <div>
+              <a href={process.env.REACT_APP_LOGIN}>
+                <div>Login</div>
+              </a>
+            </div>
+          ) : (
+            <a href={process.env.REACT_APP_LOGOUT}>Logout</a>
+          )}
+
+          {this.props.user.isAuthed ? (
+            <img
+              src={this.props.user.user.user_avatar}
+              className="userimg"
+              alt=""
+            />
+          ) : null}
+        </div>
 
         {/* {this.state.hamShow ? (
           <Dehaze

@@ -1,0 +1,14 @@
+/* .single-card {
+  display: flex;
+  flex-direction: row;
+
+} */
+.singleimg {
+  width: 175px;
+}
+
+.singlecard {
+  /* display: flex;
+  flex-direction: column; */
+  width: 200px;
+}

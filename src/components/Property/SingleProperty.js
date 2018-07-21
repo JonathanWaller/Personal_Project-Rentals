@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import StarRatings from "react-star-ratings";
+import "./SingleProperty.css";
 
 import { getProperty } from "../../ducks/propertyReducer";
 
@@ -18,16 +20,22 @@ class SingleProperty extends Component {
   render(props) {
     console.log("singleProp props", this.props);
     return (
-      // <div onClick={this.goToProperty(this.props.id)}>
-      <div onClick={() => this.goToProperty(this.props.id)}>
-        <div>
-          <img src={this.props.image} />
-          <div>{this.props.title}</div>
-          <div>Baths: {this.props.baths}</div>
-          <div>Beds: {this.props.beds}</div>
-          <div>Rate: ${this.props.rate} </div>
-        </div>
-        //{" "}
+      <div
+        className="singlecard"
+        onClick={() => this.goToProperty(this.props.id)}
+      >
+        <img className="singleimg" src={this.props.image} />
+        <div>{this.props.city}</div>
+        <div>{this.props.title}</div>
+        {/* <div>Baths: {this.props.baths}</div>
+          <div>Beds: {this.props.beds}</div> */}
+        <div>${this.props.rate} per night </div>
+        <StarRatings
+          rating={+this.props.round}
+          starRatedColor="navy"
+          numberOfStars={5}
+          starDimension="16px"
+        />
       </div>
     );
   }

@@ -99,9 +99,7 @@ authenticated = (req, res, next) => {
   if (req.user) {
     next();
   } else {
-    res.status(403).json({
-      message: "Not Logged In"
-    });
+    res.sendStatus(403);
   }
 };
 

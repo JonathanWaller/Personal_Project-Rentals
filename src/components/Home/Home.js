@@ -9,6 +9,9 @@ import { getReviews } from "../../ducks/reviewReducer";
 import axios from "axios";
 import SingleProperty from "../Property/SingleProperty";
 import Property from "../Property/Property";
+import FontAwesome from "react-fontawesome";
+import TextField from "@material-ui/core/TextField";
+import StarRatings from "react-star-ratings";
 // import StarRatings from 'react-star-ratings'
 // import Rating from "../Ratings/Rating";
 // import { Button } from "react-bootstrap";
@@ -20,7 +23,8 @@ class Home extends Component {
     super();
     this.state = {
       search: "",
-      searchProperties: []
+      searchProperties: [],
+      searchTermDisplay: false
     };
   }
   componentDidMount() {
@@ -41,12 +45,11 @@ class Home extends Component {
       })
       .then(() => {
         this.props.getReviews();
+      })
+      .then(() => {
+        this.setState({ searchTermDisplay: true });
       });
   };
-
-  // handleSearchSubmit = () => {
-  //   axios.get(`/api/properties?address=${this.state.search}`);
-  // };
 
   render() {
     console.log("home props", this.props);
@@ -64,6 +67,7 @@ class Home extends Component {
               beds={property.beds}
               rate={property.price}
               id={property.id}
+              round={property.round}
             />
             {/* <Properties /> */}
           </div>
@@ -71,62 +75,40 @@ class Home extends Component {
       });
 
     return (
-      // <div>
-      //   <div>
-      //     {/* <p>Not Logged In</p> */}
-      //     <div className="homemain">
-      //       <img className="homeimage" alt="" />
-      //       <Link to="/properties">
-      //         <button className="enterbutton">Enter</button>
-      //       </Link>
-      //     </div>
-      //   </div>
-      // </div>
-
       <div>
         {!this.props.isAuthed ? (
-          <div>
+          <div className="home-all">
             <header className="homemain">
               {/* <img className="homeimage" alt="" /> */}
               <div className="header_text-box">
                 <h1 className="heading-primary">
                   <span className="heading-primary---main">Welcome Home</span>
                 </h1>
-                {/* <div>Search Cities</div> */}
                 <Link to="/properties">
+                  {/* <div className="enter_box"> */}
                   <span className="enterbutton">Enter</span>
+                  {/* </div> */}
                 </Link>
-                <form onSubmit={() => this.handleSearchSubmit()}>
+                <form
+                  className="search"
+                  onSubmit={() => this.handleSearchSubmit()}
+                >
+                  <span className="fa fa-search" id="my_search" />
                   <input
+                    className="search-term"
                     onChange={e => this.handleSearchInput(e)}
-                    placeholder="search city"
+                    placeholder="Try &quot;Dallas&quot; or &quot;CA&quot;"
                   />
                 </form>
-                {/* <button onClick={() => this.handleSearchSubmit()}>
-                  Search
-                </button> */}
               </div>
-
-              {/* <form
-                onSubmit={e => {
-                  e.preventDefault();
-                  this.props.history.push(`/properties?q=${this.state.search}`);
-                }}
-              >
-                <input
-                  onChange={e => this.setState({ search: e.target.value })}
-                />
-              </form> */}
-
-              {/* <Link to="/properties">
-                <button className="enterbutton">Enter</button>
-              </Link> */}
             </header>
+            {this.state.searchTermDisplay ? (
+              <h1>Search term: "{this.state.search}"</h1>
+            ) : null}
             {searchProperties}
           </div>
         ) : (
           <Properties />
-          // <p>{JSON.stringify(this.props.user)}</p>
         )}
       </div>
     );

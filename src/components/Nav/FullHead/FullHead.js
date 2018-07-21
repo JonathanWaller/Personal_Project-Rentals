@@ -20,6 +20,7 @@ class FullHead extends Component {
           <Link to="/">Home</Link>
           {this.props.user.isAuthed ? (
             <div
+              className="favorites_link"
               onClick={() => this.goToFavorites(this.props.user.user.userid)}
             >
               Favorites

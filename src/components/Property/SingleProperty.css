@@ -3,12 +3,25 @@
   flex-direction: row;
 
 } */
+.whole_card {
+  margin: 10px 0;
+  display: flex;
+}
+
 .singleimg {
-  width: 175px;
+  width: 142px;
+  height: 94px;
 }
 
 .singlecard {
-  /* display: flex;
-  flex-direction: column; */
-  width: 200px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  width: 142px;
+}
+
+.ratings_main {
+  display: flex;
+}
+.single_count {
+  margin-left: 10px;
 }

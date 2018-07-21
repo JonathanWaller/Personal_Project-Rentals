@@ -50,7 +50,7 @@ class Properties extends Component {
   };
 
   render() {
-    // console.log(this.props);
+    console.log(this.props);
     //set up to use a search function to look for the city title. if nothing in search bar, will display all properties
     let searchDisplay = this.props.properties
       .filter((property, ind) => {

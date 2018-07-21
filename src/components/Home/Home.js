@@ -52,11 +52,12 @@ class Home extends Component {
   };
 
   render() {
-    console.log("home props", this.props);
+    // console.log("home props", this.props);
+    console.log("home state", this.state);
     let searchProperties =
       this.state.searchProperties &&
       this.state.searchProperties.map((property, i) => {
-        console.log(property);
+        // console.log(property);
         return (
           <div key={i}>
             <SingleProperty
@@ -68,6 +69,7 @@ class Home extends Component {
               rate={property.price}
               id={property.id}
               round={property.round}
+              count={property.count}
             />
             {/* <Properties /> */}
           </div>
@@ -103,9 +105,11 @@ class Home extends Component {
               </div>
             </header>
             {this.state.searchTermDisplay ? (
-              <h1>Search term: "{this.state.search}"</h1>
+              <div className="search_results_text">
+                Search results: "{this.state.search}"
+              </div>
             ) : null}
-            {searchProperties}
+            <div className="searchproperty">{searchProperties}</div>
           </div>
         ) : (
           <Properties />

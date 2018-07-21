@@ -1,12 +1,12 @@
 const getAllProperties = (req, res) => {
   {
-    // console.log(req.query);
+    console.log("req.query", req.query);
     req.query.address
       ? req.app
           .get("db")
           .properties.propertySearch([`%${req.query.address}%`])
           .then(response => {
-            console.log(response);
+            console.log("response", response);
             return res.status(200).json(response);
           })
       : req.app
@@ -28,7 +28,7 @@ const getProperty = (req, res) => {
 
 //using async / 'await' below in place of multiple .then statements
 const addProperty = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const {
     property_title,
     address,

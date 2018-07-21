@@ -1,23 +1,19 @@
 .home-all {
-  /* margin: 40px; */
-  margin: 0 40px 40px 40px;
+  margin: 0 20px 20px 20px;
+  /* for larger screens */
+  /* margin: 0 40px 40px 40px; */
 }
 .homemain {
-  height: 88vh;
+  height: 91vh;
   display: flex;
-  /* flex-direction: column; */
-  /* flex-direction: column; */
   justify-content: center;
   background-image: linear-gradient(
       to right bottom,
       rgba(217, 217, 217, 0.8),
       rgba(77, 77, 77, 0.8)
     ),
-    /* url("../../images/Dry home.jpeg"); */
-      /* url("../../images/skyline.jpg"); */
-      /* url("../../images/Luxury.jpg"); */
-      /* url("../../images/mtn view.jpg"); */ url("../../images/test222.jpg");
-  /* url("http://dynamicpeople.club/wp-content/uploads/2018/03/lofts-in-san-francisco-collect-this-idea-architecture-beautiful-loft-bennett-lofts-san-francisco.jpg"); */
+    url("../../images/test222.jpg");
+
   background-size: cover;
   background-position: top;
   position: relative;
@@ -27,8 +23,10 @@
 
 .header_text-box {
   position: absolute;
+  top: 30%;
+  /* larger screens 
   top: 40%;
-  /* left: 50%; */
+  */
   text-align: center;
   /* color: #fff; */
 }
@@ -36,23 +34,8 @@
   color: #fff;
   text-transform: uppercase;
   margin-bottom: 20px;
-  font-size: 40px;
+  font-size: 30px;
 }
-
-/* .homeimage {
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(217, 217, 217, 0.8),
-      rgba(77, 77, 77, 0.8)
-    ),
-    url("http://dynamicpeople.club/wp-content/uploads/2018/03/lofts-in-san-francisco-collect-this-idea-architecture-beautiful-loft-bennett-lofts-san-francisco.jpg");
-  height: 95vh;
-  width: 100vw;
-  background-size: cover; */
-/* background-position: center bottom; */
-
-/* background-position: 5% 10%; */
-/* } */
 
 .enterbutton {
   font-size: 30px;
@@ -62,14 +45,13 @@
   /* margin-bottom: 20px; */
   /* font-style: italic; */
 }
-.enter_box {
-  /* border: 1px solid red; */
+/* .enter_box {
   border: none;
   width: 150px;
   border-radius: 100px;
   background-color: rgb(179, 179, 179);
   box-shadow: 0 8px 6px -3px black;
-}
+} */
 
 .search {
   position: relative;
@@ -77,15 +59,20 @@
 }
 
 .search input {
-  text-indent: 30px;
+  text-indent: 20px;
   outline: none;
-  padding: 7px;
-  width: 250px;
+  padding: 4px;
+  width: 150px;
   border: 1px solid rgba(217, 217, 217, 0.8);
   box-shadow: 0 8px 6px -6px black;
   color: #b2b2b2;
   font-weight: bold;
   font-size: 12px;
+  /* for larger screen
+  width: 250px; 
+  text-indent: 30px;
+  padding: 7px
+  */
 }
 
 .search #my_search {
@@ -105,4 +92,23 @@
   font-size: 12px;
   /* color: green; */
   /* opacity: 1; */
+}
+
+.searchproperty {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.search_results_text {
+  margin: 20px 0 5px 0;
+  font-size: 17px;
+}
+
+@media (min-width: 765px) /* and (max-height: ) */ {
+  .search input {
+    width: 250px;
+    text-indent: 30px;
+    padding: 7px;
+  }
 }

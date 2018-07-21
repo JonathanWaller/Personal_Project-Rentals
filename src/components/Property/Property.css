@@ -8,6 +8,8 @@
 
 #propertyimg {
   background-color: lightcoral;
+  background-size: cover;
+  background-position: center;
   height: 40vh;
   /* height: 100px; */
   width: 100vw;

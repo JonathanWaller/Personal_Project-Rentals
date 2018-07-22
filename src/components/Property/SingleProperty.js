@@ -25,20 +25,27 @@ class SingleProperty extends Component {
           className="singlecard"
           onClick={() => this.goToProperty(this.props.id)}
         >
-          <img className="singleimg" src={this.props.image} />
-          <div>{this.props.city}</div>
-          <div>{this.props.title}</div>
-          {/* <div>Baths: {this.props.baths}</div>
+          {/* <img className="singleimg" src={this.props.image} /> */}
+          <div
+            style={{ backgroundImage: `url(${this.props.image})` }}
+            className="singleimg"
+          />
+          <div className="single_card_text">
+            <div className="city_name">{this.props.city}</div>
+            <div className="single_card_prop_title">{this.props.title}</div>
+            {/* <div>Baths: {this.props.baths}</div>
           <div>Beds: {this.props.beds}</div> */}
-          <div>${this.props.rate} per night </div>
-          <div className="ratings_main">
-            <StarRatings
-              rating={+this.props.round}
-              starRatedColor="navy"
-              numberOfStars={5}
-              starDimension="8px"
-            />
-            <div className="single_count">{this.props.count}</div>
+            <div className="rate_font">${this.props.rate} per night </div>
+            <div className="ratings_main">
+              <StarRatings
+                rating={+this.props.round}
+                // starRatedColor="#00797E"
+                starRatedColor="#1e85ae"
+                numberOfStars={5}
+                starDimension="13px"
+              />
+              <div className="single_count">{this.props.count}</div>
+            </div>
           </div>
         </div>
       </div>

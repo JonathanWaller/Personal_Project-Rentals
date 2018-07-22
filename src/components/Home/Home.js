@@ -53,7 +53,7 @@ class Home extends Component {
 
   render() {
     // console.log("home props", this.props);
-    console.log("home state", this.state);
+    // console.log("home state", this.state);
     let searchProperties =
       this.state.searchProperties &&
       this.state.searchProperties.map((property, i) => {
@@ -87,9 +87,7 @@ class Home extends Component {
                   <span className="heading-primary---main">Welcome Home</span>
                 </h1>
                 <Link to="/properties">
-                  {/* <div className="enter_box"> */}
                   <span className="enterbutton">Enter</span>
-                  {/* </div> */}
                 </Link>
                 <form
                   className="search"

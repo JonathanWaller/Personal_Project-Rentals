@@ -1,10 +1,9 @@
 .home-all {
   margin: 0 20px 20px 20px;
-  /* for larger screens */
-  /* margin: 0 40px 40px 40px; */
 }
 .homemain {
   height: 91vh;
+  /* height: 45vh; */
   display: flex;
   justify-content: center;
   background-image: linear-gradient(
@@ -13,23 +12,18 @@
       rgba(77, 77, 77, 0.8)
     ),
     url("../../images/test222.jpg");
-
   background-size: cover;
   background-position: top;
   position: relative;
-  /* margin: 0 40px 40px 40px; */
-  /* margin: 2vh 8vw 15vh 15vw; */
 }
 
 .header_text-box {
   position: absolute;
   top: 30%;
-  /* larger screens 
-  top: 40%;
-  */
   text-align: center;
-  /* color: #fff; */
+  color: #fff;
 }
+
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
@@ -40,18 +34,8 @@
 .enterbutton {
   font-size: 30px;
   color: #fff;
-  text-decoration: underline;
-  /* text-decoration: unset; */
-  /* margin-bottom: 20px; */
-  /* font-style: italic; */
+  text-decoration: underline #1c7aa4;
 }
-/* .enter_box {
-  border: none;
-  width: 150px;
-  border-radius: 100px;
-  background-color: rgb(179, 179, 179);
-  box-shadow: 0 8px 6px -3px black;
-} */
 
 .search {
   position: relative;
@@ -68,11 +52,6 @@
   color: #b2b2b2;
   font-weight: bold;
   font-size: 12px;
-  /* for larger screen
-  width: 250px; 
-  text-indent: 30px;
-  padding: 7px
-  */
 }
 
 .search #my_search {
@@ -101,14 +80,56 @@
 }
 
 .search_results_text {
-  margin: 20px 0 5px 0;
-  font-size: 17px;
+  margin: 12px 0 15px 0;
+  /* font-size: 17px; */
+  font-size: 15px;
 }
 
-@media (min-width: 765px) /* and (max-height: ) */ {
+@media (min-width: 740px) /* and (max-height: ) */ {
+  .home-all {
+    margin: 0 40px 40px 40px;
+  }
+  .header_text-box {
+    top: 40%;
+  }
+  .heading-primary {
+    margin-bottom: 25px;
+    font-size: 48px;
+  }
+  .enterbutton {
+    font-size: 40px;
+  }
   .search input {
     width: 250px;
     text-indent: 30px;
     padding: 7px;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .home-all {
+    margin: 0 60px 60px 60px;
+  }
+  .heading-primary {
+    margin-bottom: 30px;
+    font-size: 60px;
+  }
+  .enterbutton {
+    font-size: 50px;
+  }
+  .search input {
+    width: 400px;
+    padding: 12px;
+    font-size: 15px;
+  }
+  .search #my_search {
+    position: absolute;
+    top: 12px;
+    font-size: 20px;
+    padding-left: 10px;
+  }
+  ::placeholder {
+    font-size: 15px;
   }
 }

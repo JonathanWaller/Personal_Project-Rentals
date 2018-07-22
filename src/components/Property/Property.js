@@ -71,42 +71,47 @@ class Property extends Component {
       <div>
         <div className="propertymain">
           <div className="imglike">
-            <img src={property.image_url} id="propertyimg" alt="" />
-            {/* Setting function to check for favorited listing...for render red/blank heart */}
+            {/* <img src={property.image_url} id="propertyimg" alt="" /> */}
+            <div
+              style={{ backgroundImage: `url(${property.image_url})` }}
+              id="propertyimg"
+            >
+              {/* Setting function to check for favorited listing...for render red/blank heart */}
 
-            {this.props.isAuthed ? (
-              <div>
-                {/* reference likeCheck under render above */}
-                {likeCheck ? (
-                  <i id="like-button" className={this.state.liked} />
-                ) : (
-                  <i
-                    id="like-button"
-                    // className="fa fa-2x fa-heart-o not-liked"
-                    className={this.state.noLike}
-                    onClick={() =>
-                      this.props
-                        .addFavorite(
-                          property.image_url,
-                          property.post_id,
-                          property.property_title,
-                          property.beds,
-                          property.baths,
-                          property.description,
-                          property.price,
-                          property.address,
-                          property.city,
-                          property.round,
-                          property.user_name,
-                          property.user_avatar,
-                          this.props.user.userid
-                        )
-                        .then(() => this.toggleLiked())
-                    }
-                  />
-                )}
-              </div>
-            ) : null}
+              {this.props.isAuthed ? (
+                <div>
+                  {/* reference likeCheck under render above */}
+                  {likeCheck ? (
+                    <i id="like-button" className={this.state.liked} />
+                  ) : (
+                    <i
+                      id="like-button"
+                      // className="fa fa-2x fa-heart-o not-liked"
+                      className={this.state.noLike}
+                      onClick={() =>
+                        this.props
+                          .addFavorite(
+                            property.image_url,
+                            property.post_id,
+                            property.property_title,
+                            property.beds,
+                            property.baths,
+                            property.description,
+                            property.price,
+                            property.address,
+                            property.city,
+                            property.round,
+                            property.user_name,
+                            property.user_avatar,
+                            this.props.user.userid
+                          )
+                          .then(() => this.toggleLiked())
+                      }
+                    />
+                  )}
+                </div>
+              ) : null}
+            </div>
           </div>
 
           <Link to="/properties">

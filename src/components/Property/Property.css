@@ -7,16 +7,14 @@
 }
 
 #propertyimg {
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
+  height: 40vh;
+  /* width: 80vw; */
+  /* height: 91vh; */
+  /* width: 60vw; */
   background-size: cover;
   background-position: center;
-  height: 40vh;
-  /* height: 100px; */
-  width: 100vw;
-  /* object-fit: cover; */
   position: relative;
-  /* top: 0;
-  left: 0; */
   z-index: 1;
 }
 #like-button {

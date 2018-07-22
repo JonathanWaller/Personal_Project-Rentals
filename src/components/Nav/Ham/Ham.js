@@ -9,7 +9,7 @@ class Ham extends Component {
         <div>
           <Dehaze
             style={{ fill: "#404040" }}
-            onMouseEnter={this.props.handleClick}
+            onClick={this.props.handleClick}
           />
         </div>
       </div>

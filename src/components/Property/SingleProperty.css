@@ -148,8 +148,9 @@
     margin: 13px 0;
     font-size: 13px;
     /* font-weight: 900; */
-    height: 220px;
-    border: 1px solid red;
+    height: 250px;
+    /* width: */
+    /* border: 1px solid red; */
   }
 
   .singleimg {
@@ -158,7 +159,7 @@
   }
 
   .singlecard {
-    width: 200px;
+    width: 240px;
   }
   .single_count {
     margin-left: 8px;
@@ -174,8 +175,48 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: lightblue;
-    height: 82px;
+    /* background-color: lightblue; */
+    height: 80px;
+  }
+
+  .single_card_prop_title {
+    line-height: 15px;
+  }
+}
+
+@media (min-width: 760px) {
+  .whole_card {
+    margin: 10px 0;
+    font-size: 15px;
+    /* font-weight: 900; */
+    height: 252px;
+    /* border: 1px solid red; */
+  }
+
+  .singleimg {
+    width: 320px;
+    /* height: 150px; */
+  }
+
+  .singlecard {
+    width: 320px;
+  }
+  .single_count {
+    margin-left: 10px;
+    font-size: 13px;
+  }
+  .rate_font {
+    font-size: 14px;
+    font-weight: 100;
+  }
+  .single_card_text {
+    /* margin: 20px 0; */
+    /* padding: 20px 0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* background-color: lightblue; */
+    height: 85px;
   }
 
   .single_card_prop_title {

@@ -1,52 +1,82 @@
 .properties_main {
-  margin: 10px 20px 20px 20px;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
+  margin: 10px 5px;
 }
 
 .top_of_search {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
-  /* align-items: center;
-  justify-content: right; */
-  /* float: right; */
+  justify-content: center;
 }
 
 #properties_search {
   margin: 0 0 35px 0;
-  /* display: flex;
-  align-items: center; */
+}
+
+.properties_add_btn {
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.properties_add_login_btn {
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: flex-end;
 }
 
 .all_properties {
-  /* display: flex;
-  flex-direction: column; */
-  /* background-color: red; */
-  /* flex-wrap: wrap; */
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .properties_solo_property {
-  /* display: flex;
-  flex-direction: column; */
-  height: 300px;
-  width: 80%;
-  margin: 15px 0;
-  /* border: 0.5px solid red; */
+  height: 30vh;
+  /* height: 50%; */
+  width: 45vw;
+  margin: 15px 5px;
   position: relative;
-  color: #3f3f3f;
-  font-size: 15px;
-  font-weight: 900;
-  margin-bottom: 100px;
+  border: 1px dotted blue;
+  display: flex;
+  flex-direction: column;
+  /* background-color: red; */
 }
 
 .propertiesimg {
-  height: 130px;
-  /* width: 150px; */
+  height: 13vh;
+  /* width: 45vw; */
   background-size: cover;
   background-position: center;
   position: relative;
   z-index: 1;
+}
+.properties_solo_under_img {
+  color: #3f3f3f;
+  font-size: 11.5px;
+  font-weight: 900;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  /* align-items: center; */
+}
+
+.properties_beds_baths {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+}
+
+.properties_rate_font {
+  color: #9b9b9b;
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.properties_review_count {
+  margin-left: 10px;
+  font-size: 12px;
 }
 
 #like-btn {
@@ -74,53 +104,3 @@
 #like-btn.liked {
   color: #cd0928;
 }
-
-.over_top {
-  border: 1px solid red;
-  display: flex;
-  /* flex-direction: column; */
-  flex-wrap: wrap;
-}
-
-#properties_card_text {
-  justify-content: space-between;
-  margin-top: 5px;
-}
-
-.properties_beds_baths {
-  display: flex;
-  width: 50%;
-  justify-content: space-between;
-}
-
-.properties_rate_font {
-  color: #9b9b9b;
-  font-size: 15px;
-  font-weight: 100;
-}
-
-.properties_review_count {
-  margin-left: 10px;
-  font-size: 14px;
-}
-
-@media (min-width: 740px) {
-  /* .properties_main {
-    margin: 10px 20px 20px 20px;
-    display: flex;
-    flex-direction: wrap;
-
-  } */
-  .all_properties {
-    /* display: flex; */
-    /* flex-direction: none; */
-    background-color: red;
-    /* flex-wrap: wrap; */
-    /* width: 500px; */
-  }
-}
-
-/* .over_top {
-  width: 100vw;
-  background-color: yellow;
-} */

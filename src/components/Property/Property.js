@@ -69,7 +69,9 @@ class Property extends Component {
 
     return (
       <div>
+        {/* <div className="wrapper_details_contact"> */}
         <div className="propertymain">
+          {/* <div className="left_panel"> */}
           <div className="imglike">
             {/* <img src={property.image_url} id="propertyimg" alt="" /> */}
             <div
@@ -114,170 +116,236 @@ class Property extends Component {
             </div>
           </div>
 
-          <Link to="/properties">
-            <button>Back to All Listings</button>
-          </Link>
+          <div className="wrapper_panels">
+            <div className="property_below_img">
+              <Link to="/properties">
+                <button>Back to All Listings</button>
+              </Link>
+              <div className="property_title_add_host">
+                <h1 className="propertytitle" id="property_title_color">
+                  {property.property_title}
+                </h1>
+                <div>{property.address}</div>
+                <div className="bedbath">
+                  {property.beds === 1 ? (
+                    <div>
+                      <i className="fa fa-bed" /> {property.beds} bed{" "}
+                    </div>
+                  ) : (
+                    <div>
+                      <i className="fa fa-bed" /> {property.beds} beds{" "}
+                    </div>
+                  )}
+                  <br />
+                  {+property.baths === 1 ? (
+                    <div>
+                      <i className="fa fa-bath" /> {property.baths} bath{" "}
+                    </div>
+                  ) : (
+                    <div>
+                      <i className="fa fa-bath" /> {property.baths} baths{" "}
+                    </div>
+                  )}
+                </div>
+                {/* <div>{property.description}</div> */}
+                <div className="property_hosted_w_img">
+                  Hosted by: {property.user_name}
+                  <img src={property.user_avatar} id="avatarimg" alt="" />
+                </div>
 
-          <h1 className="propertytitle">{property.property_title}</h1>
-          <div>{property.address}</div>
-          <div className="bedbath">
-            {property.beds === 1 ? (
-              <div>
-                <i className="fa fa-bed" /> {property.beds} bed{" "}
+                {this.props.isAuthed ? (
+                  <a
+                    href={`mailto:${
+                      this.props.property.user_email
+                    }?subject=About your property at ${
+                      this.props.property.address
+                    }`}
+                  >
+                    <button>Contact</button>
+                  </a>
+                ) : null}
               </div>
-            ) : (
-              <div>
-                <i className="fa fa-bed" /> {property.beds} beds{" "}
+              <div className="property_description">
+                <div id="property_title_color">Overview:</div>
+                {property.description}
               </div>
-            )}
-            <br />
-            {+property.baths === 1 ? (
-              <div>
-                <i className="fa fa-bath" /> {property.baths} bath{" "}
+              <div className="amenities">
+                <ul id="property_title_color">Amenities:</ul>
+                <li>{property.amen_1}</li>
+                <li>{property.amen_2}</li>
+                <li>{property.amen_3}</li>
               </div>
-            ) : (
-              <div>
-                <i className="fa fa-bath" /> {property.baths} baths{" "}
+              <div className="ratings_main" id="top_star">
+                <StarRatings
+                  rating={+property.round}
+                  starRatedColor="#1e85ae"
+                  numberOfStars={5}
+                  starDimension="12px"
+                />
+                <div className="property_count">{property.count}</div>
               </div>
-            )}
-          </div>
-          <div>{property.description}</div>
-          <div>
-            Hosted by: {property.user_name}
-            <img src={property.user_avatar} id="avatarimg" alt="" />
-          </div>
+              <div>${property.price} per night</div>
+              <Map
+                lat={+this.props.property.lat}
+                lng={+this.props.property.lng}
+                // address={this.props.property}
+                center={{
+                  lat: +this.props.property.lat,
+                  lng: +this.props.property.lng
+                }}
+              />
 
-          {this.props.isAuthed ? (
-            <a
-              href={`mailto:${
-                this.props.property.user_email
-              }?subject=About your property at ${this.props.property.address}`}
-            >
-              <button>contact {property.user_name}</button>
-            </a>
-          ) : null}
-
-          <div className="amenities">
-            <ul id="amenitiestitle">Amenities:</ul>
-            <li>{property.amen_1}</li>
-            <li>{property.amen_2}</li>
-            <li>{property.amen_3}</li>
-          </div>
-          <div className="ratings_main">
-            <StarRatings
-              rating={+property.round}
-              starRatedColor="#1e85ae"
-              numberOfStars={5}
-              starDimension="12px"
-            />
-            <div>{property.count}</div>
-          </div>
-          <div>${property.price} per night</div>
-          <Map
-            lat={+this.props.property.lat}
-            lng={+this.props.property.lng}
-            // address={this.props.property}
-            center={{
-              lat: +this.props.property.lat,
-              lng: +this.props.property.lng
-            }}
-          />
-
-          <div>Reviews</div>
-          {!this.state.reviewsShow ? (
-            <div>
-              {this.props.review.length ? (
+              <div id="property_title_color">
+                Reviews: {+this.props.property.count}
+              </div>
+              {!this.state.reviewsShow ? (
                 <div>
-                  <div>{this.props.review[0].review}</div>
-                  <div>Reviewed by: {this.props.review[0].user_name} </div>
-                  <div>
-                    <Moment fromNow>{this.props.review[0].moment}</Moment>
-                    <img
-                      id="avatarimg"
-                      src={this.props.review[0].user_avatar}
-                      alt=""
+                  {this.props.review.length ? (
+                    <div>
+                      <div>{this.props.review[0].review}</div>
+                      <div>Reviewed by: {this.props.review[0].user_name} </div>
+                      <div>
+                        <Moment fromNow>{this.props.review[0].moment}</Moment>
+                        <img
+                          id="avatarimg"
+                          src={this.props.review[0].user_avatar}
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <div>No reviews yet. Make the first review!</div>
+                  )}
+                </div>
+              ) : (
+                <AllReviews propertyReviews={this.props.review} />
+              )}
+              {this.props.review.length ? (
+                <button onClick={this.toggleReviews}>
+                  {!this.state.reviewsShow ? (
+                    <p>See All</p>
+                  ) : (
+                    <p>Minimize Reviews</p>
+                  )}
+                </button>
+              ) : null}
+
+              {this.props.user.userid == this.props.property.user_id ? (
+                <div>
+                  <div
+                    className="delete_btn"
+                    onClick={() => this.deleteHandler(property.id)}
+                  >
+                    <i className="fa fa-trash" />
+
+                    <div>Delete Listing</div>
+                  </div>
+                  <Link to={`/editproperty/${property.id}`}>
+                    <i className="fa fa-edit" />
+                    <div>Edit Listing</div>
+                  </Link>
+                </div>
+              ) : (
+                <div>
+                  {this.props.isAuthed ? (
+                    <button
+                      onClick={() => this.goToProperty(this.props.property.id)}
+                    >
+                      Add Review
+                    </button>
+                  ) : (
+                    <div>
+                      <a href={process.env.REACT_APP_LOGIN}>
+                        <button>Login to add review</button>
+                      </a>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+            <div className="right_panel">
+              <div className="right_group">
+                <div className="price_ratings_group_sticky">
+                  <div>${property.price} per night</div>
+                  <div className="ratings_main">
+                    <StarRatings
+                      rating={+property.round}
+                      starRatedColor="#1e85ae"
+                      numberOfStars={5}
+                      starDimension="12px"
                     />
+                    <div className="property_count">{property.count}</div>
                   </div>
                 </div>
-              ) : (
-                <div>No reviews yet. Make the first review!</div>
-              )}
-            </div>
-          ) : (
-            <AllReviews propertyReviews={this.props.review} />
-          )}
-          {this.props.review.length ? (
-            <button onClick={this.toggleReviews}>
-              {!this.state.reviewsShow ? (
-                <p>See All {+this.props.property.count} Reviews</p>
-              ) : (
-                <p>Minimize Reviews</p>
-              )}
-            </button>
-          ) : null}
-
-          {this.props.user.userid == this.props.property.user_id ? (
-            <div>
-              <div
-                className="delete_btn"
-                onClick={() => this.deleteHandler(property.id)}
-              >
-                <i className="fa fa-trash" />
-
-                <div>Delete Listing</div>
+                {this.props.isAuthed ? (
+                  <button className="sticky_contact">
+                    {this.props.isAuthed ? (
+                      <a
+                        href={`mailto:${
+                          this.props.property.user_email
+                        }?subject=About your property at ${
+                          this.props.property.address
+                        }`}
+                      >
+                        <div className="contact_font_sticky">Contact</div>
+                      </a>
+                    ) : null}
+                  </button>
+                ) : (
+                  <div>
+                    <a
+                      href={process.env.REACT_APP_LOGIN}
+                      className="sticky_login_foot"
+                    >
+                      <button className="sticky_login_foot">
+                        Login to Contact
+                      </button>
+                    </a>
+                  </div>
+                )}
               </div>
-              <Link to={`/editproperty/${property.id}`}>
-                <i className="fa fa-edit" />
-                <div>Edit Listing</div>
-              </Link>
-            </div>
-          ) : (
-            <div>
-              {this.props.isAuthed ? (
-                <button
-                  onClick={() => this.goToProperty(this.props.property.id)}
-                >
-                  Add Review
-                </button>
-              ) : (
-                <div>
-                  <a href={process.env.REACT_APP_LOGIN}>
-                    <button>Login to add review</button>
-                  </a>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-        <div className="price_contact_sticky">
-          <div className="price_ratings_group_sticky">
-            <div>${property.price} per night</div>
-            <div className="ratings_main">
-              <StarRatings
-                rating={+property.round}
-                starRatedColor="#1e85ae"
-                numberOfStars={5}
-                starDimension="12px"
-              />
-              <div>{property.count}</div>
             </div>
           </div>
-          <button className="sticky_contact">
+          <div className="price_contact_sticky">
+            <div className="price_ratings_group_sticky">
+              <div>${property.price} per night</div>
+              <div className="ratings_main">
+                <StarRatings
+                  rating={+property.round}
+                  starRatedColor="#1e85ae"
+                  numberOfStars={5}
+                  starDimension="12px"
+                />
+                <div className="property_count">{property.count}</div>
+              </div>
+            </div>
             {this.props.isAuthed ? (
-              <a
-                href={`mailto:${
-                  this.props.property.user_email
-                }?subject=About your property at ${
-                  this.props.property.address
-                }`}
-              >
-                <div className="contact_font_sticky">
-                  Contact
-                  {/* {property.user_name} */}
-                </div>
-              </a>
-            ) : null}
-          </button>
+              <button className="sticky_contact">
+                {this.props.isAuthed ? (
+                  <a
+                    href={`mailto:${
+                      this.props.property.user_email
+                    }?subject=About your property at ${
+                      this.props.property.address
+                    }`}
+                  >
+                    <div className="contact_font_sticky">Contact</div>
+                  </a>
+                ) : null}
+              </button>
+            ) : (
+              <div>
+                <a
+                  href={process.env.REACT_APP_LOGIN}
+                  className="sticky_login_foot"
+                >
+                  <button className="sticky_login_foot">
+                    Login to Contact
+                  </button>
+                </a>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     );

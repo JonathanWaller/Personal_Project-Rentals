@@ -2,15 +2,19 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 125px;
+  /* margin: 10px; */
   /* margin: 25px; */
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
   /* height: 90vh; */
   /* padding: 30px; */
+  /* position: relative; */
 }
 
 #propertyimg {
   /* background-color: lightcoral; */
   height: 30vh;
+  /* width: 30vw; */
   /* width: 80vw; */
   /* height: 91vh; */
   /* width: 60vw; */
@@ -21,28 +25,61 @@
 }
 #like-button {
   position: absolute;
-  top: 60px;
-  right: 40px;
+  top: 2vh;
+  right: 6vw;
   z-index: 2;
+  font-size: 23px;
 }
 
 #avatarimg {
   height: 3vh;
   width: 3vh;
   border-radius: 100px;
+  margin-left: 10px;
+  /* margin-top: -5px; */
+}
+
+/* .property_hosted_w_img {
+} */
+.property_below_img {
+  margin: 3vw;
+  color: #56646e;
+  font-weight: 100 bold;
+}
+
+#property_title_color {
+  color: #3f3f3f;
+  font-weight: bold;
+}
+
+.property_title_add_host {
+  /* background-color: red; */
+  /* border: 1px solid red; */
+  height: 22vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .propertytitle {
   font-size: 30px;
-  font-weight: bold;
+}
+
+.property_description {
+  margin: 2vh 0;
+  /* background-color: red; */
 }
 
 .amenities {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border: 0.1px solid lightgrey;
+  /* border: 0.1px solid lightgrey; */
+  border-top: 0.1px solid lightgrey;
+  border-bottom: 0.1px solid lightgrey;
   height: 15vh;
+  margin-top: 2vh;
+  margin-bottom: 2vw;
   /* height: 50px; */
 }
 
@@ -52,11 +89,16 @@
 
 .bedbath {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 60%;
   /* color: red; */
 }
 .bedbath i {
   color: #404040;
+}
+
+#top_star {
+  /* display: none; */
 }
 
 /* heart like button */
@@ -77,6 +119,11 @@
   color: #cd0928;
 }
 
+.property_count {
+  margin-left: 7px;
+  font-size: 16px;
+}
+
 /* i {
   color: red;
 } */
@@ -89,10 +136,14 @@
   height: 10vh;
   border-top: 2px solid #d6d6d6;
   position: fixed;
+  /* position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0; */
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #ff4f54;
+  /* background-color: #ff4f54; */
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -106,4 +157,192 @@
 }
 .contact_font_sticky {
   color: white;
+}
+
+.sticky_login_foot {
+  color: #ffffff;
+  background-color: #ff4f54;
+  height: 40px;
+  width: 90%;
+}
+
+/*  */
+/* *********Media Queries ****************** */
+/*  */
+
+@media (min-width: 1000px) {
+  .propertymain {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 15vw;
+    /* border: 1px solid purple; */
+    /* width: 75vw; */
+    /* margin: 10px; */
+    /* margin: 25px; */
+    /* margin-bottom: 100px; */
+    /* height: 90vh; */
+    /* padding: 30px; */
+    /* position: relative; */
+  }
+
+  #propertyimg {
+    /* background-color: lightcoral; */
+    /* height: 40vh; */
+    width: 70vw;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+  }
+  #like-button {
+    position: absolute;
+    top: 2vh;
+    right: 6vw;
+    z-index: 2;
+    font-size: 23px;
+  }
+
+  #avatarimg {
+    height: 3vh;
+    width: 3vh;
+    border-radius: 100px;
+    margin-left: 10px;
+    /* margin-top: -5px; */
+  }
+
+  /* .property_hosted_w_img {
+  } */
+
+  .wrapper_panels {
+    /* background-color: red; */
+    margin-top: 25px;
+    /* border: 1px solid green; */
+    display: flex;
+  }
+
+  .property_below_img {
+    /* border: 1px solid red; */
+    margin: 0;
+    color: #56646e;
+    font-weight: 100 bold;
+    /* width: 65%; */
+    width: 75vw;
+  }
+
+  #property_title_color {
+    color: #3f3f3f;
+    font-weight: bold;
+  }
+
+  .property_title_add_host {
+    /* background-color: red; */
+    /* border: 1px solid red; */
+    height: 22vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .propertytitle {
+    font-size: 30px;
+  }
+
+  .property_description {
+    margin: 2vh 0;
+    /* background-color: red; */
+  }
+
+  .amenities {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* border: 0.1px solid lightgrey; */
+    border-top: 0.1px solid lightgrey;
+    border-bottom: 0.1px solid lightgrey;
+    height: 15vh;
+    margin-top: 2vh;
+    margin-bottom: 2vw;
+    /* height: 50px; */
+  }
+
+  #amenitiestitle {
+    font-weight: bold;
+  }
+
+  .bedbath {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    /* color: red; */
+  }
+  .bedbath i {
+    color: #404040;
+  }
+
+  #top_star {
+    /* display: none; */
+  }
+
+  .property_count {
+    margin-left: 7px;
+    font-size: 16px;
+  }
+
+  /* i {
+    color: red;
+  } */
+
+  .delete_btn {
+    display: flex;
+  }
+
+  .price_contact_sticky {
+    display: none;
+    /* display: flex; */
+    align-items: center;
+    justify-content: space-around;
+    height: 10vh;
+    border-top: 2px solid #d6d6d6;
+    position: fixed;
+    /* position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ff4f54;
+    background-color: #ffffff;
+  }
+  .sticky_contact {
+    color: #ffffff;
+    background-color: #ff4f54;
+    height: 50px;
+    width: 35%;
+  }
+  .contact_font_sticky {
+    color: white;
+  }
+
+  .right_panel {
+    display: flex;
+    justify-content: center;
+  }
+
+  .right_group {
+    border: 1px solid #d6d6d6;
+    width: 25vw;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 3vw;
+    position: sticky;
+    top: 20px;
+  }
+
+  .sticky_login_foot {
+    position: sitcky;
+  }
 }

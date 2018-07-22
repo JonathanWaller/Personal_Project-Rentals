@@ -65,85 +65,80 @@ class Properties extends Component {
           fav => fav.owner_post_id === property.post_id
         );
         return (
-          <div key={property.id}>
-            <div
-            // className="properties_solo_property"
-            >
-              <div className="propertyLike">
-                <div
-                  style={{ backgroundImage: `url(${property.image_url})` }}
-                  className="propertiesimg"
-                  onClick={() => this.goToProperty(property.id)}
-                  alt=""
-                />
-                {this.props.isAuthed ? (
-                  <div>
-                    {likeCheck ? (
-                      <i id="like-btn" className={this.state.liked} />
-                    ) : (
-                      <div>
-                        <i
-                          id="like-btn"
-                          className={this.state.noLike}
-                          onClick={() =>
-                            this.props
-                              .addFavorite(
-                                property.image_url,
-                                property.post_id,
-                                property.property_title,
-                                property.beds,
-                                property.baths,
-                                property.description,
-                                property.price,
-                                property.address,
-                                property.city,
-                                property.round,
-                                property.user_name,
-                                property.user_avatar,
-                                this.props.user.userid
-                              )
-                              .then(() => this.toggleLiked())
-                          }
-                        />
-                      </div>
-                    )}
-                  </div>
-                ) : null}
-              </div>
+          <div key={property.id} className="properties_solo_property">
+            <div className="propertyLike">
               <div
-                // single_card_text is initiated in SingleProperty
-                className="single_card_text"
-                id="properties_card_text"
+                style={{ backgroundImage: `url(${property.image_url})` }}
+                className="propertiesimg"
                 onClick={() => this.goToProperty(property.id)}
-              >
-                <div>{property.city}</div>
-                <div>{property.property_title}</div>
-                <div className="properties_beds_baths">
-                  {+property.baths > 1 ? (
-                    <div>{property.baths} baths</div>
+                alt=""
+              />
+              {this.props.isAuthed ? (
+                <div>
+                  {likeCheck ? (
+                    <i id="like-btn" className={this.state.liked} />
                   ) : (
-                    <div>{property.baths} bath</div>
+                    <div>
+                      <i
+                        id="like-btn"
+                        className={this.state.noLike}
+                        onClick={() =>
+                          this.props
+                            .addFavorite(
+                              property.image_url,
+                              property.post_id,
+                              property.property_title,
+                              property.beds,
+                              property.baths,
+                              property.description,
+                              property.price,
+                              property.address,
+                              property.city,
+                              property.round,
+                              property.user_name,
+                              property.user_avatar,
+                              this.props.user.userid
+                            )
+                            .then(() => this.toggleLiked())
+                        }
+                      />
+                    </div>
                   )}
-                  {property.beds > 1 ? (
-                    <div>{property.beds} beds</div>
-                  ) : (
-                    <div>{property.beds} bed</div>
-                  )}
                 </div>
-                <div className="properties_rate_font">
-                  ${property.price} per night
-                </div>
-                <div className="ratings_main">
-                  <StarRatings
-                    rating={+property.round}
-                    starRatedColor="#1e85ae"
-                    numberOfStars={5}
-                    starDimension="13px"
-                  />
-                  <div className="properties_review_count">
-                    {property.count}
-                  </div>
-                </div>
+              ) : null}
+            </div>
+            <div
+              // single_card_text is initiated in SingleProperty
+              // className="single_card_text"
+              className="properties_solo_under_img"
+              id="properties_card_text"
+              onClick={() => this.goToProperty(property.id)}
+            >
+              <div>{property.city}</div>
+              <div>{property.property_title}</div>
+              <div className="properties_beds_baths">
+                {+property.baths > 1 ? (
+                  <div>{property.baths} baths</div>
+                ) : (
+                  <div>{property.baths} bath</div>
+                )}
+                {property.beds > 1 ? (
+                  <div>{property.beds} beds</div>
+                ) : (
+                  <div>{property.beds} bed</div>
+                )}
+              </div>
+              <div className="properties_rate_font">
+                ${property.price} per night
+              </div>
+              <div className="ratings_main">
+                <StarRatings
+                  rating={+property.round}
+                  starRatedColor="#1e85ae"
+                  numberOfStars={5}
+                  starDimension="13px"
+                />
+                <div className="properties_review_count">{property.count}</div>
               </div>
             </div>
           </div>
@@ -163,12 +158,13 @@ class Properties extends Component {
           </div>
         </div>
         {this.props.isAuthed ? (
-          <Link to="/addproperty">
-            <button>Add Listing</button>
-          </Link>
+          <div className="properties_add_btn">
+            <Link to="/addproperty">
+              <button>Add Listing</button>
+            </Link>
+          </div>
         ) : (
-          // ) : null}
-          <div>
+          <div className="properties_add_login_btn">
             <a href={process.env.REACT_APP_LOGIN}>
               <button className="properties_login_btn">
                 Login to add listing
@@ -176,9 +172,7 @@ class Properties extends Component {
             </a>
           </div>
         )}
-        <div className="over_top">
-          <div className="all_properties">{searchDisplay}</div>
-        </div>
+        <div className="all_properties">{searchDisplay}</div>
       </div>
     );
   }

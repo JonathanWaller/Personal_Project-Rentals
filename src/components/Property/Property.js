@@ -163,12 +163,15 @@ class Property extends Component {
             <li>{property.amen_2}</li>
             <li>{property.amen_3}</li>
           </div>
-          <StarRatings
-            rating={+property.round}
-            starRatedColor="gold"
-            numberOfStars={5}
-            starDimension="16px"
-          />
+          <div className="ratings_main">
+            <StarRatings
+              rating={+property.round}
+              starRatedColor="#1e85ae"
+              numberOfStars={5}
+              starDimension="12px"
+            />
+            <div>{property.count}</div>
+          </div>
           <div>${property.price} per night</div>
           <Map
             lat={+this.props.property.lat}
@@ -245,6 +248,36 @@ class Property extends Component {
               )}
             </div>
           )}
+        </div>
+        <div className="price_contact_sticky">
+          <div className="price_ratings_group_sticky">
+            <div>${property.price} per night</div>
+            <div className="ratings_main">
+              <StarRatings
+                rating={+property.round}
+                starRatedColor="#1e85ae"
+                numberOfStars={5}
+                starDimension="12px"
+              />
+              <div>{property.count}</div>
+            </div>
+          </div>
+          <button className="sticky_contact">
+            {this.props.isAuthed ? (
+              <a
+                href={`mailto:${
+                  this.props.property.user_email
+                }?subject=About your property at ${
+                  this.props.property.address
+                }`}
+              >
+                <div className="contact_font_sticky">
+                  Contact
+                  {/* {property.user_name} */}
+                </div>
+              </a>
+            ) : null}
+          </button>
         </div>
       </div>
     );

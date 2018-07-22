@@ -2,13 +2,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* margin: 25px; */
+  margin-bottom: 100px;
   /* height: 90vh; */
   /* padding: 30px; */
 }
 
 #propertyimg {
   /* background-color: lightcoral; */
-  height: 40vh;
+  height: 30vh;
   /* width: 80vw; */
   /* height: 91vh; */
   /* width: 60vw; */
@@ -81,4 +83,27 @@
 
 .delete_btn {
   display: flex;
+}
+
+.price_contact_sticky {
+  height: 10vh;
+  border-top: 2px solid #d6d6d6;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #ff4f54;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.sticky_contact {
+  color: #ffffff;
+  background-color: #ff4f54;
+  height: 50px;
+  width: 35%;
+}
+.contact_font_sticky {
+  color: white;
 }

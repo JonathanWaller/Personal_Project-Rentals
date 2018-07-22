@@ -66,11 +66,13 @@ class Properties extends Component {
         );
         return (
           <div key={property.id}>
-            <div className="propertieslist">
+            <div
+            // className="properties_solo_property"
+            >
               <div className="propertyLike">
                 <div
                   style={{ backgroundImage: `url(${property.image_url})` }}
-                  id="propertiesimg"
+                  className="propertiesimg"
                   onClick={() => this.goToProperty(property.id)}
                   alt=""
                 />
@@ -150,13 +152,15 @@ class Properties extends Component {
 
     return (
       <div className="properties_main">
-        <div className="search" id="properties_search">
-          <span className="fa fa-search" id="my_search" />
-          <input
-            className="search-term"
-            onChange={e => this.cityHandler(e)}
-            placeholder="Try &quot;Dallas&quot; or &quot;CA&quot;"
-          />
+        <div className="top_of_search">
+          <div className="search" id="properties_search">
+            <span className="fa fa-search" id="my_search" />
+            <input
+              className="search-term"
+              onChange={e => this.cityHandler(e)}
+              placeholder="Try &quot;Dallas&quot; or &quot;CA&quot;"
+            />
+          </div>
         </div>
         {this.props.isAuthed ? (
           <Link to="/addproperty">
@@ -172,7 +176,9 @@ class Properties extends Component {
             </a>
           </div>
         )}
-        <div className="all_properties">{searchDisplay}</div>
+        <div className="over_top">
+          <div className="all_properties">{searchDisplay}</div>
+        </div>
       </div>
     );
   }

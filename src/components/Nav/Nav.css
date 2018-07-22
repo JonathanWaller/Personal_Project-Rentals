@@ -6,12 +6,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 
 .userimg {
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   border-radius: 100px;
+  margin-left: 10px;
+  margin-top: -5px;
+  cursor: default;
 }
 
 a {

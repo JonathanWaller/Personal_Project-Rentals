@@ -1,27 +1,48 @@
+.properties_main {
+  margin: 10px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#properties_search {
+  margin: 0 0 35px 0;
+  display: flex;
+  align-items: center;
+}
+
+.all_properties {
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+}
+
 .propertieslist {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 250px;
-  width: 90vw;
-  margin: 45px auto;
-  border: 0.5px solid lightgray;
+  margin: 15px 0;
+  /* border: 0.5px solid red; */
   position: relative;
+  color: #3f3f3f;
+  font-size: 15px;
+  font-weight: 900;
 }
 
 #propertiesimg {
   height: 150px;
-  width: 250px;
-  background-color: lightgray;
+  /* width: 280px; */
+  background-size: cover;
+  background-position: center;
   position: relative;
   z-index: 1;
 }
 
 #like-btn {
   position: absolute;
+  font-size: 20px;
   top: 15px;
-  right: 50px;
+  right: 25px;
   z-index: 2;
 }
 
@@ -41,4 +62,26 @@
 
 #like-btn.liked {
   color: #cd0928;
+}
+
+#properties_card_text {
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.properties_beds_baths {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.properties_rate_font {
+  color: #9b9b9b;
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.properties_review_count {
+  margin-left: 10px;
+  font-size: 14px;
 }

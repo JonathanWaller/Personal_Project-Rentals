@@ -52,14 +52,15 @@ class Nav extends Component {
           <div className="full-nav-links">
             {/* <div className="nav_links"> */}
             <Link to="/">Home</Link>
+            <Link to="/properties">Listings</Link>
             {this.props.user.isAuthed ? (
               <div
+                className="nav_favorites_btn"
                 onClick={() => this.goToFavorites(this.props.user.user.userid)}
               >
                 Favorites
               </div>
             ) : null}
-            <Link to="/properties">Listings</Link>
             <Link to="/about">About</Link>
             {/* {!this.props.user.isAuthed ? (
                 <a href={process.env.REACT_APP_LOGIN}>

@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-// import axios from "axios";
 import StarRatings from "react-star-ratings";
 import axios from "axios";
+import FontAwesome from "react-fontawesome";
 
 import "./Properties.css";
 
@@ -68,8 +68,8 @@ class Properties extends Component {
           <div key={property.id}>
             <div className="propertieslist">
               <div className="propertyLike">
-                <img
-                  src={property.image_url}
+                <div
+                  style={{ backgroundImage: `url(${property.image_url})` }}
                   id="propertiesimg"
                   onClick={() => this.goToProperty(property.id)}
                   alt=""
@@ -108,26 +108,40 @@ class Properties extends Component {
                   </div>
                 ) : null}
               </div>
-              <div onClick={() => this.goToProperty(property.id)}>
-                <div>{property.property_title}</div>
-                <StarRatings
-                  rating={+property.round}
-                  starRatedColor="gold"
-                  numberOfStars={5}
-                  starDimension="16px"
-                />
+              <div
+                // single_card_text is initiated in SingleProperty
+                className="single_card_text"
+                id="properties_card_text"
+                onClick={() => this.goToProperty(property.id)}
+              >
                 <div>{property.city}</div>
-                {+property.baths > 1 ? (
-                  <div>Baths: {property.baths}</div>
-                ) : (
-                  <div>Bath: {property.baths}</div>
-                )}
-                {property.beds > 1 ? (
-                  <div>Beds: {property.beds}</div>
-                ) : (
-                  <div>Bed: {property.beds}</div>
-                )}
-                <div>Rate: ${property.price}</div>
+                <div>{property.property_title}</div>
+                <div className="properties_beds_baths">
+                  {+property.baths > 1 ? (
+                    <div>{property.baths} baths</div>
+                  ) : (
+                    <div>{property.baths} bath</div>
+                  )}
+                  {property.beds > 1 ? (
+                    <div>{property.beds} beds</div>
+                  ) : (
+                    <div>{property.beds} bed</div>
+                  )}
+                </div>
+                <div className="properties_rate_font">
+                  ${property.price} per night
+                </div>
+                <div className="ratings_main">
+                  <StarRatings
+                    rating={+property.round}
+                    starRatedColor="#1e85ae"
+                    numberOfStars={5}
+                    starDimension="13px"
+                  />
+                  <div className="properties_review_count">
+                    {property.count}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -135,13 +149,15 @@ class Properties extends Component {
       });
 
     return (
-      <div>
-        <input
-          onChange={e => this.cityHandler(e)}
-          placeholder="search by city (Dallas) or state (CA)"
-        />
-        <br />
-        <br />
+      <div className="properties_main">
+        <div className="search" id="properties_search">
+          <span className="fa fa-search" id="my_search" />
+          <input
+            className="search-term"
+            onChange={e => this.cityHandler(e)}
+            placeholder="Try &quot;Dallas&quot; or &quot;CA&quot;"
+          />
+        </div>
         {this.props.isAuthed ? (
           <Link to="/addproperty">
             <button>Add Listing</button>
@@ -150,11 +166,13 @@ class Properties extends Component {
           // ) : null}
           <div>
             <a href={process.env.REACT_APP_LOGIN}>
-              <button>Login to add listing</button>
+              <button className="properties_login_btn">
+                Login to add listing
+              </button>
             </a>
           </div>
         )}
-        <div>{searchDisplay}</div>
+        <div className="all_properties">{searchDisplay}</div>
       </div>
     );
   }

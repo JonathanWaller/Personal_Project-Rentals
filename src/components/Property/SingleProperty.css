@@ -25,6 +25,10 @@
   /* width: 40%; */
 }
 
+.single_city {
+  color: #912b3b;
+}
+
 .ratings_main {
   display: flex;
 }

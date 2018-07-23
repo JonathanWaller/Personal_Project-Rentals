@@ -1,0 +1,19 @@
+.reviews_main {
+  /* background-color: red; */
+  border-top: 0.1px solid lightgrey;
+  border-bottom: 0.1px solid lightgrey;
+  padding: 2vh 0;
+}
+
+.reviews_main {
+  display: flex;
+  flex-direction: column;
+}
+
+.above_review {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3vh;
+  /* justify-content: space-between; */
+  width: 15vw;
+}

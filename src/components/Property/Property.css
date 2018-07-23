@@ -3,21 +3,10 @@
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 125px;
-  /* margin: 10px; */
-  /* margin: 25px; */
-  /* margin-bottom: 100px; */
-  /* height: 90vh; */
-  /* padding: 30px; */
-  /* position: relative; */
 }
 
 #propertyimg {
-  /* background-color: lightcoral; */
   height: 30vh;
-  /* width: 30vw; */
-  /* width: 80vw; */
-  /* height: 91vh; */
-  /* width: 60vw; */
   background-size: cover;
   background-position: center;
   position: relative;
@@ -31,20 +20,30 @@
   font-size: 23px;
 }
 
+.properties_button {
+  color: #2685ac;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 #avatarimg {
   height: 3vh;
   width: 3vh;
   border-radius: 100px;
   margin-left: 10px;
-  /* margin-top: -5px; */
 }
 
-/* .property_hosted_w_img {
-} */
 .property_below_img {
   margin: 3vw;
   color: #56646e;
   font-weight: 100 bold;
+}
+
+.property_top_group {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 #property_title_color {
@@ -53,8 +52,6 @@
 }
 
 .property_title_add_host {
-  /* background-color: red; */
-  /* border: 1px solid red; */
   height: 22vh;
   display: flex;
   flex-direction: column;
@@ -65,22 +62,26 @@
   font-size: 30px;
 }
 
+.property_hosted_w_img {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-top: 1vh;
+}
+
 .property_description {
   margin: 2vh 0;
-  /* background-color: red; */
 }
 
 .amenities {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  /* border: 0.1px solid lightgrey; */
   border-top: 0.1px solid lightgrey;
   border-bottom: 0.1px solid lightgrey;
   height: 15vh;
   margin-top: 2vh;
   margin-bottom: 2vw;
-  /* height: 50px; */
 }
 
 #amenitiestitle {
@@ -91,14 +92,30 @@
   display: flex;
   justify-content: space-between;
   width: 60%;
-  /* color: red; */
 }
 .bedbath i {
   color: #404040;
 }
 
-#top_star {
-  /* display: none; */
+.property_price {
+  border-bottom: 0.1px solid lightgrey;
+  padding-bottom: 3vh;
+  margin-bottom: 1vh;
+}
+
+.property_reviews_ratings {
+  display: flex;
+  margin-top: 5vh;
+  border-top: 0.1px solid lightgrey;
+  border-bottom: 0.1px solid lightgrey;
+}
+
+.property_review_review1 {
+  margin-top: 2vh;
+}
+
+.property_main_star {
+  margin-left: 10px;
 }
 
 /* heart like button */
@@ -124,10 +141,6 @@
   font-size: 16px;
 }
 
-/* i {
-  color: red;
-} */
-
 .delete_btn {
   display: flex;
 }
@@ -136,14 +149,9 @@
   height: 10vh;
   border-top: 2px solid #d6d6d6;
   position: fixed;
-  /* position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0; */
   left: 0;
   bottom: 0;
   width: 100%;
-  /* background-color: #ff4f54; */
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -166,30 +174,16 @@
   width: 90%;
 }
 
-/*  */
-/* *********Media Queries ****************** */
-/*  */
-
 @media (min-width: 1000px) {
   .propertymain {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 15vw;
-    /* border: 1px solid purple; */
-    /* width: 75vw; */
-    /* margin: 10px; */
-    /* margin: 25px; */
-    /* margin-bottom: 100px; */
-    /* height: 90vh; */
-    /* padding: 30px; */
-    /* position: relative; */
+    margin: 5vh 15vw;
   }
 
   #propertyimg {
-    /* background-color: lightcoral; */
-    /* height: 40vh; */
-    width: 70vw;
+    height: 60vh;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -203,30 +197,27 @@
     font-size: 23px;
   }
 
-  #avatarimg {
-    height: 3vh;
-    width: 3vh;
-    border-radius: 100px;
-    margin-left: 10px;
-    /* margin-top: -5px; */
+  .properties_back {
+    margin-top: 20px;
   }
 
-  /* .property_hosted_w_img {
-  } */
+  #avatarimg {
+    height: 5vh;
+    width: 5vh;
+    border-radius: 100px;
+    margin-left: 10px;
+    margin-top: -5px;
+  }
 
   .wrapper_panels {
-    /* background-color: red; */
     margin-top: 25px;
-    /* border: 1px solid green; */
     display: flex;
   }
 
   .property_below_img {
-    /* border: 1px solid red; */
     margin: 0;
     color: #56646e;
     font-weight: 100 bold;
-    /* width: 65%; */
     width: 75vw;
   }
 
@@ -245,7 +236,7 @@
   }
 
   .propertytitle {
-    font-size: 30px;
+    font-size: 40px;
   }
 
   .property_description {
@@ -280,8 +271,11 @@
     color: #404040;
   }
 
-  #top_star {
-    /* display: none; */
+  .property_price {
+    padding-bottom: 4vh;
+    margin-bottom: 3vh;
+    font-size: 20px;
+    font-weight: bold;
   }
 
   .property_count {
@@ -289,9 +283,23 @@
     font-size: 16px;
   }
 
-  /* i {
-    color: red;
-  } */
+  .property_review_count {
+    font-size: 18px;
+    /* margin: 3vh 0; */
+  }
+
+  .property_reviews_ratings {
+    margin: 3vh 0;
+    padding: 3vh 0;
+  }
+
+  #property_reviews_btn {
+    margin: 2vh 0 1vh 0;
+  }
+
+  .property_review_review1 {
+    margin-top: 2vh;
+  }
 
   .delete_btn {
     display: flex;
@@ -333,7 +341,7 @@
   .right_group {
     border: 1px solid #d6d6d6;
     width: 25vw;
-    height: 15vh;
+    height: 25vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -341,8 +349,8 @@
     position: sticky;
     top: 20px;
   }
-
-  .sticky_login_foot {
-    position: sitcky;
+  .property_right_price {
+    font-size: 20px;
+    /* background-color: red; */
   }
 }

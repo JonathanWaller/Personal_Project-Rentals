@@ -42,4 +42,12 @@ a {
   .navmain {
     padding: 15px 40px;
   }
+  .userimg {
+    height: 35px;
+    width: 35px;
+    border-radius: 100px;
+    margin-left: 13px;
+    margin-top: -10px;
+    cursor: default;
+  }
 }

@@ -31,7 +31,7 @@ class SingleProperty extends Component {
             className="singleimg"
           />
           <div className="single_card_text">
-            <div className="city_name">{this.props.city}</div>
+            <div className="single_city">{this.props.city}</div>
             <div className="single_card_prop_title">{this.props.title}</div>
             {/* <div>Baths: {this.props.baths}</div>
           <div>Beds: {this.props.beds}</div> */}

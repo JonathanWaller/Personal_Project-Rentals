@@ -114,8 +114,8 @@ class Properties extends Component {
               id="properties_card_text"
               onClick={() => this.goToProperty(property.id)}
             >
-              <div>{property.city}</div>
-              <div>{property.property_title}</div>
+              <div id="properties_city">{property.city}</div>
+              <div id="properties_title">{property.property_title}</div>
               <div className="properties_beds_baths">
                 {+property.baths > 1 ? (
                   <div>{property.baths} baths</div>

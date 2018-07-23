@@ -160,7 +160,7 @@ class Properties extends Component {
         {this.props.isAuthed ? (
           <div className="properties_add_btn">
             <Link to="/addproperty">
-              <button>Add Listing</button>
+              <button className="properties_login_btn">Add Listing</button>
             </Link>
           </div>
         ) : (

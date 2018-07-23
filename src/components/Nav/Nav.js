@@ -58,7 +58,7 @@ class Nav extends Component {
                 className="nav_favorites_btn"
                 onClick={() => this.goToFavorites(this.props.user.user.userid)}
               >
-                Favorites
+                Saved
               </div>
             ) : null}
             <Link to="/about">About</Link>

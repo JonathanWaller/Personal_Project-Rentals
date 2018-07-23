@@ -24,6 +24,12 @@
   justify-content: flex-end;
 }
 
+.properties_login_btn {
+  background-color: #ff4f54;
+  color: white;
+  border-radius: 5px;
+}
+
 .all_properties {
   display: flex;
   justify-content: space-evenly;
@@ -129,6 +135,10 @@
 }
 
 @media (min-width: 760px) {
+  .properties_login_btn {
+    padding: 1vh;
+    margin: 0 2vw;
+  }
   .properties_solo_property {
     height: 25vh;
     width: 30vw;
@@ -171,6 +181,11 @@
 }
 
 @media (min-width: 1000px) {
+  .properties_login_btn {
+    padding: 1vh;
+    margin: 0 2vw 2vh 0;
+  }
+
   .properties_main {
     /* background-color: red; */
     margin: 4vh 2.5vw;

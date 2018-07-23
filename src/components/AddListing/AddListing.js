@@ -174,85 +174,100 @@ class AddListing extends Component {
             </label>
           </form>
         </div>
-        <img src={this.state.firebaseImg} className="uploadimg" alt="" />
+        {/* <img src={this.state.firebaseImg} className="uploadimg" alt="" /> */}
         {/* <input
           onChange={e => {
             this.imageHandler(e);
           }}
         /> */}
         {/* <button>Add Image</button> */}
-        <div>Title: {this.state.title}</div>
-        <input onChange={e => this.titleHandler(e)} placeholder="Enter Title" />
-        <div>City:</div>
-        <input onChange={e => this.cityHandler(e)} placeholder="Enter city" />
-        <div>Location:{this.state.location}</div>
-        <LocationSearchInput />
-        {/* <input placeholder="google location" id="search_term" /> */}
-        {/* <input
+        <div className="add_list">
+          <div>Title</div>
+          <input
+            onChange={e => this.titleHandler(e)}
+            placeholder="Enter Title"
+            id="place"
+          />
+          <div>City</div>
+          <input onChange={e => this.cityHandler(e)} placeholder="Enter city" />
+          <div>Address</div>
+          <LocationSearchInput />
+          {/* <input placeholder="google location" id="search_term" /> */}
+          {/* <input
           onChange={e => {
             this.locationHandler(e);
           }}
           placeholder="enter address here"
         /> */}
-        <div>Beds: {this.state.beds}</div>
-        <input onChange={e => this.bedsHandler(e)} placeholder="# of beds" />
-        <div>Bathrooms: {this.state.baths}</div>
-        <input
-          onChange={e => this.bathsHandler(e)}
-          placeholder="# of bathrooms"
-        />
-        <div>Description:</div>
-        <input
-          onChange={e => this.descriptionHandler(e)}
-          placeholder="Enter description"
-        />
-        <div className="amenitiesmain">
-          <div>Amenities:</div>
+          <div>Beds</div>
+          <input onChange={e => this.bedsHandler(e)} placeholder="# of beds" />
+          <div>Bathrooms</div>
           <input
-            onChange={e => this.amen_1Handler(e)}
-            placeholder="Enter amenities1"
+            onChange={e => this.bathsHandler(e)}
+            placeholder="# of bathrooms"
           />
+          <div>Description</div>
           <input
-            onChange={e => this.amen_2Handler(e)}
-            placeholder="Enter amenities2"
+            onChange={e => this.descriptionHandler(e)}
+            placeholder="Enter description"
           />
-          <input
-            onChange={e => this.amen_3Handler(e)}
-            placeholder="Enter amenities3"
-          />
-        </div>
+          <div className="amenitiesmain">
+            <div>Amenities</div>
+            <input
+              onChange={e => this.amen_1Handler(e)}
+              placeholder="Enter amenities1"
+            />
+            <input
+              onChange={e => this.amen_2Handler(e)}
+              placeholder="Enter amenities2"
+            />
+            <input
+              onChange={e => this.amen_3Handler(e)}
+              placeholder="Enter amenities3"
+            />
+          </div>
 
-        <div>Nightly Rate:</div>
-        <input onChange={e => this.rateHandler(e)} placeholder="Enter price" />
-        {/* <input id="auto_complete" type="text" placeholder="enter address" /> */}
-        <button
-          onClick={() =>
-            this.submitHandler(
-              this.state.title,
-              this.props.address,
-              this.props.lat,
-              this.props.lng,
-              this.state.city,
-              this.state.beds,
-              this.state.baths,
-              this.state.description,
-              this.state.amen1,
-              this.state.amen2,
-              this.state.amen3,
-              this.state.rate,
-              this.state.firebaseImg,
-              this.props.user.userid
-            )
-          }
-        >
-          Submit Details
-        </button>
-        {/* <button onClick={() => this.editHandler(this.props.user.id)}>
+          <div>Nightly Rate</div>
+          <input
+            onChange={e => this.rateHandler(e)}
+            placeholder="Enter price"
+          />
+          {/* <input id="auto_complete" type="text" placeholder="enter address" /> */}
+        </div>
+        <div className="submit_cancel">
+          <Link to="properties">
+            <button id="submit_cancel_fonts" className="add_cancel">
+              Cancel
+            </button>
+          </Link>
+          <button
+            id="submit_cancel_fonts"
+            className="add_submit"
+            onClick={() =>
+              this.submitHandler(
+                this.state.title,
+                this.props.address,
+                this.props.lat,
+                this.props.lng,
+                this.state.city,
+                this.state.beds,
+                this.state.baths,
+                this.state.description,
+                this.state.amen1,
+                this.state.amen2,
+                this.state.amen3,
+                this.state.rate,
+                this.state.firebaseImg,
+                this.props.user.userid
+              )
+            }
+          >
+            Submit Details
+          </button>
+          {/* <button onClick={() => this.editHandler(this.props.user.id)}>
           Submit Edit
         </button> */}
-        <Link to="properties">
-          <button>Cancel</button>
-        </Link>
+        </div>
       </div>
     );
   }

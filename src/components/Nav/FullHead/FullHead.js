@@ -23,7 +23,7 @@ class FullHead extends Component {
               className="favorites_link"
               onClick={() => this.goToFavorites(this.props.user.user.userid)}
             >
-              Favorites
+              Saved
             </div>
           ) : null}
           <Link to="/properties">Listings</Link>

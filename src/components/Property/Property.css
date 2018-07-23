@@ -183,7 +183,7 @@
   }
 
   #propertyimg {
-    height: 60vh;
+    height: 70vh;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -191,10 +191,10 @@
   }
   #like-button {
     position: absolute;
-    top: 2vh;
-    right: 6vw;
+    top: 4vh;
+    right: 3vw;
     z-index: 2;
-    font-size: 23px;
+    font-size: 47px;
   }
 
   .properties_back {
@@ -352,5 +352,17 @@
   .property_right_price {
     font-size: 20px;
     /* background-color: red; */
+  }
+}
+
+@media (min-width: 1300px) {
+  #propertyimg {
+    height: 70vh;
+  }
+}
+
+@media (min-width: 1500px) {
+  #propertyimg {
+    height: 50vh;
   }
 }

@@ -157,7 +157,7 @@ class Property extends Component {
                     <img src={property.user_avatar} id="avatarimg" alt="" />
                   </div>
 
-                  {this.props.isAuthed ? (
+                  {/* {this.props.isAuthed ? (
                     <a
                       href={`mailto:${
                         this.props.property.user_email
@@ -167,7 +167,7 @@ class Property extends Component {
                     >
                       <button>Contact</button>
                     </a>
-                  ) : null}
+                  ) : null} */}
                 </div>
                 <div className="property_description">
                   <div id="property_title_color">Overview:</div>
@@ -263,18 +263,15 @@ class Property extends Component {
 
               {this.props.user.userid == this.props.property.user_id ? (
                 <div>
+                  <Link to={`/editproperty/${property.id}`}>
+                    <div className="properties_button">Edit Listing</div>
+                  </Link>
                   <div
                     className="delete_btn"
                     onClick={() => this.deleteHandler(property.id)}
                   >
-                    <i className="fa fa-trash" />
-
                     <div className="properties_button">Delete Listing</div>
                   </div>
-                  <Link to={`/editproperty/${property.id}`}>
-                    <i className="fa fa-edit" />
-                    <div className="properties_button">Edit Listing</div>
-                  </Link>
                 </div>
               ) : (
                 <div>

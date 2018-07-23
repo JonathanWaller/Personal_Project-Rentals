@@ -356,6 +356,13 @@
 }
 
 @media (min-width: 1300px) {
+  .propertymain {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 5vh 20vw;
+  }
+
   #propertyimg {
     height: 70vh;
   }

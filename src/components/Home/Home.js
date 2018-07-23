@@ -35,7 +35,8 @@ class Home extends Component {
     this.setState({ search: e.target.value });
   };
 
-  handleSearchSubmit = () => {
+  handleSearchSubmit = e => {
+    e.preventDefault();
     axios
       .get(`/api/properties?address=${this.state.search}`)
       .then(response => {
@@ -88,10 +89,7 @@ class Home extends Component {
                 <Link to="/properties">
                   <span className="enterbutton">Enter</span>
                 </Link>
-                <form
-                  className="search"
-                  onSubmit={() => this.handleSearchSubmit()}
-                >
+                <form className="search" onSubmit={this.handleSearchSubmit}>
                   <span className="fa fa-search" id="my_search" />
                   <input
                     className="search-term"

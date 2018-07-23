@@ -6,6 +6,7 @@ import StarRatings from "react-star-ratings";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
 // import Rating from "../Ratings/Rating";
+import "./Review.css";
 
 import { getProperties } from "../../ducks/propertyReducer";
 import { getReviews } from "../../ducks/reviewReducer";
@@ -70,6 +71,7 @@ class Review extends Component {
       <div>
         <div>Leave Review of {this.props.property.property_title}</div>
         <input
+          className="review_input"
           onChange={e => this.changeHandler(e)}
           placeholder="Enter Review here"
         />

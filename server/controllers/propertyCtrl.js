@@ -70,16 +70,6 @@ const updateImage = (req, res, next) => {
   let db = req.app.get("db");
 };
 
-// const addImage = (req, res) => {
-//   const { image_url, post_id } = req.body;
-//   let db = req.app.get("db");
-//   db.properties.addImage([image_url, post_id]).then(image => {
-//     console.log(req.body);
-//     console.log(image);
-//     return res.status(200).send(image);
-//   });
-// };
-
 const addUploadImage = (req, res, next) => {
   const { url } = req.body;
   let db = req.app.get("db");
@@ -103,11 +93,6 @@ const updateProperty = (req, res) => {
   db.properties.updateProperty(
     req.params.id,
     req.body.property_title,
-    // req.body.property_location,
-    // req.body.address,
-    // req.body.lat,
-    // req.body.lng,
-    // req.body.city,
     req.body.beds,
     req.body.baths,
     req.body.description,
@@ -118,8 +103,6 @@ const updateProperty = (req, res) => {
   );
   db.images
     .update_image(req.params.id, req.body.image_url)
-    // .update_image([req.body.image_url, req.params.id])
-    // .update_image([id, image_url])
     .then(() => {
       return res.sendStatus(200);
     })

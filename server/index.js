@@ -28,7 +28,7 @@ const {
 } = require(`${__dirname}/controllers/reviewCtrl`);
 
 const { getAvgRating } = require(`${__dirname}/controllers/ratingCtrl`);
-// const { addRating } = require(`${__dirname}/controllers/ratingCtrl`);
+
 const {
   addFavorite,
   getFavorites,
@@ -104,7 +104,6 @@ authenticated = (req, res, next) => {
 };
 
 app.get("/api/me", authenticated, (req, res, next) => {
-  //should below be 'send(user)'?? that's how steven's was
   res.status(200).send(req.user);
 });
 
@@ -114,7 +113,6 @@ app.get("/logout", logout);
 app.get("/api/properties", getAllProperties);
 app.get("/api/property/:id", getProperty);
 app.post("/api/property", addProperty);
-// app.post("/api/image", addImage);
 app.delete("/api/property/:id", deleteProperty);
 app.put("/api/property/:id", updateProperty);
 
@@ -123,7 +121,6 @@ app.post("/api/review", addReview);
 app.get("/api/reviews", getReviews);
 
 //avg ratings
-// app.post("/api/rating", addRating);
 app.get("/api/rating", getAvgRating);
 
 //favorites

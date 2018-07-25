@@ -27,15 +27,6 @@ class LocationSearchInput extends React.Component {
         this.props.updateLng(latLng.lng);
       })
       .then(() => this.props.updateAddress(address))
-
-      //   **everything below is for local state**
-      //   .then(latLng =>
-      //     this.setState({
-      //       lat: latLng.lat,
-      //       lng: latLng.lng
-      //     })
-      //   )
-      //   .then(() => this.setState({ address: address }))
       .catch(error => console.error("Error", error));
   };
 
@@ -49,9 +40,6 @@ class LocationSearchInput extends React.Component {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
-            {/* <button onClick={() => this.props.updateAddress("fireball")}>
-              test button
-            </button> */}
             <input
               {...getInputProps({
                 placeholder: "Search Places ...",
@@ -64,7 +52,6 @@ class LocationSearchInput extends React.Component {
                 const className = suggestion.active
                   ? "suggestion-item--active"
                   : "suggestion-item";
-                // inline style for demonstration purpose
                 const style = suggestion.active
                   ? { backgroundColor: "#fafafa", cursor: "pointer" }
                   : { backgroundColor: "#ffffff", cursor: "pointer" };

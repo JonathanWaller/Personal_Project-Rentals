@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-// import "./Nav.css";
-// import Dehaze from "@material-ui/icons/Dehaze";
 import "./FullHead.css";
 
 import { connect } from "react-redux";
@@ -43,5 +41,4 @@ class FullHead extends Component {
 
 const mapStateToProps = state => state;
 
-// export default withRouter(connect(mapStateToProps)(Nav));
 export default withRouter(connect(mapStateToProps)(FullHead));

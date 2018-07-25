@@ -28,7 +28,6 @@ class EditListing extends Component {
       progress: 0,
       uploadImgURL: "",
       titleflag: true
-      // image: "",
     };
   }
 
@@ -106,12 +105,6 @@ class EditListing extends Component {
       amen3: e.target.value
     });
   };
-
-  // imageHandler = e => {
-  //   this.setState({
-  //     image: e.target.value
-  //   });
-  // };
 
   editHandler = async id => {
     await Promise.all([

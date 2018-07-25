@@ -21,10 +21,7 @@ class Map extends Component {
 
   render() {
     return (
-      <div
-        className="map"
-        // style={{ height: "20vh", width: "100%" }}
-      >
+      <div className="map">
         <GoogleMapReact
           defaultCenter={this.props.center}
           defaultZoom={this.state.zoom}

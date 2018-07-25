@@ -10,15 +10,6 @@ const addReview = (req, res) => {
     });
 };
 
-// const addRating = (req, res) => {
-//   const { rating } = req.body;
-//   let db = req.app.get("db");
-//   db.reviews.addRating([rating]).then(rating => {
-//     console.log("req.body", req.body);
-//     return res.status(200).send(rating);
-//   });
-// };
-
 const getReviews = (req, res) => {
   let db = req.app.get("db");
   db.reviews.getAllReviews().then(response => {

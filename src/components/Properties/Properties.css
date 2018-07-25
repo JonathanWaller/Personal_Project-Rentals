@@ -3,7 +3,6 @@
 }
 
 .top_of_search {
-  /* border: 1px solid red; */
   display: flex;
   justify-content: center;
 }
@@ -13,13 +12,11 @@
 }
 
 .properties_add_btn {
-  /* border: 1px solid green; */
   display: flex;
   justify-content: flex-end;
 }
 
 .properties_add_login_btn {
-  /* border: 1px solid green; */
   display: flex;
   justify-content: flex-end;
 }
@@ -41,7 +38,6 @@
   width: 45vw;
   margin: 12px 5px;
   position: relative;
-  /* border: 1px dotted blue; */
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -49,7 +45,6 @@
 
 .propertiesimg {
   height: 13vh;
-  /* width: 45vw; */
   background-size: cover;
   background-position: center;
   position: relative;
@@ -122,7 +117,6 @@
   }
 
   .properties_solo_under_img {
-    color: #3f3f3f;
     font-size: 13px;
     font-weight: 900;
     margin-top: 5px;
@@ -143,7 +137,6 @@
     height: 25vh;
     width: 30vw;
     margin: 14px 4px;
-    /* border: 1px dotted blue; */
     display: flex;
     flex-direction: column;
   }
@@ -157,10 +150,7 @@
   }
 
   .properties_solo_under_img {
-    color: #3f3f3f;
     font-size: 14px;
-    font-weight: 900;
-    margin-top: 5px;
   }
 
   .properties_beds_baths {
@@ -187,12 +177,10 @@
   }
 
   .properties_main {
-    /* background-color: red; */
     margin: 4vh 2.5vw;
   }
 
   .top_of_search {
-    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
   }
@@ -202,13 +190,11 @@
   }
 
   .properties_add_btn {
-    /* border: 1px solid green; */
     display: flex;
     justify-content: flex-end;
   }
 
   .properties_add_login_btn {
-    /* border: 1px solid green; */
     display: flex;
     justify-content: flex-end;
   }
@@ -217,7 +203,6 @@
     height: 39vh;
     width: 23vw;
     margin: 14px 4px;
-    /* border: 1px dotted blue; */
     display: flex;
     flex-direction: column;
   }
@@ -233,12 +218,12 @@
     z-index: 2;
   }
 
-  .properties_solo_under_img {
+  /* .properties_solo_under_img {
     color: #3f3f3f;
     font-size: 14px;
     font-weight: 900;
     margin-top: 5px;
-  }
+  } */
 
   #properties_title {
     font-size: 16px;
@@ -252,7 +237,6 @@
 
   .properties_rate_font {
     color: #6a6a6a;
-    /* font-size: 13px; */
     font-weight: 400;
   }
 

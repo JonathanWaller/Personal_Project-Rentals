@@ -7,13 +7,6 @@ import { getProperties } from "../../ducks/propertyReducer";
 import { getReviews } from "../../ducks/reviewReducer";
 import axios from "axios";
 import SingleProperty from "../Property/SingleProperty";
-import Property from "../Property/Property";
-import FontAwesome from "react-fontawesome";
-import TextField from "@material-ui/core/TextField";
-import StarRatings from "react-star-ratings";
-// import StarRatings from 'react-star-ratings'
-// import Rating from "../Ratings/Rating";
-// import { Button } from "react-bootstrap";
 
 import "./Home.css";
 
@@ -71,7 +64,6 @@ class Home extends Component {
               round={property.round}
               count={property.count}
             />
-            {/* <Properties /> */}
           </div>
         );
       });
@@ -81,7 +73,6 @@ class Home extends Component {
         {!this.props.isAuthed ? (
           <div className="home-all">
             <header className="homemain">
-              {/* <img className="homeimage" alt="" /> */}
               <div className="header_text-box">
                 <h1 className="heading-primary">
                   <span className="heading-primary---main">Welcome Home</span>

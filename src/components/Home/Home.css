@@ -3,7 +3,6 @@
 }
 .homemain {
   height: 91vh;
-  /* height: 45vh; */
   display: flex;
   justify-content: center;
   background-image: linear-gradient(
@@ -59,18 +58,12 @@
   top: 4px;
   padding-left: 5px;
   color: rgb(128, 128, 128);
-  /* color: red; */
-  /* right: 1px; */
-  /* left: 1px; */
-  /* font-size: 15px; */
 }
 
 ::placeholder {
   color: #b2b2b2;
   font-weight: bold;
   font-size: 12px;
-  /* color: green; */
-  /* opacity: 1; */
 }
 
 .searchproperty {
@@ -81,11 +74,17 @@
 
 .search_results_text {
   margin: 12px 0 15px 0;
-  /* font-size: 17px; */
   font-size: 15px;
 }
 
-@media (min-width: 740px) /* and (max-height: ) */ {
+.load_circle {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 20vh;
+}
+
+@media (min-width: 740px) {
   .home-all {
     margin: 0 40px 40px 40px;
   }

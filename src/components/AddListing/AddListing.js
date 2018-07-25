@@ -15,7 +15,6 @@ class AddListing extends Component {
     super();
     this.state = {
       title: "",
-      // location: "",
       city: "",
       beds: 0,
       baths: 0,
@@ -24,7 +23,6 @@ class AddListing extends Component {
       amen2: "",
       amen3: "",
       rate: 0,
-      // image: "",
       firebaseImg: "https://www.owensoundhonda.on.ca/dist/img/nophoto.jpg",
       uploadImg: "",
       isUploading: false,
@@ -47,10 +45,6 @@ class AddListing extends Component {
       .ref("images")
       .child(filename)
       .getDownloadURL()
-      // .then(url => this.setState({ uploadImgURL: url }));
-      // .then(url => {
-      //   console.log(url);
-      //   this.setState({ firebaseImg: url });
       .then(url => {
         this.setState({
           firebaseImg: url.replace("/o/images%2F", "/o/resized-")
@@ -142,9 +136,6 @@ class AddListing extends Component {
         firebaseImg,
         user_id
       })
-      // .then(() => {
-      //   axios.post("/api/review", {null});
-      // })
       .then(() => this.props.history.replace("/properties"));
   };
 
@@ -174,13 +165,6 @@ class AddListing extends Component {
             </label>
           </form>
         </div>
-        {/* <img src={this.state.firebaseImg} className="uploadimg" alt="" /> */}
-        {/* <input
-          onChange={e => {
-            this.imageHandler(e);
-          }}
-        /> */}
-        {/* <button>Add Image</button> */}
         <div className="add_list">
           <div>Title</div>
           <input
@@ -192,13 +176,6 @@ class AddListing extends Component {
           <input onChange={e => this.cityHandler(e)} placeholder="Enter city" />
           <div>Address</div>
           <LocationSearchInput />
-          {/* <input placeholder="google location" id="search_term" /> */}
-          {/* <input
-          onChange={e => {
-            this.locationHandler(e);
-          }}
-          placeholder="enter address here"
-        /> */}
           <div>Beds</div>
           <input onChange={e => this.bedsHandler(e)} placeholder="# of beds" />
           <div>Bathrooms</div>
@@ -232,7 +209,6 @@ class AddListing extends Component {
             onChange={e => this.rateHandler(e)}
             placeholder="Enter price"
           />
-          {/* <input id="auto_complete" type="text" placeholder="enter address" /> */}
         </div>
         <div className="submit_cancel">
           <Link to="properties">
@@ -264,9 +240,6 @@ class AddListing extends Component {
           >
             Submit Details
           </button>
-          {/* <button onClick={() => this.editHandler(this.props.user.id)}>
-          Submit Edit
-        </button> */}
         </div>
       </div>
     );

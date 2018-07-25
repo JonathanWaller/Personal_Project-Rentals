@@ -7,7 +7,6 @@
 }
 
 #restay {
-  /* display: none; */
   visibility: hidden;
 }
 
@@ -17,7 +16,6 @@
   }
   #restay {
     visibility: visible;
-    /* font-size: 1.8vh; */
     margin-left: 7vw;
   }
 }

@@ -4,11 +4,7 @@ const os = require("os");
 const path = require("path");
 const spawn = require("child-process-promise").spawn;
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
 exports.onFileAdd = functions.storage.object().onFinalize(event => {
-  //   console.log("HERE IS MY EVENT", event);
   const object = event;
   const bucket = object.bucket;
   const contentType = object.contentType;

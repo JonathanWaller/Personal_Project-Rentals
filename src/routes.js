@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
-import Login from "./components/Login/Login";
+// import Login from "./components/Login/Login";
 import Properties from "./components/Properties/Properties";
 import Property from "./components/Property/Property";
 import AddListing from "./components/AddListing/AddListing";
@@ -16,10 +16,8 @@ import { connect } from "react-redux";
 export default (
   <Switch>
     <Route exact path="/" component={Home} />
-    {/* <Route path="/login" component={Login} /> */}
     <Route path="/properties" component={Properties} />
     <Route path="/addproperty" component={AddListing} />
-    {/* <Route path="/addreview/:id" component={Review} /> */}
     <Route
       exact
       path="/addreview/:id"
@@ -39,7 +37,6 @@ export default (
         }
       })}
     />
-    {/* <Route path="/editproperty/:id" component={EditListing} /> */}
 
     <Route
       path="/editproperty/:id"
@@ -76,7 +73,11 @@ export default (
             />
           );
         } else {
-          return <CircularProgress />;
+          return (
+            <div className="load_circle">
+              <CircularProgress />
+            </div>
+          );
         }
       })}
     />

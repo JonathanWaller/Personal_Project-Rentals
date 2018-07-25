@@ -3,26 +3,18 @@
   display: flex;
   color: #3f3f3f;
   font-size: 13px;
-  /* font-weight: bold; */
   font-weight: 900;
   height: 190px;
-  /* border: 1px solid red; */
 }
 
 .singleimg {
-  /* width: 142px; */
-  /* width: 40%; */
   height: 94px;
   background-size: cover;
   background-position: center;
 }
 
 .singlecard {
-  /* display: flex; */
-  /* flex-direction: column; */
   width: 142px;
-  /* width: 40vw; */
-  /* width: 40%; */
 }
 
 .single_city {
@@ -42,12 +34,9 @@
   font-weight: 100;
 }
 .single_card_text {
-  /* margin: 20px 0; */
-  /* padding: 20px 0; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  /* background-color: lightblue; */
   height: 92px;
 }
 
@@ -59,22 +48,15 @@
   .whole_card {
     margin: 5px 0;
     font-size: 13px;
-    /* font-weight: 900; */
     height: 190px;
-    /* border: 1px solid red; */
   }
 
   .singleimg {
     width: 170px;
-    /* height: 110px; */
   }
 
   .singlecard {
-    /* display: flex; */
-    /* flex-direction: column; */
     width: 170px;
-    /* width: 40vw; */
-    /* width: 40%; */
   }
 
   .ratings_main {
@@ -89,12 +71,9 @@
     font-weight: 100;
   }
   .single_card_text {
-    /* margin: 20px 0; */
-    /* padding: 20px 0; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* background-color: lightblue; */
     height: 92px;
   }
 
@@ -107,14 +86,11 @@
   .whole_card {
     margin: 10px 0;
     font-size: 13px;
-    /* font-weight: 900; */
     height: 170px;
-    /* border: 1px solid red; */
   }
 
   .singleimg {
     width: 200px;
-    /* height: 133px; */
   }
 
   .singlecard {
@@ -133,12 +109,9 @@
     font-weight: 100;
   }
   .single_card_text {
-    /* margin: 20px 0; */
-    /* padding: 20px 0; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* background-color: lightblue; */
     height: 73px;
   }
 
@@ -151,14 +124,10 @@
   .whole_card {
     margin: 13px 0;
     font-size: 13px;
-    /* font-weight: 900; */
     height: 250px;
-    /* width: */
-    /* border: 1px solid red; */
   }
 
   .singleimg {
-    /* width: 250px; */
     height: 170px;
   }
 
@@ -174,12 +143,9 @@
     font-weight: 100;
   }
   .single_card_text {
-    /* margin: 20px 0; */
-    /* padding: 20px 0; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* background-color: lightblue; */
     height: 80px;
   }
 
@@ -192,14 +158,11 @@
   .whole_card {
     margin: 10px 0;
     font-size: 15px;
-    /* font-weight: 900; */
     height: 252px;
-    /* border: 1px solid red; */
   }
 
   .singleimg {
     width: 320px;
-    /* height: 150px; */
   }
 
   .singlecard {
@@ -214,12 +177,9 @@
     font-weight: 100;
   }
   .single_card_text {
-    /* margin: 20px 0; */
-    /* padding: 20px 0; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* background-color: lightblue; */
     height: 85px;
   }
 

@@ -3,14 +3,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import StarRatings from "react-star-ratings";
-import Moment from "react-moment";
-import { Link } from "react-router-dom";
+// import Moment from "react-moment";
+// import { Link } from "react-router-dom";
 // import Rating from "../Ratings/Rating";
 import "./Review.css";
 
 import { getProperties } from "../../ducks/propertyReducer";
 import { getReviews } from "../../ducks/reviewReducer";
-import { getAvgRating } from "../../ducks/ratingReducer";
+// import { getAvgRating } from "../../ducks/ratingReducer";
 
 class Review extends Component {
   constructor() {

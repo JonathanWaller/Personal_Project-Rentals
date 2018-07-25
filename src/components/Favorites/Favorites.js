@@ -10,7 +10,6 @@ import { getProperties } from "../../ducks/propertyReducer";
 class Favorites extends Component {
   componentDidMount() {
     this.props.getFavorites(this.props.match.params.id);
-    // this.props.getProperties();
   }
 
   deleteHandler = id => {
@@ -22,7 +21,7 @@ class Favorites extends Component {
 
   render() {
     console.log("favorites props", this.props);
-    console.log(this.props.properties);
+    // console.log(this.props.properties);
     let favorites =
       this.props.favorites &&
       this.props.favorites.map(property => {
@@ -31,10 +30,13 @@ class Favorites extends Component {
           <div className="favorites_single" key={property.id}>
             <div className="favorites_wrapper">
               <div className="favorites_top">
-                {/* <img src={property.image_url} /> */}
+                <img
+                  className="favorites_img"
+                  src={property.image_url}
+                  alt="fav_home"
+                />
                 <div id="properties_city">{property.city}</div>
                 <div>{property.property_title}</div>
-                {/* <div>{property.city}</div> */}
                 <div>${property.price} per night</div>
               </div>
               <div className="favorites_bottom">

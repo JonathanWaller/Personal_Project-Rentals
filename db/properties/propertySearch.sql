@@ -1,7 +1,3 @@
--- SELECT *
--- FROM properties p JOIN upload_images u ON p.id=u.posting_id
--- WHERE 
--- ADDRESS LIKE $1;
 SELECT *
 FROM (SELECT image_url, posting_id
     FROM upload_images) tbl1 JOIN (SELECT *

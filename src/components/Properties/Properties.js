@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import StarRatings from "react-star-ratings";
-import axios from "axios";
-import FontAwesome from "react-fontawesome";
 
 import "./Properties.css";
 
@@ -50,14 +48,11 @@ class Properties extends Component {
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     //set up to use a search function to look for the city title. if nothing in search bar, will display all properties
     let searchDisplay = this.props.properties
       .filter((property, ind) => {
-        return property.address.includes(
-          // this.state.filterString.charAt(0).toUpperCase()
-          this.state.filterString
-        );
+        return property.address.includes(this.state.filterString);
       })
       .map((property, ind) => {
         // checking for properties that are in favorites table
@@ -108,8 +103,6 @@ class Properties extends Component {
               ) : null}
             </div>
             <div
-              // single_card_text is initiated in SingleProperty
-              // className="single_card_text"
               className="properties_solo_under_img"
               id="properties_card_text"
               onClick={() => this.goToProperty(property.id)}

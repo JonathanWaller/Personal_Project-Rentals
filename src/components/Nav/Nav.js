@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import "./Nav.css";
-import Dehaze from "@material-ui/icons/Dehaze";
 import Ham from "./Ham/Ham";
 import FullHead from "./FullHead/FullHead";
 import { Link } from "react-router-dom";
@@ -47,20 +45,9 @@ class Nav extends Component {
         ) : (
           <FullHead exitSliderHandler={this.exitSliderHandler} />
         )}
-
-        {/* <div className="test"> */}
-        {/* <div id="resty">
-            re<span className="restay">ST</span>ay
-          </div> */}
         <div className="home_list_about_login">
           <div className="nav-right">
-            {/* <div className="test"> */}
-            {/* <div>
-              re<span className="restay">ST</span>ay
-            </div> */}
             <div className="full-nav-links">
-              {/* <div className="nav_links"> */}
-              {/* <Link to="/">Home</Link> */}
               <Link to="/properties">Listings</Link>
               {this.props.user.isAuthed ? (
                 <div

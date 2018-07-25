@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// import EditListing from "../EditListing/EditListing";
 import Map from "../Map/Map/Map";
 import AllReviews from "../Review/AllReviews";
 import Moment from "react-moment";
 import StarRatings from "react-star-ratings";
 import { addFavorite, getFavorites } from "../../ducks/favoritesReducer";
-import FontAwesome from "react-fontawesome";
 import "./Property.css";
 
 class Property extends Component {
@@ -32,13 +30,6 @@ class Property extends Component {
       .then(() => this.props.history.replace("/properties"));
   };
 
-  // toggleEditView = () => {
-  //   this.setState({
-  //     propertyShow: !this.state.propertyShow,
-  //     editShow: !this.state.editShow
-  //   });
-  // };
-
   toggleReviews = () => {
     this.setState({
       reviewsShow: !this.state.reviewsShow
@@ -48,11 +39,6 @@ class Property extends Component {
   goToProperty = id => {
     this.props.history.push(`/addReview/${id}`);
   };
-  // toggleLeave = () => {
-  //   this.setState({
-  //     noLike: "fa fa-2x fa-heart-o not-liked"
-  //   });
-  // };
   toggleLiked = () => {
     this.setState({
       noLike: "fa fa-2x fa-heart liked"
@@ -60,7 +46,7 @@ class Property extends Component {
   };
 
   render() {
-    console.log("props", this.props);
+    // console.log("props", this.props);
     let { property } = this.props;
     // checking the user's favorites to see if any match the current property
     let likeCheck = this.props.favorites.favorites.find(
@@ -69,11 +55,8 @@ class Property extends Component {
 
     return (
       <div>
-        {/* <div className="wrapper_details_contact"> */}
         <div className="propertymain">
-          {/* <div className="left_panel"> */}
           <div className="imglike">
-            {/* <img src={property.image_url} id="propertyimg" alt="" /> */}
             <div
               style={{ backgroundImage: `url(${property.image_url})` }}
               id="propertyimg"
@@ -88,7 +71,6 @@ class Property extends Component {
                   ) : (
                     <i
                       id="like-button"
-                      // className="fa fa-2x fa-heart-o not-liked"
                       className={this.state.noLike}
                       onClick={() =>
                         this.props
@@ -151,23 +133,10 @@ class Property extends Component {
                       </div>
                     )}
                   </div>
-                  {/* <div>{property.description}</div> */}
                   <div className="property_hosted_w_img">
                     Hosted by: {property.user_name}
                     <img src={property.user_avatar} id="avatarimg" alt="" />
                   </div>
-
-                  {/* {this.props.isAuthed ? (
-                    <a
-                      href={`mailto:${
-                        this.props.property.user_email
-                      }?subject=About your property at ${
-                        this.props.property.address
-                      }`}
-                    >
-                      <button>Contact</button>
-                    </a>
-                  ) : null} */}
                 </div>
                 <div className="property_description">
                   <div id="property_title_color">Overview:</div>
@@ -181,20 +150,10 @@ class Property extends Component {
                 <li>{property.amen_2}</li>
                 <li>{property.amen_3}</li>
               </div>
-              {/* <div className="ratings_main" id="top_star">
-                <StarRatings
-                  rating={+property.round}
-                  starRatedColor="#1e85ae"
-                  numberOfStars={5}
-                  starDimension="12px"
-                />
-                <div className="property_count">{property.count}</div>
-              </div> */}
               <div className="property_price">${property.price} per night</div>
               <Map
                 lat={+this.props.property.lat}
                 lng={+this.props.property.lng}
-                // address={this.props.property}
                 center={{
                   lat: +this.props.property.lat,
                   lng: +this.props.property.lng

@@ -3,11 +3,3 @@ insert into upload_images
 VALUES
     ($1, $2)
 returning *;
-
-
-
--- insert into upload_images
---     (image_url)
--- VALUES
---     ($1)
--- returning *;

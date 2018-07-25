@@ -5,12 +5,8 @@
 }
 
 .nav_links {
-  /* height: 50vh;
-  width: 5vw; */
   display: flex;
   flex-direction: column;
-  /* color: white; */
-  /* color: red; */
   justify-content: space-evenly;
   align-items: flex-start;
 }

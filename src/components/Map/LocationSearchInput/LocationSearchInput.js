@@ -15,19 +15,6 @@ import {
 } from "../../../ducks/locationReducer";
 
 class LocationSearchInput extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   // this.state = {
-  //   //   address: "",
-  //   //   lat: 0,
-  //   //   lng: 0
-  //   // };
-  // }
-
-  //   handleChange = address => {
-  //     this.setState({ address });
-  //   };
-
   handleSelect = address => {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))

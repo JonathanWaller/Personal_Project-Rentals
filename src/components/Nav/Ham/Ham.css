@@ -1,9 +1,23 @@
+.wrapper_ham_logo {
+  display: flex;
+}
+
 .hammain {
   background: rgb(255, 255, 255);
+}
+
+#restay {
+  /* display: none; */
+  visibility: hidden;
 }
 
 @media (min-width: 765px) {
   .hammain {
     display: none;
+  }
+  #restay {
+    visibility: visible;
+    /* font-size: 1.8vh; */
+    margin-left: 7vw;
   }
 }

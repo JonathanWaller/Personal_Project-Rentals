@@ -1,16 +1,11 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
 import StarRatings from "react-star-ratings";
-// import Moment from "react-moment";
-// import { Link } from "react-router-dom";
-// import Rating from "../Ratings/Rating";
 import "./Review.css";
 
 import { getProperties } from "../../ducks/propertyReducer";
 import { getReviews } from "../../ducks/reviewReducer";
-// import { getAvgRating } from "../../ducks/ratingReducer";
 
 class Review extends Component {
   constructor() {
@@ -21,14 +16,11 @@ class Review extends Component {
       rating: 0
     };
   }
-
-  // ***just for testing for now****
   goToProperty = id => {
     // console.log(this.props);
     this.props.history.push(`/property/${id}`);
     // this.props.history.replace(`/property/${id}`);
   };
-  // ***************************
 
   changeHandler = e => {
     this.setState({
@@ -52,14 +44,10 @@ class Review extends Component {
         moment,
         rating
       })
-      // .then(() => this.props.history.replace("/properties"));
       .then(() => this.props.getReviews())
       .then(() => this.props.getProperties())
-      // .then(() => this.props.getAvgRating())
-      .then(
-        () =>
-          this.props.history.replace(`/property/${this.props.property.post_id}`)
-        // this.goToProperty(this.props.property.post_id)
+      .then(() =>
+        this.props.history.replace(`/property/${this.props.property.post_id}`)
       );
   };
 
@@ -75,7 +63,6 @@ class Review extends Component {
           onChange={e => this.changeHandler(e)}
           placeholder="Enter Review here"
         />
-        {/* <Rating property={this.props.property} /> */}
         <StarRatings
           rating={this.state.rating}
           starRatedColor="gold"

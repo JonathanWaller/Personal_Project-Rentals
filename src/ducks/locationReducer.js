@@ -44,19 +44,16 @@ export default function locationReducer(state = initialState, action) {
     case UPDATE_ADDRESS:
       return {
         ...state,
-        // address: state.address
         address: action.payload
       };
     case UPDATE_LAT:
       return {
         ...state,
-        // lat: state.lat
         lat: action.payload
       };
     case UPDATE_LNG:
       return {
         ...state,
-        // lng: state.lng
         lng: action.payload
       };
     default:

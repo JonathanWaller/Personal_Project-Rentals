@@ -11,7 +11,7 @@ import "./reset.css";
 import "./App.css";
 
 class App extends Component {
-  componentDidMount() {}
+  // componentDidMount() {}
 
   render() {
     return (

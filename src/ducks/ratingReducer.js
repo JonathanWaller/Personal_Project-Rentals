@@ -1,7 +1,6 @@
 import axios from "axios";
 
 //constants
-// const UPDATE_RATING = "UPDATE_RATING";
 const GET_AVGRATING = "GET_AVGRATING";
 
 //action creators
@@ -24,7 +23,6 @@ export default function ratingReducer(state = initialState, action) {
       return {
         ...state,
         avgRating: action.payload.data
-        // avgRating: 25
       };
     default:
       return state;

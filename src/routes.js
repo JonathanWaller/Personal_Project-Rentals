@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
-// import Login from "./components/Login/Login";
 import Properties from "./components/Properties/Properties";
 import Property from "./components/Property/Property";
 import AddListing from "./components/AddListing/AddListing";
@@ -22,7 +21,6 @@ export default (
       exact
       path="/addreview/:id"
       component={connect(state => state)(props => {
-        //
         if (props.properties.properties.length) {
           return (
             <Review
@@ -58,7 +56,6 @@ export default (
 
     <Route
       path="/property/:id"
-      // component={Property}
       component={connect(state => state)(props => {
         if (props.properties.properties.length) {
           return (

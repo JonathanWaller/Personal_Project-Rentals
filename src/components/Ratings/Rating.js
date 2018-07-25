@@ -4,8 +4,6 @@ import axios from "axios";
 
 import { connect } from "react-redux";
 
-// import { updateRating } from "../../ducks/ratingReducer";
-
 class Rating extends Component {
   constructor() {
     super();
@@ -19,15 +17,6 @@ class Rating extends Component {
       rating: newRating
     });
   };
-
-  //   changeRating = newRating => {
-  //     this.props.updateRating(newRating);
-  //   };
-
-  //   changeRating = (newRating, reviewer_id, post_id) => {
-  //     this.props.updateRating(newRating);
-  //       .then(() => axios.post("/api/review", {newRating, this.props.user.id, }));
-  //   };
 
   render() {
     // console.log("state", this.state);
@@ -48,7 +37,4 @@ class Rating extends Component {
 
 const mapStateToProps = ({ rating, user }) => ({ ...rating, ...user });
 
-export default connect(
-  mapStateToProps
-  //   { updateRating }
-)(Rating);
+export default connect(mapStateToProps)(Rating);

@@ -87,11 +87,9 @@ passport.deserializeUser((user, done) => done(null, user));
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/#/",
-    successRedirect: "http://localhost:3000/#/",
-    // successRedirect: "/api/me",
+    successRedirect: process.env.REACT_APP_HOME,
+    // successRedirect: "http://localhost:3000/#/",
     failureRedirect: "/login"
-    // successRedirect: "/"
   })
 );
 

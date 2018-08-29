@@ -52,27 +52,29 @@ class Review extends Component {
   };
 
   render() {
-    // console.log("rating props", this.props);
-    console.log("state", this.state);
-    console.log("props", this.props);
     return (
-      <div>
-        <div>Leave Review of {this.props.property.property_title}</div>
+      <div className="addReview_wrapper">
+        <div className="addReview_titleText">
+          Leave Review of {this.props.property.property_title}
+        </div>
         <input
           className="review_input"
           onChange={e => this.changeHandler(e)}
           placeholder="Enter Review here"
         />
-        <StarRatings
-          rating={this.state.rating}
-          starRatedColor="gold"
-          starHoverColor="gold"
-          changeRating={this.changeRating}
-          numberOfStars={5}
-          name="rating"
-          starDimension="30px"
-        />
+        <div className="addReview_stars">
+          <StarRatings
+            rating={this.state.rating}
+            starRatedColor="gold"
+            starHoverColor="gold"
+            changeRating={this.changeRating}
+            numberOfStars={5}
+            name="rating"
+            starDimension="25px"
+          />
+        </div>
         <button
+          className="addReview_button"
           onClick={() =>
             this.submitHandler(
               this.state.userInput,

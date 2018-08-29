@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
+import ScrollToTop from "react-router-scroll-top";
 
 import Nav from "./components/Nav/Nav";
 
@@ -17,10 +18,12 @@ class App extends Component {
     return (
       <Provider store={store}>
         <HashRouter>
-          <div className="App">
-            <Nav />
-            {routes}
-          </div>
+          <ScrollToTop>
+            <div className="App">
+              <Nav />
+              {routes}
+            </div>
+          </ScrollToTop>
         </HashRouter>
       </Provider>
     );

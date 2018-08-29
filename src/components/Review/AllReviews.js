@@ -14,7 +14,7 @@ class AllReviews extends Component {
             </div>
             <div className="review_right">
               <div>{elem.user_name}</div>
-              <div>
+              <div className="allReviews_moment">
                 <Moment fromNow>{elem.moment}</Moment>
               </div>
             </div>

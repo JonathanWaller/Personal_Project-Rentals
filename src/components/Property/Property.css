@@ -24,6 +24,7 @@
   color: #2685ac;
   font-weight: bold;
   cursor: pointer;
+  margin-top: 5px;
 }
 
 #avatarimg {
@@ -64,11 +65,11 @@
 .property_hosted_w_img {
   display: flex;
   align-items: center;
-  margin-top: 1vh;
+  /* margin-top: 1vh; */
 }
 
 .property_description {
-  margin: 2vh 0;
+  margin: 2vh 0 0 0;
 }
 
 .amenities {
@@ -79,7 +80,7 @@
   border-bottom: 0.1px solid lightgrey;
   height: 15vh;
   margin-top: 2vh;
-  margin-bottom: 2vw;
+  margin-bottom: 2vh;
 }
 
 #amenitiestitle {
@@ -97,20 +98,25 @@
 
 .property_price {
   border-bottom: 0.1px solid lightgrey;
-  padding-bottom: 3vh;
+  padding-bottom: 2vh;
   margin-bottom: 1vh;
 }
 
 .property_reviews_ratings {
   display: flex;
-  margin-top: 5vh;
+  margin: 5vh 0 1vh 0;
   border-top: 0.1px solid lightgrey;
   border-bottom: 0.1px solid lightgrey;
+  padding: 10px 0;
 }
 
 .property_review_review1 {
-  margin-top: 2vh;
+  margin: 2vh 0;
 }
+
+/* .property_review_photo {
+  margin-left: 0;
+} */
 
 .property_main_star {
   margin-left: 10px;
@@ -139,8 +145,18 @@
   font-size: 16px;
 }
 
+.property_moment {
+  /* background-color: red; */
+  color: #999999;
+  font-size: 12px;
+}
+
 .delete_btn {
   display: flex;
+}
+
+.right_group {
+  display: none;
 }
 
 .price_contact_sticky {
@@ -151,6 +167,7 @@
   bottom: 0;
   width: 100%;
   background-color: #ffffff;
+  /* background-color: yellow; */
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -170,6 +187,22 @@
   background-color: #ff4f54;
   height: 40px;
   width: 90%;
+}
+
+@media (min-width: 765px) {
+  .property_title_add_host {
+    /* background-color: red; */
+    /* border: 1px solid red; */
+    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .property_description {
+    /* margin: 2vh 0 0 0; */
+    margin: 1vh 0;
+  }
 }
 
 @media (min-width: 1000px) {
@@ -199,12 +232,17 @@
     margin-top: 20px;
   }
 
+  .property_hostImg {
+    margin-bottom: -5px;
+  }
+
   #avatarimg {
     height: 5vh;
     width: 5vh;
     border-radius: 100px;
     margin-left: 10px;
-    margin-top: -5px;
+    /* margin-top: -5px; */
+    /* margin-bottom: -5px; */
   }
 
   .wrapper_panels {

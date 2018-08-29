@@ -48,11 +48,15 @@ class Properties extends Component {
   };
 
   render() {
-    // console.log(this.props);
+    // changing the first letter of the search to uppercase
+    let searchText =
+      this.state.filterString.charAt(0).toUpperCase() +
+      this.state.filterString.slice(1);
     //set up to use a search function to look for the city title. if nothing in search bar, will display all properties
     let searchDisplay = this.props.properties
       .filter((property, ind) => {
-        return property.address.includes(this.state.filterString);
+        // return property.address.includes(this.state.filterString);
+        return property.address.includes(searchText);
       })
       .map((property, ind) => {
         // checking for properties that are in favorites table

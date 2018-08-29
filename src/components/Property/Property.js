@@ -135,7 +135,12 @@ class Property extends Component {
                   </div>
                   <div className="property_hosted_w_img">
                     Hosted by: {property.user_name}
-                    <img src={property.user_avatar} id="avatarimg" alt="" />
+                    <img
+                      src={property.user_avatar}
+                      className="property_hostImg"
+                      id="avatarimg"
+                      alt=""
+                    />
                   </div>
                 </div>
                 <div className="property_description">
@@ -185,13 +190,14 @@ class Property extends Component {
                   {this.props.review.length ? (
                     <div className="property_review_main">
                       <img
+                        className="property_review_photo"
                         id="avatarimg"
                         src={this.props.review[0].user_avatar}
                         alt=""
                       />
 
                       <div>{this.props.review[0].user_name} </div>
-                      <div>
+                      <div className="property_moment">
                         <Moment fromNow>{this.props.review[0].moment}</Moment>
                       </div>
                       <div className="property_review_review1">
@@ -298,6 +304,7 @@ class Property extends Component {
               </div>
             </div>
           </div>
+
           <div className="price_contact_sticky">
             <div className="price_ratings_group_sticky">
               <div>${property.price} per night</div>

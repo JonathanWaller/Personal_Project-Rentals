@@ -1,3 +1,31 @@
+.addReview_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 3vh;
+}
+
+.addReview_titleText {
+  font-size: 17px;
+  /* margin-bottom: 1vh; */
+}
+
 .review_input {
-  margin: 0 3vw;
+  /* margin: 0 3vw; */
+  margin: 1vh 0;
+  width: 30vw;
+  padding: 5px;
+}
+
+.addReview_button {
+  display: flex;
+  justify-content: center;
+  margin: 1vh 0;
+  background-color: #ff4f54;
+  border-radius: 5px;
+  color: white;
+  font-size: 10px;
+  /* padding: 5px; */
+  width: 20vw;
+  height: 4vh;
+  /* width: 10vw; */
 }
